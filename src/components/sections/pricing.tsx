@@ -97,10 +97,10 @@ export default function Pricing() {
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:items-end">
           {/* Left side - Title and subtitle */}
           <div className="">
-            <h2 className="text-center text-3xl font-medium tracking-tighter md:text-start md:text-4xl md:leading-none lg:text-5xl">
+            <h1 className="text-center text-3xl leading-tight tracking-tight font-medium md:text-start md:text-5xl lg:text-6xl">
               Power your progress with <br className="hidden md:block" />
               Pro Access
-            </h2>
+            </h1>
             <p className="text-muted-foreground/70 mt-3 hidden text-lg leading-relaxed md:block lg:mt-4">
               Increase feature adoption and customer satisfaction with the right
               Lumen plan.
