@@ -78,7 +78,6 @@ const Navbar = ({
   const lastScrollY = useRef(0);
   const hideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const rafRef = useRef<number | null>(null);
-  
   const hideNavbar = [
     '/signin',
     '/signup',
@@ -112,7 +111,7 @@ const Navbar = ({
     };
   }, [isMenuOpen]);
 
-  // Modern scroll detection with requestAnimationFrame (Next.js best practice)
+  // Modern scroll detection: hide on scroll down, show immediately on scroll up (UX best practice)
   useEffect(() => {
     const handleScroll = () => {
       if (rafRef.current) {
@@ -122,13 +121,14 @@ const Navbar = ({
       rafRef.current = requestAnimationFrame(() => {
         const scrollTop = window.scrollY;
         const SCROLL_THRESHOLD = 50;
-        const HIDE_DELAY = 150;
+        const HIDE_DELAY = 150; // Delay before hiding (smooth UX)
 
         // Detect scroll direction
-        const direction = scrollTop > lastScrollY.current ? 'down' : 'up';
+        const isScrollingDown = scrollTop > lastScrollY.current;
+        const isScrollingUp = scrollTop < lastScrollY.current;
         lastScrollY.current = scrollTop;
 
-        // Update scrolled state
+        // Update scrolled state for styling
         setIsScrolled(scrollTop > SCROLL_THRESHOLD);
 
         // Clear existing timeout
@@ -136,24 +136,24 @@ const Navbar = ({
           clearTimeout(hideTimeoutRef.current);
         }
 
-        // Handle visibility based on scroll position and direction
+        // UX Logic: Show immediately on scroll up, hide with delay on scroll down
         if (scrollTop < SCROLL_THRESHOLD) {
           // Always visible at top
           setIsVisible(true);
-        } else if (direction === 'down') {
-          // Hide after delay when scrolling down
+        } else if (isScrollingUp) {
+          // Show IMMEDIATELY when scrolling up (intent detection)
+          setIsVisible(true);
+        } else if (isScrollingDown) {
+          // Hide with delay when scrolling down (smooth UX)
           hideTimeoutRef.current = setTimeout(() => {
             setIsVisible(false);
           }, HIDE_DELAY);
-        } else {
-          // Show immediately when scrolling up
-          setIsVisible(true);
         }
       });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       if (rafRef.current) {
@@ -173,16 +173,16 @@ const Navbar = ({
       y: 0,
       opacity: 1,
       transition: {
-        duration: prefersReducedMotion ? 0 : 0.4,
-        ease: [0.4, 0, 0.2, 1] as const, // easeInOut cubic bezier
+        duration: prefersReducedMotion ? 0 : 0.3,
+        ease: [0.4, 0, 0.2, 1] as const,
       },
     },
     hidden: {
       y: -100,
       opacity: 0,
       transition: {
-        duration: prefersReducedMotion ? 0 : 0.4,
-        ease: [0.4, 0, 0.2, 1] as const, // easeInOut cubic bezier
+        duration: prefersReducedMotion ? 0 : 0.3,
+        ease: [0.4, 0, 0.2, 1] as const,
       },
     },
   };
@@ -192,16 +192,16 @@ const Navbar = ({
       height: 'var(--header-height)',
       padding: '0.5rem 1rem',
       transition: {
-        duration: prefersReducedMotion ? 0 : 0.5,
-        ease: [0.4, 0, 0.2, 1] as const, // easeInOut cubic bezier
+        duration: prefersReducedMotion ? 0 : 0.3,
+        ease: [0.4, 0, 0.2, 1] as const,
       },
     },
     scrolled: {
       height: 'calc(var(--header-height) - 20px)',
       padding: '0.5rem 1.375rem',
       transition: {
-        duration: prefersReducedMotion ? 0 : 0.5,
-        ease: [0.4, 0, 0.2, 1] as const, // easeInOut cubic bezier
+        duration: prefersReducedMotion ? 0 : 0.3,
+        ease: [0.4, 0, 0.2, 1] as const,
       },
     },
   };
@@ -338,6 +338,90 @@ const Navbar = ({
                 ></span>
               </div>
             </button>
+          </div>
+        </div>
+        {/*  Mobile Menu Navigation */}
+        <div
+          className={cn(
+            'bg-background/95 text-accent-foreground fixed inset-0 -z-10 flex flex-col justify-between tracking-normal backdrop-blur-md transition-all duration-500 ease-out lg:hidden',
+            isBannerVisible
+              ? 'pt-[calc(var(--header-height)+3rem)]'
+              : 'pt-[var(--header-height)]',
+            isMenuOpen
+              ? 'translate-x-0 opacity-100'
+              : 'pointer-events-none translate-x-full opacity-0',
+          )}
+        >
+          <div className="container">
+            <NavigationMenu
+              orientation="vertical"
+              className="inline-block w-full max-w-none py-10"
+            >
+              <NavigationMenuList className="w-full flex-col items-start gap-0">
+                {NAV_LINKS.map((item) => (
+                  <NavigationMenuItem key={item.label} className="w-full py-2">
+                    {item.subitems ? (
+                      <Accordion type="single" collapsible className="">
+                        <AccordionItem value={item.label}>
+                          <AccordionTrigger className="flex w-full cursor-pointer items-center justify-between px-2 py-3 text-base font-normal hover:no-underline">
+                            {item.label}
+                          </AccordionTrigger>
+                          <AccordionContent className="pb-0">
+                            <div className="space-y-2">
+                              {item.subitems.map((subitem) => (
+                                <NavigationMenuLink
+                                  key={subitem.label}
+                                  href={subitem.href}
+                                  onClick={() => setIsMenuOpen(false)}
+                                  className={cn(
+                                    'text-muted-foreground hover:bg-accent/50 flex flex-row gap-2 p-3 font-medium transition-colors',
+                                    pathname === subitem.href &&
+                                      'bg-accent font-semibold',
+                                  )}
+                                  suppressHydrationWarning
+                                >
+                                  <subitem.icon className="size-5" />
+                                  <span className="">{subitem.label}</span>
+                                </NavigationMenuLink>
+                              ))}
+                            </div>
+                          </AccordionContent>
+                        </AccordionItem>
+                      </Accordion>
+                    ) : (
+                      <NavigationMenuLink
+                        href={item.href}
+                        className={cn(
+                          'hover:text-foreground text-base transition-colors',
+                          pathname === item.href && 'font-semibold',
+                        )}
+                        onClick={() => setIsMenuOpen(false)}
+                        suppressHydrationWarning
+                      >
+                        {item.label}
+                      </NavigationMenuLink>
+                    )}
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
+
+          <div className="flex flex-col gap-4.5 border-t px-6 py-4">
+            {ACTION_BUTTONS.map((button) => (
+              <Button
+                key={button.label}
+                variant={
+                  button.variant === 'ghost' ? 'outline' : button.variant
+                }
+                asChild
+                className="h-12 flex-1 rounded-sm shadow-sm"
+              >
+                <Link href={button.href} onClick={() => setIsMenuOpen(false)}>
+                  {button.label}
+                </Link>
+              </Button>
+            ))}
           </div>
         </div>
       </motion.div>
