@@ -36,7 +36,7 @@ const Logo: React.FC<LogoProps> = ({
   }
   return (
     <div className={cn(``, wrapperClassName)}>
-      <Link href="/" className={cn(`relative block h-6 w-25 sm:h-8 sm:w-32 md:h-9 md:w-38`, className)}>
+      <Link href="/" className={cn(`relative block h-8 w-32 md:h-9 md:w-38`, className)}>
         <Image
           src="/layout/logo-fascinante.svg"
           alt="Fascinante Digital Logo"
