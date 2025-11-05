@@ -1,9 +1,9 @@
 # Lumen NextJS Template
 
-Lumen NextJS Template is a premium template built by https://www.shadcnblocks.com
+Lumen NextJS Template is a premium template built by https://fascinantedigital.com
 
 - [Demo](https://lumen-nextjs-template.vercel.app/)
-- [Documentation](https://docs.shadcnblocks.com/templates/getting-started)
+- [Documentation](https://fascinantedigital.com)
 
 ## Screenshot
 

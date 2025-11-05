@@ -14,7 +14,7 @@ export const useBannerVisibility = (initialValue: boolean) => {
 };
 
 const Banner = ({
-  url = 'https://shadcnblocks.com',
+  url = 'https://fascinantedigital.com',
   initialVisible = true,
 }: {
   url?: string;
@@ -52,7 +52,7 @@ const Banner = ({
           <div className="flex flex-1 items-center justify-center gap-3 sm:gap-4">
             <span className="text-primary-foreground text-center text-sm font-medium">
               Purchase this theme on{' '}
-              <span className="font-semibold">shadcnblocks.com</span>
+              <span className="font-semibold">fascinantedigital.com</span>
             </span>
             <Button size="sm" variant="light" asChild>
               <a href={url} target="_blank">

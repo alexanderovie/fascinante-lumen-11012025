@@ -170,10 +170,10 @@ const Footer = () => {
 
           <div className="flex gap-6">
             <Link
-              href="https://www.shadcnblocks.com"
+              href="https://fascinantedigital.com"
               className="text-muted-foreground hover:text-foreground text-sm transition-colors"
             >
-              © {new Date().getFullYear()} Shadcnblocks.com
+              © {new Date().getFullYear()} FascinanteDigital.com
             </Link>
             <Link
               href="/privacy-policy"

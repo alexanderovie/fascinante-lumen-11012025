@@ -18,6 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://fascinantedigital.com'),
   title: {
     default: 'Lumen - Modern Next.js Template',
     template: '%s | Lumen',
@@ -34,8 +35,8 @@ export const metadata: Metadata = {
     'Shadcn/UI',
     'Web Development',
   ],
-  authors: [{ name: 'Lumen - Shadcnblocks.com' }],
-  creator: 'Lumen - Shadcnblocks.com',
+  authors: [{ name: 'Lumen - FascinanteDigital.com' }],
+  creator: 'Lumen - FascinanteDigital.com',
   publisher: 'Lumen',
   robots: {
     index: true,
@@ -72,7 +73,7 @@ export const metadata: Metadata = {
     description:
       'A modern, fully featured Next.js template built with Shadcn/UI, TailwindCSS and TypeScript, perfect for your next web application.',
     images: ['/og-image.jpg'],
-    creator: '@shadcnblocks',
+    creator: '@fascinantedigital',
   },
 };
 
@@ -101,7 +102,7 @@ export default async function RootLayout({
           <StyleGlideProvider />
 
           <Banner
-            url="https://www.shadcnblocks.com/template/lumen"
+            url="https://fascinantedigital.com"
             initialVisible={!bannerDismissed}
           />
           <Navbar initialBannerVisible={!bannerDismissed} />
