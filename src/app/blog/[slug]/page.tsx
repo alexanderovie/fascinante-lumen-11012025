@@ -57,7 +57,7 @@ export default async function BlogPost({
           </Link>
 
           {/* Title and Description */}
-          <h1 className="mb-4 text-4xl tracking-tight md:text-5xl lg:text-6xl">
+          <h1 className="mb-4 text-[2rem] tracking-tight md:text-5xl lg:text-6xl">
             {post.title}
           </h1>
           <p className="text-muted-foreground mb-8 text-lg md:text-xl">
@@ -124,7 +124,7 @@ export default async function BlogPost({
         </div>
 
         {/* Article Content */}
-        <article className="prose lg:prose-lg prose-headings:font-weight-display dark:prose-invert prose-headings:tracking-tight prose-p:leading-relaxed prose-li:leading-relaxed prose-img:rounded-xl prose-img:shadow-sm prose-a:text-primary prose-a:no-underline hover:prose-a:underline mx-auto max-w-none">
+        <article className="prose prose-h2:text-3xl lg:prose-lg lg:prose-h2:text-5xl prose-headings:font-weight-display dark:prose-invert prose-headings:tracking-tight prose-p:leading-relaxed prose-li:leading-relaxed prose-img:rounded-xl prose-img:shadow-sm prose-a:text-primary prose-a:no-underline hover:prose-a:underline mx-auto max-w-none">
           {content}
         </article>
       </div>
@@ -132,7 +132,7 @@ export default async function BlogPost({
       {/* Related Articles */}
       {relatedPosts.length > 0 && (
         <section className="mt-20 lg:mt-24">
-          <h2 className="text-4xl tracking-tight lg:text-5xl">
+          <h2 className="text-3xl tracking-tight lg:text-5xl">
             Related Articles
           </h2>
           <p className="text-muted-foreground mt-3 text-lg leading-snug lg:mt-4">
