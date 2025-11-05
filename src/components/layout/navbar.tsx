@@ -1,8 +1,10 @@
 'use client';
+
 import { BarChart3, Filter, Link2 } from 'lucide-react';
+import { motion } from 'motion/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Logo from '@/components/layout/logo';
 import { ThemeToggle } from '@/components/theme-toggle';
@@ -23,6 +25,7 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import { useMediaQuery } from '@/hooks/use-media-query';
+import usePrefersReducedMotion from '@/hooks/usePrefersReducedMotion';
 import { cn } from '@/lib/utils';
 
 export const NAV_LINKS = [
@@ -67,9 +70,15 @@ const Navbar = ({
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const { isAtLeast } = useMediaQuery();
   const pathname = usePathname();
   const [isBannerVisible, setIsBannerVisible] = useState(initialBannerVisible);
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const lastScrollY = useRef(0);
+  const hideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const rafRef = useRef<number | null>(null);
+  
   const hideNavbar = [
     '/signin',
     '/signup',
@@ -103,33 +112,120 @@ const Navbar = ({
     };
   }, [isMenuOpen]);
 
+  // Modern scroll detection with requestAnimationFrame (Next.js best practice)
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 0);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+
+      rafRef.current = requestAnimationFrame(() => {
+        const scrollTop = window.scrollY;
+        const SCROLL_THRESHOLD = 50;
+        const HIDE_DELAY = 150;
+
+        // Detect scroll direction
+        const direction = scrollTop > lastScrollY.current ? 'down' : 'up';
+        lastScrollY.current = scrollTop;
+
+        // Update scrolled state
+        setIsScrolled(scrollTop > SCROLL_THRESHOLD);
+
+        // Clear existing timeout
+        if (hideTimeoutRef.current) {
+          clearTimeout(hideTimeoutRef.current);
+        }
+
+        // Handle visibility based on scroll position and direction
+        if (scrollTop < SCROLL_THRESHOLD) {
+          // Always visible at top
+          setIsVisible(true);
+        } else if (direction === 'down') {
+          // Hide after delay when scrolling down
+          hideTimeoutRef.current = setTimeout(() => {
+            setIsVisible(false);
+          }, HIDE_DELAY);
+        } else {
+          // Show immediately when scrolling up
+          setIsVisible(true);
+        }
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+      if (hideTimeoutRef.current) {
+        clearTimeout(hideTimeoutRef.current);
+      }
+    };
   }, []);
 
   if (hideNavbar) return null;
 
+  // Motion variants for scroll animations
+  const headerVariants = {
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: prefersReducedMotion ? 0 : 0.4,
+        ease: [0.4, 0, 0.2, 1] as const, // easeInOut cubic bezier
+      },
+    },
+    hidden: {
+      y: -100,
+      opacity: 0,
+      transition: {
+        duration: prefersReducedMotion ? 0 : 0.4,
+        ease: [0.4, 0, 0.2, 1] as const, // easeInOut cubic bezier
+      },
+    },
+  };
+
+  const containerVariants = {
+    normal: {
+      height: 'var(--header-height)',
+      padding: '0.5rem 1rem',
+      transition: {
+        duration: prefersReducedMotion ? 0 : 0.5,
+        ease: [0.4, 0, 0.2, 1] as const, // easeInOut cubic bezier
+      },
+    },
+    scrolled: {
+      height: 'calc(var(--header-height) - 20px)',
+      padding: '0.5rem 1.375rem',
+      transition: {
+        duration: prefersReducedMotion ? 0 : 0.5,
+        ease: [0.4, 0, 0.2, 1] as const, // easeInOut cubic bezier
+      },
+    },
+  };
+
   return (
-    <header
+    <motion.header
+      variants={headerVariants}
+      animate={isVisible ? 'visible' : 'hidden'}
+      initial="visible"
       className={cn(
-        'isolate z-50 transition-all duration-300 ease-in-out',
+        'isolate z-50',
         isScrolled && isAtLeast('lg')
-          ? 'fixed top-0 right-0 left-0 translate-y-2 px-5.5'
+          ? 'fixed top-0 right-0 left-0 px-5.5'
           : 'relative',
       )}
     >
-      <div
+      <motion.div
+        variants={containerVariants}
+        animate={isScrolled && isAtLeast('lg') ? 'scrolled' : 'normal'}
         className={cn(
-          'bg-background navbar-container relative z-50 flex h-[var(--header-height)] items-center justify-between gap-4 transition-all duration-300 ease-in-out',
+          'bg-background/95 navbar-container relative z-50 flex items-center justify-between gap-4 border-b border-border/40 backdrop-blur-xl shadow-lg',
           isScrolled &&
             isAtLeast('lg') &&
-            'h-[calc(var(--header-height)-20px)] max-w-7xl rounded-full shadow-sm backdrop-blur-md',
+            'max-w-7xl rounded-full',
         )}
       >
         <Logo className="" />
@@ -244,7 +340,8 @@ const Navbar = ({
             </button>
           </div>
         </div>
-        {/*  Mobile Menu Navigation */}
+      </motion.div>
+      {/*  Mobile Menu Navigation */}
         <div
           className={cn(
             'bg-background/95 text-accent-foreground fixed inset-0 -z-10 flex flex-col justify-between tracking-normal backdrop-blur-md transition-all duration-500 ease-out lg:hidden',
@@ -328,8 +425,7 @@ const Navbar = ({
             ))}
           </div>
         </div>
-      </div>
-    </header>
+    </motion.header>
   );
 };
 
