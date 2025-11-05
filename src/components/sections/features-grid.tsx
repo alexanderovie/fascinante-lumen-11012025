@@ -82,7 +82,7 @@ export default function FeaturesGrid() {
       <div className="container">
         {/* Section Header */}
         <div className="mx-auto max-w-5xl space-y-3 lg:space-y-4 lg:text-center">
-          <h2 className="text-3xl tracking-tight lg:text-5xl">
+          <h2 className="text-3xl leading-tight tracking-tight lg:text-5xl">
             Feature management that fits your workflow
           </h2>
           <p className="text-muted-foreground text-lg leading-snug lg:text-balance">

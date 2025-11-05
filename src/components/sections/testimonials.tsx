@@ -167,7 +167,7 @@ export default function Testimonials() {
       <div className="container">
         {/* Section Header */}
         <div className="mx-auto max-w-4xl space-y-3 lg:space-y-4 lg:text-center">
-          <h2 className="text-3xl tracking-tight lg:text-5xl">
+          <h2 className="text-3xl leading-tight tracking-tight lg:text-5xl">
             Trusted by modern teams
           </h2>
           <p className="text-muted-foreground text-lg leading-snug lg:text-balance">

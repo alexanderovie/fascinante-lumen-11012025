@@ -182,7 +182,7 @@ export default function FeaturesCarousel() {
             viewport={{ once: true, amount: 0.3 }}
             variants={headerVariants}
           >
-            <h2 className="text-3xl tracking-tight text-balance lg:text-5xl">
+            <h2 className="text-3xl leading-tight tracking-tight text-balance lg:text-5xl">
               Navigate your{' '}
               <span className="text-muted-foreground/80">
                 work with clarity

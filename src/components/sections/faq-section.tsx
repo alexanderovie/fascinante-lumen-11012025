@@ -57,7 +57,7 @@ export default function FAQSection() {
       <Noise />
       <div className="container">
         {/* Section Header */}
-        <h1 className="text-3xl leading-tight tracking-tight font-medium md:text-5xl lg:text-6xl">
+        <h1 className="text-[2rem] leading-tight tracking-tight font-medium md:text-5xl lg:text-6xl">
           Frequently <br className="hidden md:block" />
           asked questions:
         </h1>

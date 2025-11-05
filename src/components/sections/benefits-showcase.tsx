@@ -46,7 +46,7 @@ export default function BenefitsShowcase() {
     <section className="section-padding relative">
       <Noise />
       <div className="bigger-container">
-        <h2 className="mb-12 text-center text-3xl leading-none font-medium tracking-tight lg:mb-16 lg:text-5xl">
+        <h2 className="mb-12 text-center text-3xl leading-tight font-medium tracking-tight lg:mb-16 lg:text-5xl">
           See the Benefits Firsthand
         </h2>
 

@@ -97,7 +97,7 @@ export default function Pricing() {
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:items-end">
           {/* Left side - Title and subtitle */}
           <div className="">
-            <h1 className="text-center text-3xl leading-tight tracking-tight font-medium md:text-start md:text-5xl lg:text-6xl">
+            <h1 className="text-center text-[2rem] leading-tight tracking-tight font-medium md:text-start md:text-5xl lg:text-6xl">
               Power your progress with <br className="hidden md:block" />
               Pro Access
             </h1>
