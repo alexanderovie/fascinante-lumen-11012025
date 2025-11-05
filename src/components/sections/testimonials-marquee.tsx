@@ -183,7 +183,7 @@ const TestimonialsMarquee = () => {
         </div>
 
         <div className="max-w-4xl space-y-3 lg:space-y-4">
-          <h2 className="text-4xl tracking-tight lg:text-5xl">
+          <h2 className="text-3xl tracking-tight lg:text-5xl">
             Why teams are leaving Monday for Lumen
           </h2>
           <p className="text-muted-foreground text-lg leading-snug">

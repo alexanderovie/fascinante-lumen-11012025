@@ -149,7 +149,7 @@ export default function FeaturesShowcase() {
             },
           }}
         >
-          <h2 className="text-4xl tracking-tight lg:text-5xl">
+          <h2 className="text-3xl tracking-tight lg:text-5xl">
             Feature intelligence built for modern product teams
           </h2>
           <p className="text-muted-foreground text-lg leading-snug">

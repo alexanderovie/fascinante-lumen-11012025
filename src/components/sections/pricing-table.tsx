@@ -252,7 +252,7 @@ const PricingTable = () => {
       <div className="bigger-container space-y-8 lg:space-y-12">
         <Noise />
 
-        <h2 className="text-4xl leading-tight font-medium tracking-tight lg:text-5xl">
+        <h2 className="text-3xl leading-tight font-medium tracking-tight lg:text-5xl">
           Pricing Details
         </h2>
         <div>
