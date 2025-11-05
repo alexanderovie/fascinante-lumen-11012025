@@ -99,7 +99,7 @@ export default function Hero() {
       >
         <motion.h1
           variants={itemVariants}
-          className="text-4xl leading-tight tracking-tight md:text-5xl lg:text-6xl"
+          className="text-[2rem] leading-tight tracking-tight md:text-5xl lg:text-6xl"
         >
           Optimize Your Workflow
           <br className="hidden md:block" /> Accelerate Your Growth
