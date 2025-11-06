@@ -64,14 +64,18 @@ export async function generateMetadata({
     },
     icons: {
       icon: [
-        { url: '/favicon/favicon.ico', sizes: '48x48' },
-        { url: '/favicon/favicon.svg', type: 'image/svg+xml' },
-        { url: '/favicon/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
-        { url: '/favicon/favicon.svg', type: 'image/svg+xml' },
-        { url: '/favicon/favicon.ico' },
+        { url: '/favicon.ico', sizes: 'any' },
+        { url: '/icon0.svg', type: 'image/svg+xml' },
+        { url: '/icon1.png', sizes: '180x180', type: 'image/png' },
       ],
-      apple: [{ url: '/favicon/apple-touch-icon.png', sizes: '180x180' }],
-      shortcut: [{ url: '/favicon/favicon.ico' }],
+      apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
+      shortcut: [{ url: '/favicon.ico' }],
+    },
+    manifest: '/manifest.json',
+    appleWebApp: {
+      capable: true,
+      title: 'Fascinante',
+      statusBarStyle: 'default',
     },
     openGraph: {
       title: dict.meta.title,
@@ -136,6 +140,7 @@ export default async function RootLayout({
           as="image"
           fetchPriority="high"
         />
+        <meta name="apple-mobile-web-app-title" content="Fascinante" />
       </head>
       <body
         className={cn(
