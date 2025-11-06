@@ -119,7 +119,7 @@ export default function ChatWidget({ className }: ChatWidgetProps) {
               aria-label={translations.openChat}
             >
               <MessageCircle className="size-6 md:size-7" strokeWidth={2.5} />
-              
+
               {/* Notification badge (opcional - puedes activarlo cuando haya mensajes) */}
               {/* <span className="absolute -right-1 -top-1 flex size-4 items-center justify-center rounded-full bg-destructive text-xs text-destructive-foreground">
                 1
@@ -162,7 +162,7 @@ export default function ChatWidget({ className }: ChatWidgetProps) {
                     size="icon"
                     variant="ghost"
                     onClick={() => setIsOpen(false)}
-                    className="size-8 text-primary-foreground hover:bg-primary-foreground/20"
+                    className="size-8 text-primary-foreground hover:bg-primary-foreground/30 hover:text-primary-foreground transition-colors"
                     aria-label={translations.closeChat}
                   >
                     <Minimize2 className="size-4" />
@@ -171,7 +171,7 @@ export default function ChatWidget({ className }: ChatWidgetProps) {
                     size="icon"
                     variant="ghost"
                     onClick={() => setIsOpen(false)}
-                    className="size-8 text-primary-foreground hover:bg-primary-foreground/20"
+                    className="size-8 text-primary-foreground hover:bg-primary-foreground/30 hover:text-primary-foreground transition-colors"
                     aria-label={translations.closeChat}
                   >
                     <X className="size-4" />
@@ -237,4 +237,3 @@ export default function ChatWidget({ className }: ChatWidgetProps) {
     </>
   );
 }
-
