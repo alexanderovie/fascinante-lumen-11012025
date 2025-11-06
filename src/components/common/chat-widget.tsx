@@ -206,7 +206,8 @@ export default function ChatWidget({ className }: ChatWidgetProps) {
                     <textarea
                       placeholder={translations.placeholder}
                       rows={1}
-                      className="w-full resize-none border-none bg-transparent text-sm outline-none placeholder:text-muted-foreground"
+                      className="w-full resize-none border-none bg-transparent text-base outline-none placeholder:text-muted-foreground"
+                      style={{ fontSize: '16px' }}
                       onKeyDown={(e) => {
                         if (e.key === 'Enter' && !e.shiftKey) {
                           e.preventDefault();
