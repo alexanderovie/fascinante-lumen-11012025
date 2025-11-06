@@ -158,7 +158,7 @@ export default async function RootLayout({
           <Footer />
           <BackToTop />
           <Suspense fallback={null}>
-            <WhatsAppButton phoneNumber="+18008864986" />
+            <WhatsAppButton phoneNumber="+18008864981" />
           </Suspense>
         </ThemeProvider>
       </body>
