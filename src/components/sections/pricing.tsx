@@ -150,7 +150,7 @@ export default function Pricing() {
                 <div className="flex items-start justify-between">
                   <h3 className="text-xl">{plan.title}</h3>
                   {plan.popular && (
-                    <Badge className="rounded-none bg-[#FFE6D0] px-4 py-1 text-[#B84518] dark:bg-[#A0522D] dark:text-[#FFF8DC]">
+                    <Badge className="rounded-none bg-[#FFF4E6] px-4 py-1 text-[#8B2E0A] dark:bg-[#7D2F0A] dark:text-[#FFFFFF]">
                       Popular Plan
                     </Badge>
                   )}
