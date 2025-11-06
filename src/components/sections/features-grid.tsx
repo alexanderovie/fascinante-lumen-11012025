@@ -133,7 +133,8 @@ function FeatureCard({
             width={width}
             height={height}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            quality={75}
+            quality={65}
+            decoding="async"
             className="w-full object-cover"
           />
         </div>

@@ -134,8 +134,9 @@ export default function Hero() {
             width={1056}
             height={752.5}
             priority
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 80vw"
-            quality={75}
+            sizes="(max-width: 768px) 350px, (max-width: 1024px) 500px, 600px"
+            quality={65}
+            decoding="sync"
             className="border-background/45 rounded-t-sm md:rounded-t-xl"
           />
         </motion.div>

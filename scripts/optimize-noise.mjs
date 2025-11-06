@@ -14,15 +14,17 @@ async function optimizeNoise() {
     const stats = await fs.stat(inputImagePath);
     console.log(`Tamaño original: ${(stats.size / 1024).toFixed(2)} KB`);
 
-    // Crear versión más pequeña (256x256px es suficiente para un patrón que se repite)
+    // Crear versión más pequeña (128x128px es suficiente para un patrón que se repite)
     // Reducir calidad para patrón de ruido (no necesita alta calidad)
+    // Según Lighthouse: compresión 85, pero para patrón de ruido podemos ir más bajo
     await sharp(inputImagePath)
-      .resize(256, 256, {
+      .resize(128, 128, {
         fit: 'cover',
       })
       .webp({
-        quality: 60, // Reducir calidad para patrón de ruido
+        quality: 40, // Calidad más baja para patrón de ruido (no afecta visualmente)
         effort: 6, // Máxima compresión
+        nearLossless: false, // Permitir pérdida para mejor compresión
       })
       .toFile(outputImagePath);
 
@@ -32,7 +34,7 @@ async function optimizeNoise() {
     console.log(`\n✅ Imagen optimizada creada:`);
     console.log(`   Tamaño: ${(optimizedStats.size / 1024).toFixed(2)} KB`);
     console.log(`   Reducción: ${reduction.toFixed(1)}%`);
-    console.log(`   Dimensiones: 256x256px (se repite como patrón)`);
+    console.log(`   Dimensiones: 128x128px (se repite como patrón)`);
 
     // Reemplazar archivo original
     await fs.rename(outputImagePath, inputImagePath);
