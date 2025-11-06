@@ -1,7 +1,13 @@
 'use client';
 
 import { ArrowUp } from 'lucide-react';
-import { AnimatePresence, motion } from 'motion/react';
+import {
+  AnimatePresence,
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from 'motion/react';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -14,14 +20,27 @@ interface BackToTopProps {
 }
 
 export default function BackToTop({ className }: BackToTopProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const pathname = usePathname();
   const prefersReducedMotion = usePrefersReducedMotion();
 
-  // Thresholds para mostrar/ocultar
-  const SCROLL_THRESHOLD = 400; // Aparece después de 400px
-  const HIDE_THRESHOLD = 100; // Desaparece antes de 100px
+  // Motion's useScroll hook for smooth scroll tracking (Context7 best practice)
+  const { scrollYProgress } = useScroll();
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  // Transform progress to stroke-dashoffset
+  const CIRCUMFERENCE = 2 * Math.PI * 20; // radius = 20
+  const strokeDashoffset = useTransform(
+    smoothProgress,
+    [0, 1],
+    [CIRCUMFERENCE, 0],
+  );
+
+  // Visibility based on scroll position
+  const [isVisible, setIsVisible] = useState(false);
 
   // Páginas donde NO mostrar
   const hideOnPages = ['/signin', '/signup', '/forgot-password', '/not-found'];
@@ -30,37 +49,19 @@ export default function BackToTop({ className }: BackToTopProps) {
   useEffect(() => {
     if (shouldHide || typeof window === 'undefined') return;
 
-    let ticking = false;
+    const SCROLL_THRESHOLD = 400;
+    const HIDE_THRESHOLD = 100;
 
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrollTop =
-            window.scrollY || document.documentElement.scrollTop;
-          const documentHeight = document.documentElement.scrollHeight;
-          const viewportHeight = window.innerHeight;
-          const scrollableHeight = documentHeight - viewportHeight;
-
-          // Calcular progreso del scroll (0 a 1)
-          const progress =
-            scrollableHeight > 0
-              ? Math.min(Math.max(scrollTop / scrollableHeight, 0), 1)
-              : 0;
-
-          setScrollProgress(progress);
-
-          // Aparece si scroll > 400px, desaparece si < 100px
-          setIsVisible(
-            scrollTop > SCROLL_THRESHOLD && scrollTop >= HIDE_THRESHOLD,
-          );
-          ticking = false;
-        });
-        ticking = true;
-      }
+      const scrollTop =
+        window.scrollY || document.documentElement.scrollTop;
+      setIsVisible(
+        scrollTop > SCROLL_THRESHOLD && scrollTop >= HIDE_THRESHOLD,
+      );
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Check initial state
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [shouldHide]);
@@ -75,26 +76,14 @@ export default function BackToTop({ className }: BackToTopProps) {
 
   if (shouldHide) return null;
 
-  // SVG Progress Ring Configuration
-  const SIZE = 48; // size-12 = 48px (3rem)
-  const STROKE_WIDTH = 2;
-  const CENTER = SIZE / 2;
-  const RADIUS = CENTER - STROKE_WIDTH / 2;
-  const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
-
-  // Calcular stroke-dashoffset para el progreso
-  // stroke-dashoffset = circunferencia * (1 - progress)
-  // Esto hace que el stroke se rellene en sentido horario
-  const strokeDashoffset = CIRCUMFERENCE * (1 - scrollProgress);
-
   // Animaciones para Motion
   const animationProps = prefersReducedMotion
     ? {}
     : {
-        initial: { opacity: 0, scale: 0.9, y: 10 },
+        initial: { opacity: 0, scale: 0.8, y: 20 },
         animate: { opacity: 1, scale: 1, y: 0 },
-        exit: { opacity: 0, scale: 0.9, y: 10 },
-        transition: { duration: 0.2, ease: 'easeOut' as const },
+        exit: { opacity: 0, scale: 0.8, y: 20 },
+        transition: { duration: 0.3, ease: 'easeOut' as const },
       };
 
   return (
@@ -113,54 +102,54 @@ export default function BackToTop({ className }: BackToTopProps) {
             variant="ghost"
             onClick={scrollToTop}
             className={cn(
-              'group relative size-11 rounded-full',
-              'bg-background border border-input shadow-xl',
-              'hover:scale-105 hover:shadow-2xl',
-              'focus-visible:ring-ring/50 focus-visible:ring-[3px]',
+              'group relative flex size-11 items-center justify-center',
+              'rounded-full bg-background/80 backdrop-blur-sm',
+              'border border-border shadow-lg',
+              'hover:scale-110 hover:shadow-xl',
+              'focus-visible:ring-ring/50 focus-visible:ring-2 focus-visible:ring-offset-2',
               'transition-all duration-200 ease-out',
               'md:size-12',
             )}
             aria-label="Volver al inicio"
           >
-            {/* SVG Progress Ring - Se rellena en sentido horario */}
+            {/* SVG Progress Ring - Cubre todo el botón, centrado */}
             <svg
-              className="absolute inset-0 -rotate-90 transform"
-              width={SIZE}
-              height={SIZE}
+              className="absolute inset-0 -rotate-90 pointer-events-none"
+              viewBox="0 0 48 48"
               aria-hidden="true"
             >
-              {/* Background circle (borde completo) */}
+              {/* Background circle (subtle track) - borde completo */}
               <circle
-                cx={CENTER}
-                cy={CENTER}
-                r={RADIUS}
+                cx="24"
+                cy="24"
+                r="20"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth={STROKE_WIDTH}
-                className="text-muted-foreground opacity-20"
+                strokeWidth="2"
+                className="text-muted-foreground/20"
               />
-              {/* Progress circle (se rellena con el scroll) */}
-              <circle
-                cx={CENTER}
-                cy={CENTER}
-                r={RADIUS}
+              {/* Progress circle (animated with Motion) - se rellena con scroll */}
+              <motion.circle
+                cx="24"
+                cy="24"
+                r="20"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth={STROKE_WIDTH}
+                strokeWidth="2"
                 strokeDasharray={CIRCUMFERENCE}
                 strokeDashoffset={strokeDashoffset}
                 strokeLinecap="round"
-                className="text-foreground transition-all duration-150 ease-out"
+                className="text-foreground"
                 style={{
-                  transformOrigin: 'center',
+                  transformOrigin: '24px 24px',
                 }}
               />
             </svg>
 
             {/* Icono centrado */}
             <ArrowUp
-              className="relative z-10 size-5 transition-transform duration-200 group-hover:-translate-y-0.5"
-              strokeWidth={2.1}
+              className="relative z-10 size-5 text-foreground transition-transform duration-200 group-hover:-translate-y-0.5"
+              strokeWidth={2.5}
             />
           </Button>
         </motion.div>
