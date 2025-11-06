@@ -88,6 +88,7 @@ export default function WhatsAppButton({
           rel="noopener noreferrer"
           className={cn(
             'group relative flex items-center justify-center',
+            'rounded-full bg-white',
             'transition-all duration-200 ease-out',
             'hover:scale-105',
             'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366]/50 focus-visible:ring-offset-2',
@@ -102,7 +103,7 @@ export default function WhatsAppButton({
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
             style={{
-              border: '2px solid #25D366',
+              border: '1px solid #25D366',
               borderRadius: '50%',
             }}
           >
