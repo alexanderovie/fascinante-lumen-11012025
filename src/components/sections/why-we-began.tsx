@@ -6,42 +6,8 @@ import Link from 'next/link';
 
 import Noise from '@/components/noise';
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
 
-const stats = [
-  {
-    value: '2024',
-    label: 'Launched',
-  },
-  {
-    value: '$2.2M',
-    label: 'Pre-Seed Round',
-  },
-];
-
-const performanceStats = [
-  {
-    value: '42%',
-    description:
-      'Teams using Lumen report a 42% increase in overall project efficiency and communication clarity within the first month.',
-  },
-  {
-    value: '3200+',
-    description:
-      'Projects successfully managed through Lumen across product, marketing, operations, and creative teams worldwide.',
-  },
-  {
-    value: '97%',
-    description:
-      'Our customer satisfaction score stands at 97%, reflecting the trust teams place in Lumen for critical workflows.',
-  },
-];
+// Stats removed - replaced with professional values-focused content
 
 export default function WhyWeBegan() {
   return (
@@ -68,39 +34,23 @@ export default function WhyWeBegan() {
           <div className="flex-1 space-y-6 lg:space-y-8">
             <div className="space-y-8 lg:space-y-12">
               <h2 className="text-3xl leading-none font-medium tracking-tight lg:text-4xl">
-                Why We Began
+                Por Qué Comenzamos
               </h2>
               <div>
                 <p>
-                  We built Lumen after experiencing the headaches of managing
-                  multiple tools and scattered communication. Instead of
-                  switching tabs and losing focus, we imagined one space where
-                  everything connects.
+                  Comenzamos Fascinante Digital porque vimos que los negocios
+                  locales necesitaban una forma más inteligente de gestionar su
+                  presencia online. La gestión manual de listados, reseñas y
+                  contenido consume tiempo valioso que podrías dedicar a crecer
+                  tu negocio.
                 </p>
                 <br />
                 <p>
-                  Today, Lumen is used by thousands of teams who value
-                  structure, speed, and a more intuitive way to manage their
-                  projects.
+                  Hoy, ayudamos a negocios locales a optimizar su visibilidad
+                  online usando tecnología moderna y estrategias probadas, para
+                  que puedan enfocarse en lo que realmente importa.
                 </p>
               </div>
-            </div>
-
-            {/* Stats Cards */}
-            <div className="flex flex-1 flex-wrap gap-4">
-              {stats.map((stat, index) => (
-                <Card
-                  key={index}
-                  className="min-w-[200px] flex-1 gap-0 text-center"
-                >
-                  <CardHeader>
-                    <CardTitle className="text-4xl font-medium">
-                      {stat.value}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-base">{stat.label}</CardContent>
-                </Card>
-              ))}
             </div>
           </div>
         </div>
@@ -111,29 +61,27 @@ export default function WhyWeBegan() {
           <div className="flex-1 space-y-6 lg:space-y-8">
             <div className="space-y-8 lg:space-y-12">
               <h2 className="text-3xl leading-none font-medium tracking-tight lg:text-4xl">
-                Power your progress with Pro Access
+                Nuestra Misión
               </h2>
               <div className="">
                 <p>
-                  At Lumen, our mission is to help modern teams eliminate chaos
-                  and regain clarity by offering beautifully simple task and
-                  project management tools. We believe great work doesn&apos;t
-                  need to be complicated — it needs to be intentional.
+                  En Fascinante Digital, nuestra misión es ayudar a los negocios
+                  locales a crecer su presencia online de forma inteligente y
+                  automatizada. Creemos que el marketing digital no debe ser
+                  complicado — debe ser estratégico y efectivo.
                 </p>
                 <br />
                 <p>
-                  With years of experience building tools for creatives,
-                  developers, and teams of all sizes, we&apos;ve shaped Lumen to
-                  be the silent partner for you.
+                  Usamos tecnología moderna y estrategias probadas para
+                  automatizar tu visibilidad local, gestionar tu reputación y
+                  optimizar tu presencia online, para que puedas enfocarte en
+                  hacer crecer tu negocio.
                 </p>
               </div>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
-              <Button className="!text-sm shadow-none" size="lg" asChild>
-                <Link href="#">Explore Lumen</Link>
-              </Button>
               <Button
                 variant="outline"
                 className="border-input !text-sm shadow-none"
@@ -141,7 +89,7 @@ export default function WhyWeBegan() {
                 asChild
               >
                 <Link href="/contact">
-                  Contact Us
+                  Contáctanos
                   <MailIcon className="size-4" />
                 </Link>
               </Button>
@@ -184,23 +132,7 @@ export default function WhyWeBegan() {
           </div>
         </div>
 
-        {/* Performance Statistics Cards */}
-        <div className="section-padding grid gap-4 !pb-0 md:grid-cols-3">
-          {performanceStats.map((stat, index) => (
-            <Card key={index} className="bg-border md:gap-10">
-              <CardHeader>
-                <CardTitle className="text-3xl font-semibold">
-                  {stat.value}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="">
-                  {stat.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        {/* Performance Statistics Cards - Removed exagerated stats */}
       </div>
     </section>
   );

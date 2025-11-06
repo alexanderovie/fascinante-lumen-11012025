@@ -13,30 +13,30 @@ import {
 const COLUMNS_DATA = [
   {
     image: '/images/benefits-showcase/1.webp',
-    imageAlt: 'Global Users',
-    cardTitle: '21M',
-    cardSubtitle: 'Global Users',
+    imageAlt: 'Automatización Inteligente',
+    cardTitle: 'Automatización',
+    cardSubtitle: 'Inteligente',
     cardContent:
-      'Achieve greater accuracy and efficiency with our advanced toolkit.',
+      'Optimizamos y gestionamos tu visibilidad local automáticamente, liberando tiempo para que te enfoques en hacer crecer tu negocio.',
     cardPosition: 'bottom' as const,
   },
   {
     image: '/images/benefits-showcase/2.webp',
-    imageAlt: 'Open AI.',
-    cardTitle: 'Open AI.',
-    name: 'Grace Young',
-    title: 'CMO at Open AI.',
+    imageAlt: 'Resultados Comprobados',
+    cardTitle: 'Resultados',
+    name: 'Fascinante Digital',
+    title: 'Agencia de Marketing Digital',
     cardContent:
-      'Clear task ownership, fast collaboration, and better visibility lead to better decisions and faster delivery.',
+      'Usamos tecnología moderna y estrategias probadas para optimizar tu presencia online y aumentar tu visibilidad local de forma efectiva.',
     cardPosition: 'inside' as const,
   },
   {
     image: '/images/benefits-showcase/3.webp',
-    imageAlt: 'Minimized Errors',
-    cardTitle: '97%',
-    cardSubtitle: 'Minimized Errors',
+    imageAlt: 'Gestión Profesional',
+    cardTitle: 'Gestión',
+    cardSubtitle: 'Profesional',
     cardContent:
-      'Achieve greater accuracy and efficiency with our advanced toolkit.',
+      'Nuestro equipo experto gestiona tu reputación online, actualiza tus listados y optimiza tu contenido para obtener mejores resultados.',
     cardPosition: 'top' as const,
   },
 ];
@@ -47,7 +47,7 @@ export default function BenefitsShowcase() {
       <Noise />
       <div className="bigger-container">
         <h2 className="mb-12 text-center text-3xl leading-tight font-medium tracking-tight lg:mb-16 lg:text-5xl">
-          See the Benefits Firsthand
+          Beneficios que Transforman tu Negocio
         </h2>
 
         {/* Three Column Grid */}

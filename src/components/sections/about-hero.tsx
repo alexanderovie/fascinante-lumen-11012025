@@ -2,14 +2,7 @@ import Image from 'next/image';
 
 import Noise from '@/components/noise';
 
-const stats = [
-  { number: '21M', label: 'Global Reach of Users' },
-  { number: '12+', label: 'Years of Expertise' },
-  { number: '654', label: 'Projects Completed' },
-  { number: '113k+', label: 'Monthly Active Users' },
-  { number: '461k', label: 'Registered Accounts' },
-  { number: '98+', label: 'Daily Users' },
-];
+// Stats removed - replaced with professional values-focused content
 
 export default function AboutHero() {
   return (
@@ -22,9 +15,9 @@ export default function AboutHero() {
             About Us
           </h1>
           <p className="text-muted-foreground mx-auto mt-3 hidden max-w-3xl text-lg leading-relaxed md:block lg:mt-4">
-            Discover how Paravel helps teams manage tasks with more clarity and
-            confidence. We streamline operations so you can focus on meaningful
-            progress.
+            Somos una agencia de marketing digital especializada en hacer crecer
+            la visibilidad local de tu negocio. Optimizamos tu presencia online
+            para que puedas enfocarte en lo que realmente importa.
           </p>
         </div>
 
@@ -60,22 +53,9 @@ export default function AboutHero() {
         </div>
 
         <h2 className="mt-8 max-w-3xl text-4xl leading-none font-medium tracking-tight md:mt-12 lg:mt-16 lg:text-5xl">
-          We excel in our field, but skill isn&apos;t everything we offer.
+          Excelencia en marketing digital local, enfocados en resultados que
+          transforman tu negocio.
         </h2>
-
-        {/* Stats Grid - Left Aligned */}
-        <div className="mt-8 grid grid-cols-2 gap-8 md:grid-cols-3 lg:mt-12 lg:gap-12">
-          {stats.map((stat, index) => (
-            <div key={index} className="border-input border-b">
-              <div className="text-3xl font-medium md:text-4xl lg:text-5xl">
-                {stat.number}
-              </div>
-              <div className="text-muted-foreground my-6 text-sm md:text-base">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
