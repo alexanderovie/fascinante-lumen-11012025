@@ -3,10 +3,13 @@
 import { ChevronRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import Noise from '@/components/noise';
 import { Button } from '@/components/ui/button';
 import usePrefersReducedMotion from '@/hooks/usePrefersReducedMotion';
+import { getLocaleFromPathname, localizePath } from '@/lib/i18n-utils';
 
 interface HeroProps {
   translations: {
@@ -14,10 +17,12 @@ interface HeroProps {
     subtitle: string;
     description: string;
   };
-  requestDemoText: string;
+  auditButtonText: string;
 }
 
-export default function Hero({ translations, requestDemoText }: HeroProps) {
+export default function Hero({ translations, auditButtonText }: HeroProps) {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
   const prefersReducedMotion = usePrefersReducedMotion();
 
   // Animation variants
@@ -125,11 +130,14 @@ export default function Hero({ translations, requestDemoText }: HeroProps) {
           <Button
             size="lg"
             className="mt-2 rounded-full !pl-5.5 before:rounded-full"
+            asChild
           >
-            {requestDemoText}
-            <div className="bg-background/15 border-background/10 grid size-5.5 place-items-center rounded-full border">
-              <ChevronRight className="size-4" />
-            </div>
+            <Link href={localizePath('/audit', locale)}>
+              {auditButtonText}
+              <div className="bg-background/15 border-background/10 grid size-5.5 place-items-center rounded-full border">
+                <ChevronRight className="size-4" />
+              </div>
+            </Link>
           </Button>
         </motion.div>
 

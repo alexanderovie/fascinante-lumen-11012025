@@ -7,6 +7,7 @@
     "faq": "Preguntas Frecuentes",
     "contact": "Contacto",
     "requestDemo": "Solicitar Demo",
+    "auditButton": "Análisis Gratuito",
     "getStarted": "Comenzar",
     "contactWithUs": "Contáctanos",
     "upgradeToPro": "Actualizar a Pro",
@@ -14,7 +15,15 @@
     "annual": "Anual",
     "save25": "Ahorra 25% en plan anual",
     "whatsappAriaLabel": "Contactar por WhatsApp",
-    "whatsappDefaultMessage": "Hola, me interesa saber más sobre los servicios de Fascinante Digital"
+    "whatsappDefaultMessage": "Hola, me interesa saber más sobre los servicios de Fascinante Digital",
+    "openChat": "Abrir chat",
+    "closeChat": "Cerrar chat",
+    "chatTitle": "¿En qué podemos ayudarte?",
+    "chatSubtitle": "Normalmente respondemos en minutos",
+    "chatPlaceholder": "Escribe tu mensaje...",
+    "chatSendButton": "Enviar mensaje",
+    "chatWelcomeMessage": "¡Hola! 👋 ¿En qué podemos ayudarte hoy?",
+    "chatEnterToSend": "Presiona Enter para enviar, Shift+Enter para nueva línea"
   },
   "hero": {
     "title": "Más Clientes Online",
@@ -263,5 +272,69 @@
   "meta": {
     "title": "Fascinante Digital | Gestión de Visibilidad Local",
     "description": "Agencia de marketing digital que optimiza y hace crecer tu visibilidad local automáticamente 24/7. Servicios profesionales con tecnología moderna."
+  },
+  "audit": {
+    "meta": {
+      "title": "Análisis de Sitio Web | Fascinante Digital",
+      "description": "Evalúa el rendimiento, SEO y Core Web Vitals de tu sitio web con nuestra herramienta profesional de análisis."
+    },
+    "hero": {
+      "title": "Análisis Profesional",
+      "subtitle": "de tu Sitio Web",
+      "description": "Evalúa rendimiento, SEO y Core Web Vitals con tecnología avanzada."
+    },
+    "form": {
+      "title": "Inicia tu Análisis",
+      "description": "Busca el nombre de tu negocio y los datos se completarán automáticamente.",
+      "businessNameLabel": "Nombre del Negocio",
+      "businessNamePlaceholder": "Busca el nombre de tu negocio...",
+      "businessAddressLabel": "Dirección",
+      "businessAddressPlaceholder": "Se completará automáticamente",
+      "businessPhoneLabel": "Teléfono",
+      "businessPhonePlaceholder": "Se completará automáticamente",
+      "websiteUrlLabel": "Sitio Web",
+      "websiteUrlPlaceholder": "Se completará automáticamente (si está disponible)",
+      "submitButton": "Iniciar Análisis",
+      "submittingButton": "Analizando...",
+      "infoCardTitle": "Evaluación Completa",
+      "infoCardDescription": "Revisión exhaustiva de rendimiento, SEO y métricas técnicas con tecnología avanzada.",
+      "infoCardAnalysisTitle": "Análisis Incluido:",
+      "infoCardItems": [
+        "Rendimiento (Performance)",
+        "Core Web Vitals",
+        "SEO Técnico",
+        "Problemas Detectados"
+      ]
+    },
+    "results": {
+      "title": "Resultados del Análisis",
+      "description": "Completa el formulario arriba para ver los resultados de tu evaluación aquí.",
+      "performance": {
+        "title": "Rendimiento",
+        "score": "Puntuación",
+        "mobile": "Móvil",
+        "desktop": "Escritorio"
+      },
+      "coreWebVitals": {
+        "title": "Core Web Vitals",
+        "fcp": "FCP",
+        "lcp": "LCP",
+        "cls": "CLS",
+        "inp": "INP",
+        "ttfb": "TTFB"
+      },
+      "seo": {
+        "title": "SEO",
+        "score": "Puntuación",
+        "issues": "Problemas"
+      },
+      "issues": {
+        "title": "Problemas Encontrados",
+        "critical": "Crítico",
+        "warning": "Advertencia",
+        "info": "Información",
+        "noIssues": "¡Excelente! No se encontraron problemas."
+      }
+    }
   }
 }

@@ -23,7 +23,7 @@ export default async function Home({
 
   return (
     <>
-      <Hero translations={dict.hero} requestDemoText={dict.common.requestDemo} />
+      <Hero translations={dict.hero} auditButtonText={dict.common.auditButton} />
       <Logos socialProof={dict.logos.socialProof} />
       <FeaturesCarousel translations={dict.featuresCarousel} />
       <FeaturesGrid translations={dict.featuresGrid} />

@@ -3,6 +3,10 @@ import { calculateReadTime } from '@/lib/read-time';
 
 import BlogClient from './blog-client';
 
+export async function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'es' }];
+}
+
 export default async function BlogPage({
   params,
 }: {

@@ -3,6 +3,10 @@ import PricingTable from '@/components/sections/pricing-table';
 
 import { getDictionary } from '../dictionaries';
 
+export async function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'es' }];
+}
+
 export default async function PricingPage({
   params,
 }: {

@@ -16,10 +16,13 @@ interface ChatWidgetProps {
 
 interface ChatTranslations {
   title: string;
+  subtitle: string;
   placeholder: string;
   sendButton: string;
   openChat: string;
   closeChat: string;
+  welcomeMessage: string;
+  enterToSend: string;
 }
 
 export default function ChatWidget({ className }: ChatWidgetProps) {
@@ -39,10 +42,13 @@ export default function ChatWidget({ className }: ChatWidgetProps) {
   const locale = getLocaleFromPathname(clientPathname);
   const [translations, setTranslations] = useState<ChatTranslations>({
     title: '¿En qué podemos ayudarte?',
+    subtitle: 'Normalmente respondemos en minutos',
     placeholder: 'Escribe tu mensaje...',
-    sendButton: 'Enviar',
+    sendButton: 'Enviar mensaje',
     openChat: 'Abrir chat',
     closeChat: 'Cerrar chat',
+    welcomeMessage: '¡Hola! 👋 ¿En qué podemos ayudarte hoy?',
+    enterToSend: 'Presiona Enter para enviar, Shift+Enter para nueva línea',
   });
 
   // Load translations dynamically based on locale
@@ -52,13 +58,15 @@ export default function ChatWidget({ className }: ChatWidgetProps) {
     async function loadTranslations() {
       try {
         const dict = await import(`@/app/[lang]/dictionaries/${locale}.json`);
-        // Por ahora usar valores por defecto, luego agregar a dictionaries
         setTranslations({
-          title: '¿En qué podemos ayudarte?',
-          placeholder: 'Escribe tu mensaje...',
-          sendButton: 'Enviar',
-          openChat: 'Abrir chat',
-          closeChat: 'Cerrar chat',
+          title: dict.default.common.chatTitle,
+          subtitle: dict.default.common.chatSubtitle,
+          placeholder: dict.default.common.chatPlaceholder,
+          sendButton: dict.default.common.chatSendButton,
+          openChat: dict.default.common.openChat,
+          closeChat: dict.default.common.closeChat,
+          welcomeMessage: dict.default.common.chatWelcomeMessage,
+          enterToSend: dict.default.common.chatEnterToSend,
         });
       } catch (error) {
         console.error('Error loading chat translations:', error);
@@ -154,7 +162,7 @@ export default function ChatWidget({ className }: ChatWidgetProps) {
                       {translations.title}
                     </h3>
                     <p className="text-xs text-primary-foreground/80">
-                      Normalmente respondemos en minutos
+                      {translations.subtitle}
                     </p>
                   </div>
                 </div>
@@ -190,7 +198,7 @@ export default function ChatWidget({ className }: ChatWidgetProps) {
                     </div>
                     <div className="rounded-2xl rounded-tl-sm bg-muted px-4 py-2.5">
                       <p className="text-sm text-foreground">
-                        ¡Hola! 👋 ¿En qué podemos ayudarte hoy?
+                        {translations.welcomeMessage}
                       </p>
                     </div>
                   </div>
@@ -229,7 +237,7 @@ export default function ChatWidget({ className }: ChatWidgetProps) {
                   </Button>
                 </div>
                 <p className="mt-2 text-xs text-muted-foreground">
-                  Presiona Enter para enviar, Shift+Enter para nueva línea
+                  {translations.enterToSend}
                 </p>
               </div>
             </div>
