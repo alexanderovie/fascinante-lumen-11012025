@@ -189,7 +189,7 @@ export default function FeaturesCarousel() {
               </span>
             </h2>
             <p className="text-muted-foreground text-lg leading-snug">
-              Automated system that optimizes and grows your visibility.
+              Our agency optimizes and grows your visibility automatically.
             </p>
           </motion.div>
 

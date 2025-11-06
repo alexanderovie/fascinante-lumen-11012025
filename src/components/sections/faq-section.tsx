@@ -21,33 +21,33 @@ import {
 const faqData = [
   {
     id: 'system-who-is-it-for',
-    question: 'What is this system and who is it for?',
+    question: 'What is Fascinante Digital and who is it for?',
     answer:
-      'This is an automated local visibility management platform designed for businesses, managers, and marketers who want to grow online presence without manual work.',
+      'We are a digital marketing agency specializing in automated local visibility management for businesses, managers, and marketers who want to grow online presence without manual work.',
   },
   {
     id: 'technical-knowledge',
-    question: 'Can I use this system without technical knowledge?',
+    question: 'Can I work with Fascinante Digital without technical knowledge?',
     answer:
-      'Absolutely! Our system is designed with simplicity in mind. You can start optimizing listings, managing reviews, and growing visibility without any technical background. The intuitive dashboard makes it easy for anyone to get started.',
+      'Absolutely! Our agency services are designed with simplicity in mind. We handle optimizing listings, managing reviews, and growing visibility so you don\'t need any technical background. Our team makes it easy for anyone to get started.',
   },
   {
     id: 'speed-results',
     question: 'How do you achieve results so quickly?',
     answer:
-      'We use enterprise-level technology with special access and permissions that required years of development and strategic partnerships. Our infrastructure enables instant updates and automated management that most agencies cannot access.',
+      'We use modern enterprise-level technology with special access and permissions that required years of development and strategic partnerships. Our advanced automation infrastructure enables instant updates and managed services that most agencies cannot access.',
   },
   {
     id: 'automation',
     question: 'How does automated management work?',
     answer:
-      'Our intelligent system helps streamline repetitive processes. You can set up custom rules, triggers, and workflows that automatically update listings, respond to reviews, publish content, and optimize visibility based on your defined criteria and local market data.',
+      'Our expert team uses modern technology to build custom business automations. We create intelligent workflows that automatically update listings, respond to reviews, publish content, and optimize visibility based on your defined criteria and local market data.',
   },
   {
     id: 'security-compliance',
-    question: 'Is the system secure and compliant?',
+    question: 'Is Fascinante Digital secure and compliant?',
     answer:
-      'Security is our top priority. Our platform is built with enterprise-grade security features including end-to-end encryption, SOC 2 Type II compliance, GDPR compliance, and regular security audits. Your data is protected with industry-standard security protocols.',
+      'Security is our top priority. Our agency uses enterprise-grade security features including end-to-end encryption, SOC 2 Type II compliance, GDPR compliance, and regular security audits. Your data is protected with industry-standard security protocols.',
   },
 ];
 

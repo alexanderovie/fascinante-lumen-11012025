@@ -109,7 +109,7 @@ export default function Hero() {
           variants={itemVariants}
           className="text-muted-foreground my-2 text-sm md:my-4 md:text-lg lg:my-6 lg:text-xl"
         >
-          System that optimizes and grows your local visibility automatically 24/7.
+          We optimize and grow your local visibility automatically 24/7.
         </motion.p>
 
         <motion.div variants={itemVariants}>

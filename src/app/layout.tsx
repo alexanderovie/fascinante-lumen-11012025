@@ -20,24 +20,23 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://fascinantedigital.com'),
   title: {
-    default: 'Lumen - Modern Next.js Template',
-    template: '%s | Lumen',
+    default: 'Fascinante Digital | Local Visibility Management',
+    template: '%s | Fascinante Digital',
   },
   description:
-    'A modern, fully featured Next.js template built with Shadcn/UI, TailwindCSS and TypeScript, perfect for your next web application.',
+    'Digital marketing agency that optimizes and grows your local visibility automatically 24/7. Professional services with modern technology.',
   keywords: [
-    'Next.js',
-    'React',
-    'JavaScript',
-    'TypeScript',
-    'TailwindCSS',
-    'Template',
-    'Shadcn/UI',
-    'Web Development',
+    'digital marketing agency',
+    'local visibility management',
+    'local search optimization',
+    'reputation management',
+    'marketing automation',
+    'local business marketing',
+    'Fascinante Digital',
   ],
-  authors: [{ name: 'Lumen - FascinanteDigital.com' }],
-  creator: 'Lumen - FascinanteDigital.com',
-  publisher: 'Lumen',
+  authors: [{ name: 'Fascinante Digital', url: 'https://fascinantedigital.com' }],
+  creator: 'Fascinante Digital',
+  publisher: 'Fascinante Digital',
   robots: {
     index: true,
     follow: true,
@@ -54,26 +53,32 @@ export const metadata: Metadata = {
     shortcut: [{ url: '/favicon/favicon.ico' }],
   },
   openGraph: {
-    title: 'Lumen - Modern Next.js Template',
+    title: 'Fascinante Digital | Local Visibility Management',
     description:
-      'A modern, fully featured Next.js template built with Shadcn/UI, TailwindCSS and TypeScript, perfect for your next web application.',
-    siteName: 'Lumen',
+      'Digital marketing agency that optimizes and grows your local visibility automatically 24/7. Professional services with modern technology.',
+    url: 'https://fascinantedigital.com',
+    siteName: 'Fascinante Digital',
+    locale: 'en_US',
+    type: 'website',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Lumen - Modern Next.js Template',
+        alt: 'Fascinante Digital - Local Visibility Management Agency',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lumen - Modern Next.js Template',
+    title: 'Fascinante Digital | Local Marketing',
     description:
-      'A modern, fully featured Next.js template built with Shadcn/UI, TailwindCSS and TypeScript, perfect for your next web application.',
-    images: ['/og-image.jpg'],
+      'Digital marketing agency that optimizes and grows your local visibility automatically 24/7. Professional services.',
+    images: ['/images/og-image.jpg'],
     creator: '@fascinantedigital',
+  },
+  alternates: {
+    canonical: 'https://fascinantedigital.com',
   },
 };
 

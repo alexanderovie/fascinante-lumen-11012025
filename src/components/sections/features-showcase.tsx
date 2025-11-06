@@ -153,7 +153,7 @@ export default function FeaturesShowcase() {
             Intelligence built for local business growth
           </h2>
           <p className="text-muted-foreground text-lg leading-snug">
-            Stay ahead of local competition. Our system turns your business
+            Stay ahead of local competition. Our agency uses modern technology to turn your business
             presence into actionable insights, so you can optimize visibility,
             manage reputation, and scale with confidence.
           </p>

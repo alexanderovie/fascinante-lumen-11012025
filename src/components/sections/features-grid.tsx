@@ -86,8 +86,8 @@ export default function FeaturesGrid() {
             Local visibility features that scale
           </h2>
           <p className="text-muted-foreground text-lg leading-snug lg:text-balance">
-            Automate, optimize, and grow your presence across maps and local
-            searches. Professional management that works continuously without
+            We automate, optimize, and grow your presence across maps and local
+            searches. Professional agency services that work continuously without
             manual intervention.
           </p>
         </div>
