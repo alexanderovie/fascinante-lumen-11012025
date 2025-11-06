@@ -99,19 +99,19 @@ export default function AuditForm({ translations }: AuditFormProps) {
     <section className="section-padding relative">
       <Noise />
       <div className="container">
-        {/* Section Header - Estándar industria: text-balance, sin saltos forzados */}
-        <h2 className="text-3xl leading-tight tracking-tight font-semibold text-balance text-center lg:text-5xl">
+        {/* Section Header - Oculto en móvil, visible en desktop (estándar industria) */}
+        <h2 className="hidden text-3xl leading-tight tracking-tight font-semibold text-balance text-center md:block lg:text-5xl">
           {translations.hero.title} {translations.hero.subtitle}
         </h2>
 
         {/* Form Content - Mismo layout grid que FAQ */}
-        <div className="mt-8 grid gap-6 lg:mt-12 lg:grid-cols-3">
+        <div className="mt-4 grid gap-6 md:mt-8 lg:mt-12 lg:grid-cols-3">
           {/* Form - Left Side (lg:col-span-2) */}
           <div className="lg:col-span-2">
             <Card>
               <CardHeader>
-                <h3 className="text-xl font-semibold">{translations.form.title}</h3>
-                <CardDescription className="text-base">
+                <h3 className="text-lg font-semibold md:text-xl">{translations.form.title}</h3>
+                <CardDescription className="text-sm md:text-base">
                   {translations.form.description}
                 </CardDescription>
               </CardHeader>
