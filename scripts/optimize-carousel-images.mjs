@@ -67,7 +67,7 @@ async function optimizeImage(inputPath, maxWidth, maxHeight) {
 
 async function optimizeAll() {
   console.log('🚀 Optimizando imágenes según Chrome Developers recommendations...\n');
-  
+
   for (const image of imagesToOptimize) {
     await optimizeImage(image.input, image.maxWidth, image.maxHeight);
   }
@@ -76,4 +76,3 @@ async function optimizeAll() {
 }
 
 optimizeAll();
-
