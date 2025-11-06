@@ -7,6 +7,7 @@ import {
   FileText,
   Link2,
   MapPin,
+  Search,
   Shield,
   Star,
   TrendingUp,
@@ -16,6 +17,7 @@ import {
 import Noise from '@/components/noise';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { DonutChart } from '@/components/ui/donut-chart';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
 
@@ -134,6 +136,48 @@ const mockResults = {
       impact: 'Aumenta confianza y conversiones',
     },
   ],
+  keywordOpportunities: [
+    {
+      id: 'kw1',
+      keyword: 'servicios de limpieza tampa',
+      searchVolume: 1200,
+      difficulty: 35,
+      opportunity: 'high',
+      cpc: 2.5,
+    },
+    {
+      id: 'kw2',
+      keyword: 'limpieza comercial cerca de mí',
+      searchVolume: 890,
+      difficulty: 28,
+      opportunity: 'high',
+      cpc: 3.2,
+    },
+    {
+      id: 'kw3',
+      keyword: 'empresa de limpieza profesional',
+      searchVolume: 650,
+      difficulty: 42,
+      opportunity: 'medium',
+      cpc: 2.8,
+    },
+    {
+      id: 'kw4',
+      keyword: 'limpieza de oficinas tampa fl',
+      searchVolume: 320,
+      difficulty: 25,
+      opportunity: 'high',
+      cpc: 4.1,
+    },
+    {
+      id: 'kw5',
+      keyword: 'servicios de mantenimiento limpieza',
+      searchVolume: 540,
+      difficulty: 38,
+      opportunity: 'medium',
+      cpc: 2.3,
+    },
+  ],
 };
 
 export default function AuditResults({ translations }: AuditResultsProps) {
@@ -202,24 +246,26 @@ export default function AuditResults({ translations }: AuditResultsProps) {
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="flex items-baseline gap-2">
-                <span className={cn('text-4xl font-bold', getScoreColor(mockResults.performance.score))}>
-                  {mockResults.performance.score}
-                </span>
-                <span className="text-muted-foreground text-sm">/ 100</span>
-              </div>
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground">{translations.performance.mobile}</span>
-                  <span className={getScoreColor(mockResults.performance.mobile)}>
-                    {mockResults.performance.mobile}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground">{translations.performance.desktop}</span>
-                  <span className={getScoreColor(mockResults.performance.desktop)}>
-                    {mockResults.performance.desktop}
-                  </span>
+              <div className="flex items-center gap-6">
+                <DonutChart
+                  value={mockResults.performance.score}
+                  size={100}
+                  strokeWidth={10}
+                  label="Score"
+                />
+                <div className="flex-1 space-y-2">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">{translations.performance.mobile}</span>
+                    <span className={cn('font-semibold', getScoreColor(mockResults.performance.mobile))}>
+                      {mockResults.performance.mobile}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">{translations.performance.desktop}</span>
+                    <span className={cn('font-semibold', getScoreColor(mockResults.performance.desktop))}>
+                      {mockResults.performance.desktop}
+                    </span>
+                  </div>
                 </div>
               </div>
             </CardContent>
@@ -234,15 +280,19 @@ export default function AuditResults({ translations }: AuditResultsProps) {
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="flex items-baseline gap-2">
-                <span className={cn('text-4xl font-bold', getScoreColor(mockResults.seo.score))}>
-                  {mockResults.seo.score}
-                </span>
-                <span className="text-muted-foreground text-sm">/ 100</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <span className="text-muted-foreground">{translations.seo.issues}:</span>
-                <Badge variant="secondary">{mockResults.seo.issues}</Badge>
+              <div className="flex items-center gap-6">
+                <DonutChart
+                  value={mockResults.seo.score}
+                  size={100}
+                  strokeWidth={10}
+                  label="SEO"
+                />
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 text-sm">
+                    <span className="text-muted-foreground">{translations.seo.issues}:</span>
+                    <Badge variant="secondary">{mockResults.seo.issues}</Badge>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -365,30 +415,30 @@ export default function AuditResults({ translations }: AuditResultsProps) {
               </div>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="grid gap-4 md:grid-cols-3">
-                <div className="space-y-2">
-                  <div className="text-muted-foreground text-sm">Puntuación General</div>
-                  <div className="flex items-baseline gap-2">
-                    <span className={cn('text-3xl font-bold', getScoreColor(mockResults.googleBusinessProfile.score))}>
-                      {mockResults.googleBusinessProfile.score}
-                    </span>
-                    <span className="text-muted-foreground text-sm">/ 100</span>
-                  </div>
+              <div className="grid gap-6 md:grid-cols-3">
+                <div className="flex flex-col items-center gap-3">
+                  <DonutChart
+                    value={mockResults.googleBusinessProfile.score}
+                    size={120}
+                    strokeWidth={12}
+                    label="Puntuación"
+                  />
+                  <div className="text-muted-foreground text-center text-sm">Puntuación General</div>
                 </div>
-                <div className="space-y-2">
-                  <div className="text-muted-foreground text-sm">Reseñas Totales</div>
-                  <div className="text-3xl font-bold">
+                <div className="flex flex-col items-center justify-center gap-3">
+                  <div className="text-4xl font-bold">
                     {mockResults.googleBusinessProfile.totalReviews}
                   </div>
+                  <div className="text-muted-foreground text-center text-sm">Reseñas Totales</div>
                 </div>
-                <div className="space-y-2">
-                  <div className="text-muted-foreground text-sm">Completitud del Perfil</div>
-                  <div className="space-y-1">
-                    <div className="text-3xl font-bold">
-                      {mockResults.googleBusinessProfile.completeness}%
-                    </div>
-                    <Progress value={mockResults.googleBusinessProfile.completeness} className="h-2" />
-                  </div>
+                <div className="flex flex-col items-center gap-3">
+                  <DonutChart
+                    value={mockResults.googleBusinessProfile.completeness}
+                    size={120}
+                    strokeWidth={12}
+                    label="%"
+                  />
+                  <div className="text-muted-foreground text-center text-sm">Completitud del Perfil</div>
                 </div>
               </div>
               {mockResults.googleBusinessProfile.issues.length > 0 && (
@@ -522,6 +572,66 @@ export default function AuditResults({ translations }: AuditResultsProps) {
                     )}
                   </Badge>
                 </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Keyword Opportunities */}
+          <Card className="lg:col-span-2">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Search className="text-primary size-5" />
+                Oportunidades de Palabras Clave
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {mockResults.keywordOpportunities.map((kw) => (
+                  <div
+                    key={kw.id}
+                    className="border-input flex items-center justify-between gap-4 rounded-lg border p-4"
+                  >
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2">
+                        <h4 className="font-medium">{kw.keyword}</h4>
+                        <Badge
+                          variant={kw.opportunity === 'high' ? 'default' : 'secondary'}
+                          className="gap-1"
+                        >
+                          {kw.opportunity === 'high' ? (
+                            <>
+                              <TrendingUp className="size-3" />
+                              Alta Oportunidad
+                            </>
+                          ) : (
+                            <>
+                              <AlertCircle className="size-3" />
+                              Media Oportunidad
+                            </>
+                          )}
+                        </Badge>
+                      </div>
+                      <div className="mt-2 grid grid-cols-3 gap-4 text-sm">
+                        <div>
+                          <span className="text-muted-foreground">Volumen:</span>
+                          <span className="ml-2 font-medium">
+                            {kw.searchVolume.toLocaleString()}/mes
+                          </span>
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground">Dificultad:</span>
+                          <span className={cn('ml-2 font-medium', getScoreColor(100 - kw.difficulty))}>
+                            {kw.difficulty}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground">CPC:</span>
+                          <span className="ml-2 font-medium">${kw.cpc}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </CardContent>
           </Card>
