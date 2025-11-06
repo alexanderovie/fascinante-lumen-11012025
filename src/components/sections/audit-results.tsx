@@ -1,10 +1,22 @@
 'use client';
 
-import { AlertCircle, CheckCircle2, TrendingUp, XCircle } from 'lucide-react';
+import {
+  AlertCircle,
+  BarChart3,
+  CheckCircle2,
+  FileText,
+  Link2,
+  MapPin,
+  Shield,
+  Star,
+  TrendingUp,
+  XCircle,
+} from 'lucide-react';
 
 import Noise from '@/components/noise';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
 
 interface AuditResultsProps {
@@ -63,6 +75,64 @@ const mockResults = {
     { id: '1', title: 'Imágenes sin optimizar', severity: 'critical', impact: 'high' },
     { id: '2', title: 'Falta meta description', severity: 'warning', impact: 'medium' },
     { id: '3', title: 'Enlaces rotos detectados', severity: 'warning', impact: 'medium' },
+  ],
+  googleBusinessProfile: {
+    score: 78,
+    rating: 4.2,
+    totalReviews: 45,
+    completeness: 85,
+    issues: [
+      { id: 'gbp1', title: 'Faltan fotos del negocio', severity: 'warning' },
+      { id: 'gbp2', title: 'Descripción incompleta', severity: 'warning' },
+    ],
+  },
+  backlinks: {
+    total: 127,
+    quality: 85,
+    domains: 42,
+    dofollow: 98,
+    nofollow: 29,
+  },
+  content: {
+    pages: 24,
+    wordCount: 12500,
+    avgWordsPerPage: 520,
+    readability: 72,
+    issues: [
+      { id: 'content1', title: 'Páginas con poco contenido', severity: 'warning' },
+    ],
+  },
+  accessibility: {
+    score: 88,
+    issues: 2,
+  },
+  security: {
+    score: 95,
+    ssl: true,
+    issues: 0,
+  },
+  recommendations: [
+    {
+      id: 'rec1',
+      priority: 'high',
+      title: 'Optimizar imágenes',
+      description: 'Comprimir y redimensionar imágenes para mejorar velocidad de carga',
+      impact: 'Alto impacto en Performance',
+    },
+    {
+      id: 'rec2',
+      priority: 'medium',
+      title: 'Agregar meta descriptions',
+      description: 'Añadir meta descriptions únicas a todas las páginas',
+      impact: 'Mejora SEO y CTR',
+    },
+    {
+      id: 'rec3',
+      priority: 'high',
+      title: 'Subir más fotos a Google Business',
+      description: 'Agregar al menos 10 fotos de alta calidad del negocio',
+      impact: 'Aumenta confianza y conversiones',
+    },
   ],
 };
 
@@ -277,6 +347,220 @@ export default function AuditResults({ translations }: AuditResultsProps) {
                   ))}
                 </div>
               )}
+            </CardContent>
+          </Card>
+
+          {/* Google Business Profile Analysis */}
+          <Card className="lg:col-span-2">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="flex items-center gap-2">
+                  <MapPin className="text-primary size-5" />
+                  Análisis de Google Business Profile
+                </CardTitle>
+                <Badge variant="secondary" className="gap-1.5">
+                  <Star className="size-3 fill-yellow-500 text-yellow-500" />
+                  {mockResults.googleBusinessProfile.rating}
+                </Badge>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="grid gap-4 md:grid-cols-3">
+                <div className="space-y-2">
+                  <div className="text-muted-foreground text-sm">Puntuación General</div>
+                  <div className="flex items-baseline gap-2">
+                    <span className={cn('text-3xl font-bold', getScoreColor(mockResults.googleBusinessProfile.score))}>
+                      {mockResults.googleBusinessProfile.score}
+                    </span>
+                    <span className="text-muted-foreground text-sm">/ 100</span>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="text-muted-foreground text-sm">Reseñas Totales</div>
+                  <div className="text-3xl font-bold">
+                    {mockResults.googleBusinessProfile.totalReviews}
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="text-muted-foreground text-sm">Completitud del Perfil</div>
+                  <div className="space-y-1">
+                    <div className="text-3xl font-bold">
+                      {mockResults.googleBusinessProfile.completeness}%
+                    </div>
+                    <Progress value={mockResults.googleBusinessProfile.completeness} className="h-2" />
+                  </div>
+                </div>
+              </div>
+              {mockResults.googleBusinessProfile.issues.length > 0 && (
+                <div className="space-y-2">
+                  <div className="text-muted-foreground text-sm font-medium">Problemas Detectados:</div>
+                  <div className="space-y-2">
+                    {mockResults.googleBusinessProfile.issues.map((issue) => (
+                      <div key={issue.id} className="flex items-center gap-2 text-sm">
+                        <AlertCircle className="text-yellow-600 dark:text-yellow-400 size-4" />
+                        <span>{issue.title}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+
+          {/* Backlinks Analysis */}
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="flex items-center gap-2">
+                  <Link2 className="text-primary size-5" />
+                  Análisis de Backlinks
+                </CardTitle>
+                <BarChart3 className="text-primary size-5" />
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground text-sm">Total de Backlinks</span>
+                  <span className="text-xl font-bold">{mockResults.backlinks.total}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground text-sm">Dominios Únicos</span>
+                  <span className="text-xl font-bold">{mockResults.backlinks.domains}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground text-sm">Calidad</span>
+                  <span className={cn('text-xl font-bold', getScoreColor(mockResults.backlinks.quality))}>
+                    {mockResults.backlinks.quality}%
+                  </span>
+                </div>
+                <div className="border-input mt-4 space-y-2 rounded-lg border p-3">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">DoFollow</span>
+                    <span className="font-medium">{mockResults.backlinks.dofollow}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">NoFollow</span>
+                    <span className="font-medium">{mockResults.backlinks.nofollow}</span>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Content Analysis */}
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="flex items-center gap-2">
+                  <FileText className="text-primary size-5" />
+                  Análisis de Contenido
+                </CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground text-sm">Páginas Analizadas</span>
+                  <span className="text-xl font-bold">{mockResults.content.pages}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground text-sm">Palabras Totales</span>
+                  <span className="text-xl font-bold">{mockResults.content.wordCount.toLocaleString()}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground text-sm">Promedio por Página</span>
+                  <span className="text-xl font-bold">{mockResults.content.avgWordsPerPage}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground text-sm">Legibilidad</span>
+                  <span className={cn('text-xl font-bold', getScoreColor(mockResults.content.readability))}>
+                    {mockResults.content.readability}%
+                  </span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Accessibility & Security */}
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="flex items-center gap-2">
+                  <Shield className="text-primary size-5" />
+                  Seguridad y Accesibilidad
+                </CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground text-sm">Puntuación de Accesibilidad</span>
+                  <span className={cn('text-xl font-bold', getScoreColor(mockResults.accessibility.score))}>
+                    {mockResults.accessibility.score}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground text-sm">Puntuación de Seguridad</span>
+                  <span className={cn('text-xl font-bold', getScoreColor(mockResults.security.score))}>
+                    {mockResults.security.score}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground text-sm">Certificado SSL</span>
+                  <Badge variant={mockResults.security.ssl ? 'default' : 'destructive'} className="gap-1.5">
+                    {mockResults.security.ssl ? (
+                      <>
+                        <CheckCircle2 className="size-3" />
+                        Activo
+                      </>
+                    ) : (
+                      <>
+                        <XCircle className="size-3" />
+                        Inactivo
+                      </>
+                    )}
+                  </Badge>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Recommendations */}
+          <Card className="lg:col-span-2">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <TrendingUp className="text-primary size-5" />
+                Recomendaciones Prioritarias
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {mockResults.recommendations.map((rec) => (
+                  <div
+                    key={rec.id}
+                    className="border-input flex items-start gap-4 rounded-lg border p-4"
+                  >
+                    <div className="mt-0.5">
+                      {rec.priority === 'high' ? (
+                        <XCircle className="text-red-600 dark:text-red-400 size-5" />
+                      ) : (
+                        <AlertCircle className="text-yellow-600 dark:text-yellow-400 size-5" />
+                      )}
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2">
+                        <h4 className="font-medium">{rec.title}</h4>
+                        <Badge variant={rec.priority === 'high' ? 'destructive' : 'secondary'}>
+                          {rec.priority === 'high' ? 'Alta Prioridad' : 'Media Prioridad'}
+                        </Badge>
+                      </div>
+                      <p className="text-muted-foreground mt-1 text-sm">{rec.description}</p>
+                      <p className="text-muted-foreground mt-2 text-xs font-medium">{rec.impact}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </CardContent>
           </Card>
         </div>
