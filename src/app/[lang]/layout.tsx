@@ -6,7 +6,7 @@ import { cookies } from 'next/headers';
 import { Suspense } from 'react';
 
 import BackToTop from '@/components/common/back-to-top';
-import WhatsAppButton from '@/components/common/whatsapp-button';
+import ProButton from '@/components/common/pro-button';
 import Banner from '@/components/layout/banner';
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
@@ -158,7 +158,7 @@ export default async function RootLayout({
           <Footer />
           <BackToTop />
           <Suspense fallback={null}>
-            <WhatsAppButton phoneNumber="+18008864981" />
+            <ProButton />
           </Suspense>
         </ThemeProvider>
       </body>
