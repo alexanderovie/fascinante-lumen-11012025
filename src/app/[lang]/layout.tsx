@@ -5,7 +5,6 @@ import { Inter } from 'next/font/google';
 import { cookies } from 'next/headers';
 import { Suspense } from 'react';
 
-import BackToTop from '@/components/common/back-to-top';
 import ChatWidget from '@/components/common/chat-widget';
 import Banner from '@/components/layout/banner';
 import Footer from '@/components/layout/footer';
@@ -156,7 +155,6 @@ export default async function RootLayout({
           <Navbar initialBannerVisible={!bannerDismissed} />
           <main className="flex-1">{children}</main>
           <Footer />
-          <BackToTop />
           <Suspense fallback={null}>
             <ChatWidget />
           </Suspense>
