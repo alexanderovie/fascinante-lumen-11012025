@@ -7,12 +7,256 @@
     "faq": "Preguntas Frecuentes",
     "contact": "Contacto",
     "requestDemo": "Solicitar Demo",
-    "getStarted": "Comenzar"
+    "getStarted": "Comenzar",
+    "contactWithUs": "Contáctanos",
+    "upgradeToPro": "Actualizar a Pro",
+    "monthly": "Mensual",
+    "annual": "Anual",
+    "save25": "Ahorra 25% en plan anual"
   },
   "hero": {
-    "title": "Domina la Búsqueda Local",
-    "subtitle": "Crece Automáticamente",
+    "title": "Más Clientes Online",
+    "subtitle": "Menos Trabajo Manual",
     "description": "Optimizamos y hacemos crecer tu visibilidad local automáticamente 24/7."
+  },
+  "logos": {
+    "socialProof": "Más de 2 millones de equipos confían en Lumen para colaborar y hacer el trabajo."
+  },
+  "featuresCarousel": {
+    "h2": "Automatiza tu visibilidad local",
+    "description": "Nos encargamos de todo, desde actualizaciones de listados hasta gestión de reseñas, para que puedas enfocarte en hacer crecer tu negocio.",
+    "features": [
+      {
+        "id": "instant-sync",
+        "title": "Actualizaciones de sincronización en tiempo real",
+        "description": "Cambios en segundos, no en horas o días."
+      },
+      {
+        "id": "review-intelligence",
+        "title": "Gestión inteligente de reseñas",
+        "description": "El sistema detecta, analiza y responde automáticamente."
+      },
+      {
+        "id": "multi-location",
+        "title": "Panel unificado multi-ubicación",
+        "description": "Gestiona 100+ ubicaciones como si fueran una."
+      },
+      {
+        "id": "predictive-posts",
+        "title": "Publicación predictiva de contenido",
+        "description": "Publica el contenido correcto en el momento perfecto."
+      }
+    ]
+  },
+  "featuresGrid": {
+    "h2": "Todo lo que necesitas para crecer",
+    "description": "Funciones poderosas que automatizan tu gestión de visibilidad local.",
+    "features": [
+      {
+        "id": 1,
+        "title": "Actualizaciones Instantáneas",
+        "description": "Actualiza información en segundos, no en horas. Lo que otros tardan días en cambiar, nosotros lo hacemos en un clic automáticamente."
+      },
+      {
+        "id": 2,
+        "title": "Inteligencia de Reseñas",
+        "description": "El sistema detecta, analiza y responde automáticamente mientras mantiene tu voz de marca única."
+      },
+      {
+        "id": 3,
+        "title": "Control Multi-Ubicación",
+        "description": "Gestiona 100+ ubicaciones como si fueran una con informes consolidados en tiempo real y panel unificado."
+      },
+      {
+        "id": 4,
+        "title": "Inteligencia de Contenido",
+        "description": "Publica el contenido correcto en el momento perfecto basado en datos de comportamiento local e insights de mercado."
+      },
+      {
+        "id": 5,
+        "title": "Inteligencia de Mercado",
+        "description": "Descubre oportunidades que tu competencia no ve con análisis profundo de mercado e insights competitivos."
+      },
+      {
+        "id": 6,
+        "title": "Tecnología Empresarial",
+        "description": "Capacidades avanzadas de nivel empresarial con certificaciones y cumplimiento que aseguran confiabilidad."
+      }
+    ]
+  },
+  "featuresShowcase": {
+    "h2": "Inteligencia construida para crecimiento de negocios locales",
+    "description": "Mantente por delante de la competencia local. Nuestra agencia usa tecnología moderna para convertir tu presencia de negocio en insights accionables, para que puedas optimizar visibilidad, gestionar reputación y escalar con confianza.",
+    "features": [
+      {
+        "id": "sync",
+        "title": "Actualizaciones en tiempo real sin límites",
+        "description": "Di adiós a actualizaciones manuales y retrasos. Nuestro sistema convierte cambios en visibilidad instantánea en todas las plataformas, para que puedas rastrear lo que importa, no solo lo que pasó."
+      },
+      {
+        "id": "intelligence",
+        "title": "Respuestas instantáneas a preguntas de reseñas",
+        "description": "Nuestro sistema inteligente facilita obtener insights accionables de reputación, sin necesidad de monitoreo manual."
+      },
+      {
+        "id": "multi-location",
+        "title": "Gestiona ubicaciones por comportamiento del negocio",
+        "description": "Segmenta tu red basándote en datos reales de rendimiento. Encuentra los mejores desempeños, ubicaciones con bajo rendimiento y oportunidades de crecimiento en segundos."
+      },
+      {
+        "id": "analytics",
+        "title": "Exporta insights, conéctalos con impacto del negocio",
+        "description": "Envía datos locales enriquecidos a tus analíticas. Combina nuestras métricas con ingresos, leads o conversiones para conectar presencia online con resultados reales."
+      }
+    ]
+  },
+  "testimonials": {
+    "h2": "Confiado por negocios locales",
+    "description": "Únete a cientos de dueños de negocios, gerentes y marketers que confían en nuestro sistema para optimizar, gestionar y hacer crecer la visibilidad sin el trabajo manual.",
+    "items": [
+      {
+        "id": "1",
+        "name": "Sarah Mitchell",
+        "title": "Jefa de Producto",
+        "company": "Nike",
+        "testimonial": "Nuestro sistema ha cambiado completamente la forma en que gestionamos nuestra presencia local. Actualizamos información instantáneamente, respondemos a reseñas automáticamente y monitoreamos el progreso en vivo. Gestión profesional sin sobrecarga."
+      },
+      {
+        "id": "2",
+        "name": "Alex Chen",
+        "title": "Diseñador Senior",
+        "company": "Spotify",
+        "testimonial": "Nuestro sistema fue la capa faltante entre nuestra presencia online y resultados reales. Nunca tuvimos tanta visibilidad en cómo funcionan los listados."
+      },
+      {
+        "id": "3",
+        "name": "Marcus Johnson",
+        "title": "VP de Producto",
+        "company": "T-Mobile",
+        "testimonial": "Solíamos perder el rastro de los listados cada semana. Con nuestro sistema, la gestión es cristalina y los tiempos son realistas."
+      },
+      {
+        "id": "4",
+        "name": "Emily Davis",
+        "title": "Gerente de Producto",
+        "company": "Booking",
+        "testimonial": "Nuestro sistema se integró perfectamente en nuestro proceso. Organizamos actualizaciones, reseñas y contenido sin cambiar herramientas."
+      },
+      {
+        "id": "5",
+        "name": "Ben Parker",
+        "title": "Líder de Ingeniería",
+        "company": "IBM",
+        "testimonial": "Desde que adoptamos nuestro sistema, nuestros ciclos se volvieron más cortos y mucho más efectivos. Es una necesidad para cualquier equipo en crecimiento."
+      },
+      {
+        "id": "6",
+        "name": "Samantha Lee",
+        "title": "Directora de Diseño",
+        "company": "Logitech",
+        "testimonial": "Nuestro sistema hace increíblemente fácil gestionar el trabajo. Redujimos el tiempo de coordinación a la mitad y entregamos con mejores insights."
+      },
+      {
+        "id": "7",
+        "name": "David Kim",
+        "title": "CTO",
+        "company": "Fortinet",
+        "testimonial": "Usamos nuestro sistema en todos los departamentos — desde tecnología hasta soporte. Crear flujos de trabajo compartidos ha mejorado drásticamente la comunicación interna."
+      },
+      {
+        "id": "8",
+        "name": "Rachel Green",
+        "title": "Diseñadora de Producto",
+        "company": "Zapier",
+        "testimonial": "Nuestro sistema ha transformado completamente cómo abordamos la planificación y ejecución diaria. Antes de cambiar, constantemente perdíamos plazos debido a desalineación. Ahora, todos saben qué está pasando, quién es responsable y cuándo se deben las cosas. Nuestra productividad se disparó y la comunicación del equipo nunca ha sido más clara."
+      },
+      {
+        "id": "9",
+        "name": "Mike Johnson",
+        "title": "Fundador de Startup",
+        "company": "Tailwind CSS",
+        "testimonial": "Actualicé información, respondí a reseñas y publiqué contenido en múltiples ubicaciones en 45 segundos. Así de rápido funciona."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Preguntas frecuentes:",
+    "questions": [
+      {
+        "id": "system-who-is-it-for",
+        "question": "¿Qué es Fascinante Digital y para quién es?",
+        "answer": "Somos una agencia de marketing digital especializada en gestión automatizada de visibilidad local para negocios, gerentes y marketers que quieren hacer crecer su presencia online sin trabajo manual."
+      },
+      {
+        "id": "technical-knowledge",
+        "question": "¿Puedo trabajar con Fascinante Digital sin conocimiento técnico?",
+        "answer": "¡Absolutamente! Nuestros servicios de agencia están diseñados con la simplicidad en mente. Nos encargamos de optimizar listados, gestionar reseñas y hacer crecer la visibilidad para que no necesites ningún conocimiento técnico. Nuestro equipo hace que sea fácil para cualquiera comenzar."
+      },
+      {
+        "id": "speed-results",
+        "question": "¿Cómo logran resultados tan rápido?",
+        "answer": "Usamos tecnología moderna de nivel empresarial con acceso especial y permisos que requirieron años de desarrollo y asociaciones estratégicas. Nuestra infraestructura avanzada de automatización permite actualizaciones instantáneas y servicios gestionados que la mayoría de las agencias no pueden acceder."
+      },
+      {
+        "id": "automation",
+        "question": "¿Cómo funciona la gestión automatizada?",
+        "answer": "Nuestro equipo experto usa tecnología moderna para construir automatizaciones de negocio personalizadas. Creamos flujos de trabajo inteligentes que actualizan automáticamente listados, responden a reseñas, publican contenido y optimizan visibilidad basándose en tus criterios definidos y datos del mercado local."
+      },
+      {
+        "id": "security-compliance",
+        "question": "¿Es Fascinante Digital seguro y cumplidor?",
+        "answer": "La seguridad es nuestra máxima prioridad. Nuestra agencia usa características de seguridad de nivel empresarial incluyendo encriptación de extremo a extremo, cumplimiento SOC 2 Tipo II, cumplimiento GDPR y auditorías regulares de seguridad. Tus datos están protegidos con protocolos de seguridad estándar de la industria."
+      }
+    ],
+    "card": {
+      "title": "¿Aún tienes preguntas?",
+      "description": "Hablemos. Nuestro equipo está aquí para ayudarte a aprovechar al máximo nuestro sistema. Ya sea onboarding, integración o soporte."
+    }
+  },
+  "pricing": {
+    "h2": "Escala tu visibilidad con Enterprise Access",
+    "description": "Aumenta la presencia local y el compromiso del cliente con el plan adecuado para tu negocio.",
+    "plans": {
+      "individual": {
+        "title": "Plan de Negocio",
+        "subtitle": "Mejor opción para una sola",
+        "description": "Ubicación o Pequeños Negocios",
+        "cta": {
+          "text": "Contáctanos para Integración Personalizada",
+          "button": "Contáctanos"
+        },
+        "features": [
+          "Sincronización en tiempo real",
+          "Analíticas básicas de visibilidad",
+          "Flujos de trabajo de automatización personalizados",
+          "Integraciones multi-plataforma",
+          "Ubicaciones y vistas ilimitadas",
+          "Soporte prioritario para equipos",
+          "Acceso empresarial (Limitado)",
+          "Soporte comunitario"
+        ]
+      },
+      "team": {
+        "title": "Empresarial y Multi-Ubicación",
+        "subtitle": "Mejor opción para múltiples",
+        "description": "Ubicaciones o Grandes Negocios",
+        "cta": {
+          "text": "Conéctanos para Integración Personalizada",
+          "button": "Contáctanos"
+        },
+        "features": [
+          "Sincronización con dependencias",
+          "Automatizaciones inteligentes y disparadores",
+          "Insights de mercado y analíticas",
+          "Herramientas prioritarias multi-ubicación",
+          "Integración de inteligencia de negocio",
+          "Kit de herramientas de gestión avanzada",
+          "Acceso empresarial (Completo)",
+          "Soporte premium y onboarding"
+        ]
+      }
+    },
+    "popularPlan": "Plan Popular"
   },
   "meta": {
     "title": "Fascinante Digital | Gestión de Visibilidad Local",

@@ -14,55 +14,81 @@ import { cn } from '@/lib/utils';
 
 import Logo from '../layout/logo';
 
-const pricingPlans = {
+const pricingPrices = {
   individual: {
-    title: 'Business Plan',
-    subtitle: 'Best option for single',
-    description: 'Locations or Small Businesses',
     monthlyPrice: 25,
     annualPrice: 19,
     popular: true,
-    features: [
-      { name: 'Real-time synchronization', included: true },
-      { name: 'Basic visibility analytics', included: true },
-      { name: 'Custom automation workflows', included: true },
-      { name: 'Multi-platform integrations', included: true },
-      { name: 'Unlimited locations & views', included: false },
-      { name: 'Priority support for teams', included: false },
-      { name: 'Enterprise access (Limited)', included: false },
-      { name: 'Community support', included: false },
-    ],
-    cta: {
-      text: 'Contact us for Custom Integration',
-      button: 'Contact With Us',
-    },
   },
   team: {
-    title: 'Enterprise & Multi-Location',
-    subtitle: 'Best option for multiple',
-    description: 'Locations or Large Businesses',
     monthlyPrice: 59,
     annualPrice: 44,
     popular: false,
-    features: [
-      { name: 'Sync with dependencies', included: true },
-      { name: 'Smart automations and triggers', included: true },
-      { name: 'Market insights and analytics', included: true },
-      { name: 'Priority multi-location tools', included: true },
-      { name: 'Business intelligence integration', included: true },
-      { name: 'Advanced management toolkit', included: true },
-      { name: 'Enterprise access (Full)', included: true },
-      { name: 'Premium support & onboarding', included: true },
-    ],
-    cta: {
-      text: 'Connect us for Custom Integration',
-      button: 'Contact With Us',
-    },
   },
 };
 
-export default function Pricing() {
+interface PricingProps {
+  translations: {
+    h2: string;
+    description: string;
+    plans: {
+      individual: {
+        title: string;
+        subtitle: string;
+        description: string;
+        cta: {
+          text: string;
+          button: string;
+        };
+        features: string[];
+      };
+      team: {
+        title: string;
+        subtitle: string;
+        description: string;
+        cta: {
+          text: string;
+          button: string;
+        };
+        features: string[];
+      };
+    };
+    popularPlan: string;
+  };
+  common: {
+    monthly: string;
+    annual: string;
+    save25: string;
+    upgradeToPro: string;
+    contactWithUs: string;
+  };
+}
+
+export default function Pricing({ translations, common }: PricingProps) {
   const [isAnnual, setIsAnnual] = useState(false);
+
+  // Combine translations with prices
+  const pricingPlans = {
+    individual: {
+      ...translations.plans.individual,
+      ...pricingPrices.individual,
+      features: translations.plans.individual.features.map((name, index) => ({
+        name,
+        included: index < 4, // First 4 features are included
+      })),
+    },
+    team: {
+      ...translations.plans.team,
+      ...pricingPrices.team,
+      features: translations.plans.team.features.map(() => ({
+        name: '',
+        included: true,
+      })).map((_, index) => ({
+        name: translations.plans.team.features[index],
+        included: true,
+      })),
+    },
+  };
 
   return (
     <section className="section-padding relative overflow-hidden">
@@ -98,12 +124,16 @@ export default function Pricing() {
           {/* Left side - Title and subtitle */}
           <div className="">
             <h2 className="text-center text-3xl leading-tight tracking-tight font-semibold md:text-start lg:text-5xl">
-              Scale your visibility with <br className="hidden md:block" />
-              Enterprise Access
+              {translations.h2.split(' ').map((word, i, arr) => (
+                <span key={i}>
+                  {word}
+                  {i === 6 && <br className="hidden md:block" />}
+                  {i < arr.length - 1 && ' '}
+                </span>
+              ))}
             </h2>
             <p className="text-muted-foreground/70 mt-3 hidden text-lg leading-relaxed md:block lg:mt-4">
-              Increase local presence and customer engagement with the right
-              plan for your business.
+              {translations.description}
             </p>
           </div>
 
@@ -116,7 +146,7 @@ export default function Pricing() {
                   !isAnnual ? 'text-foreground' : 'text-muted-foreground/70',
                 )}
               >
-                Monthly
+                {common.monthly}
               </span>
               <Switch
                 checked={isAnnual}
@@ -129,11 +159,11 @@ export default function Pricing() {
                   isAnnual ? 'text-foreground' : 'text-muted-foreground',
                 )}
               >
-                Annual
+                {common.annual}
               </span>
             </div>
             <p className="text-center text-sm font-medium">
-              Save 25% on annual plan
+              {common.save25}
             </p>
           </div>
         </div>
@@ -151,7 +181,7 @@ export default function Pricing() {
                   <h3 className="text-xl">{plan.title}</h3>
                   {plan.popular && (
                     <Badge className="rounded-none bg-[#FFF4E6] px-4 py-1 text-[#8B2E0A] dark:bg-[#7D2F0A] dark:text-[#FFFFFF]">
-                      Popular Plan
+                      {translations.popularPlan}
                     </Badge>
                   )}
                 </div>
@@ -176,7 +206,7 @@ export default function Pricing() {
                       <span className="text-2xl">/mo</span>
                     </div>
                     <Button className="h-10 !pl-5.5">
-                      Upgrade to Pro
+                      {common.upgradeToPro}
                       <div className="bg-background/15 border-background/10 grid size-5.5 place-items-center rounded-full border">
                         <ChevronRight className="size-4" />
                       </div>
@@ -197,7 +227,7 @@ export default function Pricing() {
                       asChild
                     >
                       <Link href="/contact">
-                        Contact With Us
+                        {common.contactWithUs}
                         <div className="bg-border border-input grid size-5.5 place-items-center rounded-full border">
                           <ChevronRight className="size-4 transition-transform group-hover:translate-x-0.25" />
                         </div>

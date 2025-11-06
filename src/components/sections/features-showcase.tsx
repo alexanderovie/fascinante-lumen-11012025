@@ -9,63 +9,40 @@ import { Card, CardContent } from '@/components/ui/card';
 import usePrefersReducedMotion from '@/hooks/usePrefersReducedMotion';
 import { cn } from '@/lib/utils';
 
-const features = [
-  {
-    id: 'sync',
-    icon: Shield,
-    title: 'Real-time updates without limits',
-    description:
-      'Say goodbye to manual updates and delays. Our system turns changes into instant visibility across all platforms, so you can track what matters, not just what happened.',
-    image: {
-      src: '/images/features-showcase/1.webp',
-      alt: 'Real-time synchronization',
-      width: 500,
-      height: 400,
-    },
-  },
-  {
-    id: 'intelligence',
-    icon: Zap,
-    title: 'Instant answers to review questions',
-    description:
-      'Our intelligent system makes it easy to get actionable reputation insights, no manual monitoring needed.',
-    image: {
-      src: '/images/features-showcase/2.webp',
-      alt: 'Review intelligence',
-      width: 500,
-      height: 400,
-    },
-  },
-  {
-    id: 'multi-location',
-    icon: Users,
-    title: 'Manage locations by business behavior',
-    description:
-      'Slice your network based on real performance data. Find top performers, underperforming locations, and growth opportunities in seconds.',
-    image: {
-      src: '/images/features-showcase/3.webp',
-      alt: 'Multi-location management',
-      width: 500,
-      height: 400,
-    },
-  },
-  {
-    id: 'analytics',
-    icon: TrendingUp,
-    title: 'Export insights, tie to business impact',
-    description:
-      'Send enriched local data to your analytics. Blend our metrics with revenue, leads, or conversions to connect online presence to real outcomes.',
-    image: {
-      src: '/images/features-showcase/4.webp',
-      alt: 'Business intelligence',
-      width: 500,
-      height: 400,
-    },
-  },
+const iconMap = {
+  'sync': Shield,
+  'intelligence': Zap,
+  'multi-location': Users,
+  'analytics': TrendingUp,
+};
+
+const imageConfig = [
+  { src: '/images/features-showcase/1.webp', alt: 'Real-time synchronization', width: 500, height: 400 },
+  { src: '/images/features-showcase/2.webp', alt: 'Review intelligence', width: 500, height: 400 },
+  { src: '/images/features-showcase/3.webp', alt: 'Multi-location management', width: 500, height: 400 },
+  { src: '/images/features-showcase/4.webp', alt: 'Business intelligence', width: 500, height: 400 },
 ];
 
-export default function FeaturesShowcase() {
+interface FeaturesShowcaseProps {
+  translations: {
+    h2: string;
+    description: string;
+    features: Array<{
+      id: string;
+      title: string;
+      description: string;
+    }>;
+  };
+}
+
+export default function FeaturesShowcase({ translations }: FeaturesShowcaseProps) {
   const prefersReducedMotion = usePrefersReducedMotion();
+
+  const features = translations.features.map((feature, index) => ({
+    ...feature,
+    icon: iconMap[feature.id as keyof typeof iconMap],
+    image: imageConfig[index],
+  }));
 
   // Animation variants
   const featureItem = {
@@ -150,12 +127,10 @@ export default function FeaturesShowcase() {
           }}
         >
           <h2 className="text-3xl leading-tight tracking-tight lg:text-5xl">
-            Intelligence built for local business growth
+            {translations.h2}
           </h2>
           <p className="text-muted-foreground text-lg leading-snug">
-            Stay ahead of local competition. Our agency uses modern technology to turn your business
-            presence into actionable insights, so you can optimize visibility,
-            manage reputation, and scale with confidence.
+            {translations.description}
           </p>
         </motion.div>
 

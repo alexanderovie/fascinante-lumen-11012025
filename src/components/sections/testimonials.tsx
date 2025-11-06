@@ -23,119 +23,55 @@ import { cn } from '@/lib/utils';
 const COMMON_CARDS_CLASSNAMES = {
   big: 'col-span-4 lg:[&_blockquote]:text-base lg:[&_blockquote]:leading-loose lg:[&_blockquote]:text-foreground',
 };
-const testimonials = [
+
+// Testimonial assets (images and logos) - these don't change with locale
+const testimonialAssets = [
   {
     id: '1',
-    name: 'Sarah Mitchell',
-    title: 'Head of Product',
-    company: 'Nike',
-    image:
-      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face',
-    companyLogo: {
-      src: '/images/logos/nike.png',
-      width: 67.5,
-      height: 24,
-    },
-    testimonial:
-      'Our system has completely changed the way we manage our local presence. We update information instantly, respond to reviews automatically, and monitor progress live. Professional management without overhead.',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face',
+    companyLogo: { src: '/images/logos/nike.png', width: 67.5, height: 24 },
     className: COMMON_CARDS_CLASSNAMES.big,
   },
   {
     id: '2',
-    name: 'Alex Chen',
-    title: 'Senior Designer',
-    company: 'Spotify',
-    image:
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
-    testimonial:
-      'Our system was the missing layer between our online presence and real results. We never had this much visibility in how listings perform.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
     className: 'col-span-2 ',
   },
   {
     id: '3',
-    name: 'Marcus Johnson',
-    title: 'VP Product',
-    company: 'T-Mobile',
-    image:
-      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
-    testimonial:
-      'We used to lose track of listings every week. With our system, management is crystal clear and timelines are realistic.',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
     className: 'col-span-2 ',
   },
   {
     id: '4',
-    name: 'Emily Davis',
-    title: 'Product Manager',
-    company: 'Booking',
-    image:
-      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face',
-    testimonial:
-      'Our system blended perfectly into our process. We organize updates, reviews, and content without switching tools.',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face',
     className: 'col-span-2 ',
   },
   {
     id: '5',
-    name: 'Ben Parker',
-    title: 'Engineering Lead',
-    company: 'IBM',
-    image:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face',
-    testimonial:
-      'Since adopting our system, our cycles became shorter and much more effective. It\'s a must-have for any growing team.',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face',
     className: 'col-span-2 ',
   },
   {
     id: '6',
-    name: 'Samantha Lee',
-    title: 'Design Director',
-    company: 'Logitech',
-    image:
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop&crop=face',
-    testimonial:
-      'Our system makes it incredibly easy to manage work. We cut coordination time in half and deliver with better insights.',
+    image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop&crop=face',
     className: 'col-span-2',
   },
   {
     id: '7',
-    name: 'David Kim',
-    title: 'CTO',
-    company: 'Fortinet',
-    image:
-      'https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=400&h=400&fit=crop&crop=face',
-    testimonial:
-      'We use our system across all departments — from tech to support. Creating shared workflows has drastically improved internal communication.',
+    image: 'https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=400&h=400&fit=crop&crop=face',
     className: 'col-span-2',
   },
   {
     id: '8',
-    name: 'Rachel Green',
-    title: 'Product Designer',
-    company: 'Zapier',
-    image:
-      'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400&h=400&fit=crop&crop=face',
-    companyLogo: {
-      src: '/images/logos/zapiar.png',
-      width: 105,
-      height: 28,
-    },
-    testimonial:
-      'Our system has completely transformed how we approach daily planning and execution. Before switching, we constantly missed deadlines due to misalignment. Now, everyone knows what\'s happening, who\'s responsible, and when things are due. Our productivity skyrocketed, and team communication has never been clearer.',
+    image: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400&h=400&fit=crop&crop=face',
+    companyLogo: { src: '/images/logos/zapiar.png', width: 105, height: 28 },
     className: cn(COMMON_CARDS_CLASSNAMES.big, ''),
   },
   {
     id: '9',
-    name: 'Mike Johnson',
-    title: 'Startup Founder',
-    company: 'Tailwind CSS',
-    image:
-      'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face',
-    companyLogo: {
-      src: '/images/logos/tailwindcss.png',
-      width: 130,
-      height: 20,
-    },
-    testimonial:
-      'I updated information, responded to reviews, and published content across locations in 45 seconds. That\'s how fast it works.',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face',
+    companyLogo: { src: '/images/logos/tailwindcss.png', width: 130, height: 20 },
     className: cn(
       COMMON_CARDS_CLASSNAMES.big,
       'lg:[&_blockquote]:text-4xl lg:[&_blockquote]:leading-tight lg:shadow-lg',
@@ -143,10 +79,49 @@ const testimonials = [
   },
 ];
 
-export default function Testimonials() {
+interface TestimonialsProps {
+  translations: {
+    h2: string;
+    description: string;
+    items: Array<{
+      id: string;
+      name: string;
+      title: string;
+      company: string;
+      testimonial: string;
+    }>;
+  };
+}
+
+export default function Testimonials({ translations }: TestimonialsProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+
+  // Combine translations with assets
+  const testimonials = translations.items.map((item) => {
+    const asset = testimonialAssets.find((a) => a.id === item.id);
+    if (!asset) {
+      throw new Error(`Testimonial asset not found for id: ${item.id}`);
+    }
+    return {
+      ...item,
+      ...asset,
+    } as {
+      id: string;
+      name: string;
+      title: string;
+      company: string;
+      image: string;
+      companyLogo?: {
+        src: string;
+        width: number;
+        height: number;
+      };
+      testimonial: string;
+      className?: string;
+    };
+  });
 
   useEffect(() => {
     if (!api) {
@@ -168,11 +143,10 @@ export default function Testimonials() {
         {/* Section Header */}
         <div className="mx-auto max-w-4xl space-y-3 lg:space-y-4 lg:text-center">
           <h2 className="text-3xl leading-tight tracking-tight lg:text-5xl">
-            Trusted by local businesses
+            {translations.h2}
           </h2>
           <p className="text-muted-foreground text-lg leading-snug lg:text-balance">
-            Join hundreds of business owners, managers, and marketers who
-            rely on our system to optimize, manage, and grow visibility without the manual work.
+            {translations.description}
           </p>
         </div>
 
@@ -247,7 +221,6 @@ interface TestimonialCardProps {
       height: number;
     };
     testimonial: string;
-    featured?: boolean;
     className?: string;
   };
 }
@@ -303,7 +276,7 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
         <blockquote
           className={cn('lg:text-muted-foreground leading-relaxed lg:text-sm')}
         >
-          “{testimonial.testimonial}”
+          &ldquo;{testimonial.testimonial}&rdquo;
         </blockquote>
       </CardContent>
 

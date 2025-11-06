@@ -60,7 +60,11 @@ const companies = [
   },
 ];
 
-export default function Logos() {
+interface LogosProps {
+  socialProof: string;
+}
+
+export default function Logos({ socialProof }: LogosProps) {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -85,7 +89,7 @@ export default function Logos() {
     <section className="section-padding relative">
       <Noise />
       <p className="container text-center text-base">
-        Over 2+ million teams rely on Lumen to collaborate and get work done.
+        {socialProof}
       </p>
 
       <div>

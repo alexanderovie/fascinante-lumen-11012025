@@ -7,12 +7,256 @@
     "faq": "FAQ",
     "contact": "Contact",
     "requestDemo": "Request Demo",
-    "getStarted": "Get Started"
+    "getStarted": "Get Started",
+    "contactWithUs": "Contact With Us",
+    "upgradeToPro": "Upgrade to Pro",
+    "monthly": "Monthly",
+    "annual": "Annual",
+    "save25": "Save 25% on annual plan"
   },
   "hero": {
-    "title": "Dominate Local Search",
-    "subtitle": "Grow Automatically",
+    "title": "More Online Clients",
+    "subtitle": "Less Manual Work",
     "description": "We optimize and grow your local visibility automatically 24/7."
+  },
+  "logos": {
+    "socialProof": "Over 2+ million teams rely on Lumen to collaborate and get work done."
+  },
+  "featuresCarousel": {
+    "h2": "Automate your local visibility",
+    "description": "We handle everything from listing updates to review management so you can focus on growing your business.",
+    "features": [
+      {
+        "id": "instant-sync",
+        "title": "Real-time synchronization updates",
+        "description": "Changes in seconds, not hours or days."
+      },
+      {
+        "id": "review-intelligence",
+        "title": "Intelligent review management",
+        "description": "System detects, analyzes and responds automatically."
+      },
+      {
+        "id": "multi-location",
+        "title": "Unified multi-location dashboard",
+        "description": "Manage 100+ locations as if they were one."
+      },
+      {
+        "id": "predictive-posts",
+        "title": "Predictive content publishing",
+        "description": "Publish the right content at the perfect time."
+      }
+    ]
+  },
+  "featuresGrid": {
+    "h2": "Everything you need to grow",
+    "description": "Powerful features that automate your local visibility management.",
+    "features": [
+      {
+        "id": 1,
+        "title": "Instant Updates",
+        "description": "Update information in seconds, not hours. What others take days to change, we do in one click automatically."
+      },
+      {
+        "id": 2,
+        "title": "Review Intelligence",
+        "description": "System detects, analyzes and responds automatically while maintaining your unique brand voice."
+      },
+      {
+        "id": 3,
+        "title": "Multi-Location Control",
+        "description": "Manage 100+ locations as if they were one with consolidated real-time reports and unified dashboard."
+      },
+      {
+        "id": 4,
+        "title": "Content Intelligence",
+        "description": "Publish the right content at the perfect time based on local behavior data and market insights."
+      },
+      {
+        "id": 5,
+        "title": "Market Intelligence",
+        "description": "Discover opportunities your competition doesn't see with deep market analysis and competitive insights."
+      },
+      {
+        "id": 6,
+        "title": "Enterprise Technology",
+        "description": "Advanced enterprise-level capabilities with certifications and compliance that ensure reliability."
+      }
+    ]
+  },
+  "featuresShowcase": {
+    "h2": "Intelligence built for local business growth",
+    "description": "Stay ahead of local competition. Our agency uses modern technology to turn your business presence into actionable insights, so you can optimize visibility, manage reputation, and scale with confidence.",
+    "features": [
+      {
+        "id": "sync",
+        "title": "Real-time updates without limits",
+        "description": "Say goodbye to manual updates and delays. Our system turns changes into instant visibility across all platforms, so you can track what matters, not just what happened."
+      },
+      {
+        "id": "intelligence",
+        "title": "Instant answers to review questions",
+        "description": "Our intelligent system makes it easy to get actionable reputation insights, no manual monitoring needed."
+      },
+      {
+        "id": "multi-location",
+        "title": "Manage locations by business behavior",
+        "description": "Slice your network based on real performance data. Find top performers, underperforming locations, and growth opportunities in seconds."
+      },
+      {
+        "id": "analytics",
+        "title": "Export insights, tie to business impact",
+        "description": "Send enriched local data to your analytics. Blend our metrics with revenue, leads, or conversions to connect online presence to real outcomes."
+      }
+    ]
+  },
+  "testimonials": {
+    "h2": "Trusted by local businesses",
+    "description": "Join hundreds of business owners, managers, and marketers who rely on our system to optimize, manage, and grow visibility without the manual work.",
+    "items": [
+      {
+        "id": "1",
+        "name": "Sarah Mitchell",
+        "title": "Head of Product",
+        "company": "Nike",
+        "testimonial": "Our system has completely changed the way we manage our local presence. We update information instantly, respond to reviews automatically, and monitor progress live. Professional management without overhead."
+      },
+      {
+        "id": "2",
+        "name": "Alex Chen",
+        "title": "Senior Designer",
+        "company": "Spotify",
+        "testimonial": "Our system was the missing layer between our online presence and real results. We never had this much visibility in how listings perform."
+      },
+      {
+        "id": "3",
+        "name": "Marcus Johnson",
+        "title": "VP Product",
+        "company": "T-Mobile",
+        "testimonial": "We used to lose track of listings every week. With our system, management is crystal clear and timelines are realistic."
+      },
+      {
+        "id": "4",
+        "name": "Emily Davis",
+        "title": "Product Manager",
+        "company": "Booking",
+        "testimonial": "Our system blended perfectly into our process. We organize updates, reviews, and content without switching tools."
+      },
+      {
+        "id": "5",
+        "name": "Ben Parker",
+        "title": "Engineering Lead",
+        "company": "IBM",
+        "testimonial": "Since adopting our system, our cycles became shorter and much more effective. It's a must-have for any growing team."
+      },
+      {
+        "id": "6",
+        "name": "Samantha Lee",
+        "title": "Design Director",
+        "company": "Logitech",
+        "testimonial": "Our system makes it incredibly easy to manage work. We cut coordination time in half and deliver with better insights."
+      },
+      {
+        "id": "7",
+        "name": "David Kim",
+        "title": "CTO",
+        "company": "Fortinet",
+        "testimonial": "We use our system across all departments — from tech to support. Creating shared workflows has drastically improved internal communication."
+      },
+      {
+        "id": "8",
+        "name": "Rachel Green",
+        "title": "Product Designer",
+        "company": "Zapier",
+        "testimonial": "Our system has completely transformed how we approach daily planning and execution. Before switching, we constantly missed deadlines due to misalignment. Now, everyone knows what's happening, who's responsible, and when things are due. Our productivity skyrocketed, and team communication has never been clearer."
+      },
+      {
+        "id": "9",
+        "name": "Mike Johnson",
+        "title": "Startup Founder",
+        "company": "Tailwind CSS",
+        "testimonial": "I updated information, responded to reviews, and published content across locations in 45 seconds. That's how fast it works."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Frequently asked questions:",
+    "questions": [
+      {
+        "id": "system-who-is-it-for",
+        "question": "What is Fascinante Digital and who is it for?",
+        "answer": "We are a digital marketing agency specializing in automated local visibility management for businesses, managers, and marketers who want to grow online presence without manual work."
+      },
+      {
+        "id": "technical-knowledge",
+        "question": "Can I work with Fascinante Digital without technical knowledge?",
+        "answer": "Absolutely! Our agency services are designed with simplicity in mind. We handle optimizing listings, managing reviews, and growing visibility so you don't need any technical background. Our team makes it easy for anyone to get started."
+      },
+      {
+        "id": "speed-results",
+        "question": "How do you achieve results so quickly?",
+        "answer": "We use modern enterprise-level technology with special access and permissions that required years of development and strategic partnerships. Our advanced automation infrastructure enables instant updates and managed services that most agencies cannot access."
+      },
+      {
+        "id": "automation",
+        "question": "How does automated management work?",
+        "answer": "Our expert team uses modern technology to build custom business automations. We create intelligent workflows that automatically update listings, respond to reviews, publish content, and optimize visibility based on your defined criteria and local market data."
+      },
+      {
+        "id": "security-compliance",
+        "question": "Is Fascinante Digital secure and compliant?",
+        "answer": "Security is our top priority. Our agency uses enterprise-grade security features including end-to-end encryption, SOC 2 Type II compliance, GDPR compliance, and regular security audits. Your data is protected with industry-standard security protocols."
+      }
+    ],
+    "card": {
+      "title": "Still have questions?",
+      "description": "Let's talk. Our team is here to help you make the most of our system. Whether it's onboarding, integration, or support."
+    }
+  },
+  "pricing": {
+    "h2": "Scale your visibility with Enterprise Access",
+    "description": "Increase local presence and customer engagement with the right plan for your business.",
+    "plans": {
+      "individual": {
+        "title": "Business Plan",
+        "subtitle": "Best option for single",
+        "description": "Locations or Small Businesses",
+        "cta": {
+          "text": "Contact us for Custom Integration",
+          "button": "Contact With Us"
+        },
+        "features": [
+          "Real-time synchronization",
+          "Basic visibility analytics",
+          "Custom automation workflows",
+          "Multi-platform integrations",
+          "Unlimited locations & views",
+          "Priority support for teams",
+          "Enterprise access (Limited)",
+          "Community support"
+        ]
+      },
+      "team": {
+        "title": "Enterprise & Multi-Location",
+        "subtitle": "Best option for multiple",
+        "description": "Locations or Large Businesses",
+        "cta": {
+          "text": "Connect us for Custom Integration",
+          "button": "Contact With Us"
+        },
+        "features": [
+          "Sync with dependencies",
+          "Smart automations and triggers",
+          "Market insights and analytics",
+          "Priority multi-location tools",
+          "Business intelligence integration",
+          "Advanced management toolkit",
+          "Enterprise access (Full)",
+          "Premium support & onboarding"
+        ]
+      }
+    },
+    "popularPlan": "Popular Plan"
   },
   "meta": {
     "title": "Fascinante Digital | Local Visibility Management",

@@ -1,16 +1,19 @@
 import Pricing from '@/components/sections/pricing';
 import PricingTable from '@/components/sections/pricing-table';
 
+import { getDictionary } from '../dictionaries';
+
 export default async function PricingPage({
   params,
 }: {
   params: Promise<{ lang: string }>;
 }) {
-  await params;
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
 
   return (
     <>
-      <Pricing />
+      <Pricing translations={dict.pricing} common={dict.common} />
       <PricingTable />
     </>
   );

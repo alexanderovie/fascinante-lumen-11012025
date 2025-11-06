@@ -18,48 +18,36 @@ import {
   CardHeader,
 } from '@/components/ui/card';
 
-const faqData = [
-  {
-    id: 'system-who-is-it-for',
-    question: 'What is Fascinante Digital and who is it for?',
-    answer:
-      'We are a digital marketing agency specializing in automated local visibility management for businesses, managers, and marketers who want to grow online presence without manual work.',
-  },
-  {
-    id: 'technical-knowledge',
-    question: 'Can I work with Fascinante Digital without technical knowledge?',
-    answer:
-      'Absolutely! Our agency services are designed with simplicity in mind. We handle optimizing listings, managing reviews, and growing visibility so you don\'t need any technical background. Our team makes it easy for anyone to get started.',
-  },
-  {
-    id: 'speed-results',
-    question: 'How do you achieve results so quickly?',
-    answer:
-      'We use modern enterprise-level technology with special access and permissions that required years of development and strategic partnerships. Our advanced automation infrastructure enables instant updates and managed services that most agencies cannot access.',
-  },
-  {
-    id: 'automation',
-    question: 'How does automated management work?',
-    answer:
-      'Our expert team uses modern technology to build custom business automations. We create intelligent workflows that automatically update listings, respond to reviews, publish content, and optimize visibility based on your defined criteria and local market data.',
-  },
-  {
-    id: 'security-compliance',
-    question: 'Is Fascinante Digital secure and compliant?',
-    answer:
-      'Security is our top priority. Our agency uses enterprise-grade security features including end-to-end encryption, SOC 2 Type II compliance, GDPR compliance, and regular security audits. Your data is protected with industry-standard security protocols.',
-  },
-];
+interface FAQSectionProps {
+  translations: {
+    h2: string;
+    questions: Array<{
+      id: string;
+      question: string;
+      answer: string;
+    }>;
+    card: {
+      title: string;
+      description: string;
+    };
+  };
+  contactText: string;
+}
 
-export default function FAQSection() {
+export default function FAQSection({ translations, contactText }: FAQSectionProps) {
   return (
     <section className="section-padding relative">
       <Noise />
       <div className="container">
         {/* Section Header */}
         <h2 className="text-3xl leading-tight tracking-tight font-semibold lg:text-5xl">
-          Frequently <br className="hidden md:block" />
-          asked questions:
+          {translations.h2.split(' ').map((word, i, arr) => (
+            <span key={i}>
+              {word}
+              {i === 0 && <br className="hidden md:block" />}
+              {i < arr.length - 1 && ' '}
+            </span>
+          ))}
         </h2>
 
         {/* FAQ Content */}
@@ -67,7 +55,7 @@ export default function FAQSection() {
           {/* FAQ Accordion - Left Side */}
           <div className="lg:col-span-2">
             <Accordion type="single" collapsible className="space-y-4">
-              {faqData.map((faq) => (
+              {translations.questions.map((faq) => (
                 <AccordionItem
                   key={faq.id}
                   value={faq.id}
@@ -88,12 +76,11 @@ export default function FAQSection() {
             <CardHeader className="gap-6 md:gap-8 lg:gap-11">
               <MessageSquare className="text-secondary size-18 stroke-1 md:size-20" />
 
-              <h3 className="text-2xl">Still have questions?</h3>
+              <h3 className="text-2xl">{translations.card.title}</h3>
             </CardHeader>
             <CardContent className="pt-0">
               <p className="text-muted-foreground">
-                Let&apos;s talk. Our team is here to help you make the most of
-                our system. Whether it&apos;s onboarding, integration, or support.
+                {translations.card.description}
               </p>
             </CardContent>
             <CardFooter className="mt-auto justify-self-end">
@@ -104,7 +91,7 @@ export default function FAQSection() {
                 asChild
               >
                 <Link href="/contact">
-                  Contact With Us
+                  {contactText}
                   <div className="bg-border border-input grid size-5.5 place-items-center rounded-full border">
                     <ChevronRightIcon className="size-4 transition-transform group-hover:translate-x-0.25" />
                   </div>

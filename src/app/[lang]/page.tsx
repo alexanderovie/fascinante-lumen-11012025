@@ -24,13 +24,13 @@ export default async function Home({
   return (
     <>
       <Hero translations={dict.hero} requestDemoText={dict.common.requestDemo} />
-      <Logos />
-      <FeaturesCarousel />
-      <FeaturesGrid />
-      <FeaturesShowcase />
-      <Testimonials />
-      <FAQSection />
-      <Pricing />
+      <Logos socialProof={dict.logos.socialProof} />
+      <FeaturesCarousel translations={dict.featuresCarousel} />
+      <FeaturesGrid translations={dict.featuresGrid} />
+      <FeaturesShowcase translations={dict.featuresShowcase} />
+      <Testimonials translations={dict.testimonials} />
+      <FAQSection translations={dict.faq} contactText={dict.common.contactWithUs} />
+      <Pricing translations={dict.pricing} common={dict.common} />
     </>
   );
 }

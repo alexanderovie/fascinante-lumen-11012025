@@ -22,62 +22,37 @@ import {
 import usePrefersReducedMotion from '@/hooks/usePrefersReducedMotion';
 import { cn } from '@/lib/utils';
 
-const features = [
-  {
-    id: 'instant-sync',
-    icon: TrendingUp,
-    title: 'Real-time synchronization updates',
-    description: 'Changes in seconds, not hours or days.',
-    image: {
-      src: '/images/features-carousel/1.webp',
-      alt: 'Real-time synchronization',
-      width: 400,
-      height: 400,
-      className: 'ps-4 pt-4',
-    },
-  },
-  {
-    id: 'review-intelligence',
-    icon: MessageSquare,
-    title: 'Intelligent review management',
-    description: 'System detects, analyzes and responds automatically.',
-    image: {
-      src: '/images/features-carousel/2.webp',
-      alt: 'Intelligent review management',
-      width: 400,
-      height: 400,
-      className: 'pt-4',
-    },
-  },
-  {
-    id: 'multi-location',
-    icon: BarChart3,
-    title: 'Unified multi-location dashboard',
-    description: 'Manage 100+ locations as if they were one.',
-    image: {
-      src: '/images/features-carousel/3.webp',
-      alt: 'Multi-location dashboard',
-      width: 400,
-      height: 400,
-      className: 'p-4',
-    },
-  },
-  {
-    id: 'predictive-posts',
-    icon: Clock,
-    title: 'Predictive content publishing',
-    description: 'Publish the right content at the perfect time.',
-    image: {
-      src: '/images/features-carousel/4.webp',
-      alt: 'Predictive content publishing',
-      width: 400,
-      height: 400,
-      className: 'pt-4',
-    },
-  },
-];
+const iconMap = {
+  'instant-sync': TrendingUp,
+  'review-intelligence': MessageSquare,
+  'multi-location': BarChart3,
+  'predictive-posts': Clock,
+};
 
-export default function FeaturesCarousel() {
+interface FeaturesCarouselProps {
+  translations: {
+    h2: string;
+    description: string;
+    features: Array<{
+      id: string;
+      title: string;
+      description: string;
+    }>;
+  };
+}
+
+export default function FeaturesCarousel({ translations }: FeaturesCarouselProps) {
+  const features = translations.features.map((feature) => ({
+    ...feature,
+    icon: iconMap[feature.id as keyof typeof iconMap],
+    image: {
+      src: `/images/features-carousel/${feature.id === 'instant-sync' ? '1' : feature.id === 'review-intelligence' ? '2' : feature.id === 'multi-location' ? '3' : '4'}.webp`,
+      alt: feature.title,
+      width: 400,
+      height: 400,
+      className: feature.id === 'instant-sync' ? 'ps-4 pt-4' : feature.id === 'predictive-posts' || feature.id === 'review-intelligence' ? 'pt-4' : 'p-4',
+    },
+  }));
   const prefersReducedMotion = usePrefersReducedMotion();
   const [api, setApi] = useState<CarouselApi>();
   const [activeIndex, setActiveIndex] = useState(0);
@@ -183,13 +158,10 @@ export default function FeaturesCarousel() {
             variants={headerVariants}
           >
             <h2 className="text-3xl leading-tight tracking-tight text-balance lg:text-5xl">
-              Management that{' '}
-              <span className="text-muted-foreground/80">
-                works while you sleep
-              </span>
+              {translations.h2}
             </h2>
             <p className="text-muted-foreground text-lg leading-snug">
-              Our agency optimizes and grows your visibility automatically.
+              {translations.description}
             </p>
           </motion.div>
 
