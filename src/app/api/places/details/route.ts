@@ -55,14 +55,14 @@ export async function POST(request: NextRequest) {
     }
 
     const data = await response.json();
-    
+
     // Normalizar la respuesta para facilitar el uso en el frontend
     // displayName viene como objeto {text, languageCode}, extraer solo el text
     const normalizedData = {
       ...data,
       displayName: data.displayName?.text || data.displayName,
     };
-    
+
     return NextResponse.json(normalizedData);
   } catch (error) {
     console.error('Error in place details API route:', error);
@@ -75,4 +75,3 @@ export async function POST(request: NextRequest) {
     );
   }
 }
-

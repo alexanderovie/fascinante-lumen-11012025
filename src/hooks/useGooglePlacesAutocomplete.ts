@@ -44,9 +44,18 @@ export function useGooglePlacesAutocomplete({
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
   const suggestionsRef = useRef<HTMLDivElement | null>(null);
   const itemRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  // Flag para evitar que se busquen sugerencias después de seleccionar una (estándar industria)
+  const justSelectedRef = useRef(false);
 
   // Fetch sugerencias cuando cambia el valor del input (con debounce)
   useEffect(() => {
+    // Si acabamos de seleccionar una sugerencia, NO buscar nuevas sugerencias
+    // (estándar de la industria: cerrar y no reabrir automáticamente)
+    if (justSelectedRef.current) {
+      justSelectedRef.current = false; // Resetear flag
+      return;
+    }
+
     // Limpiar timer anterior
     if (debounceTimerRef.current) {
       clearTimeout(debounceTimerRef.current);
@@ -134,7 +143,10 @@ export function useGooglePlacesAutocomplete({
 
   const handleSelectSuggestion = useCallback(
     async (prediction: PlacePrediction) => {
-      // Cerrar sugerencias PRIMERO para evitar re-renders innecesarios
+      // Marcar que acabamos de seleccionar (evita que se busquen nuevas sugerencias)
+      justSelectedRef.current = true;
+
+      // Cerrar sugerencias INMEDIATAMENTE (estándar de la industria)
       setShowSuggestions(false);
       setSuggestions([]);
       setSelectedIndex(-1);
