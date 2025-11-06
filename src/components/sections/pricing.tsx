@@ -126,7 +126,7 @@ export default function Pricing() {
               <span
                 className={cn(
                   'text-lg font-semibold transition-colors',
-                  isAnnual ? 'text-foreground' : 'text-muted-foreground/70',
+                  isAnnual ? 'text-foreground' : 'text-muted-foreground/90',
                 )}
               >
                 Annual
@@ -150,7 +150,7 @@ export default function Pricing() {
                 <div className="flex items-start justify-between">
                   <h3 className="text-xl">{plan.title}</h3>
                   {plan.popular && (
-                    <Badge className="rounded-none bg-[#FFE6D0] px-4 py-1 text-[#FB6D21] dark:bg-[#6b3200] dark:text-[#fcaa7d]">
+                    <Badge className="rounded-none bg-[#FFE6D0] px-4 py-1 text-[#D45A1A] dark:bg-[#8B4513] dark:text-[#FFD4A8]">
                       Popular Plan
                     </Badge>
                   )}
@@ -225,7 +225,7 @@ export default function Pricing() {
                         'text-sm',
                         feature.included
                           ? 'text-muted-foreground'
-                          : 'text-muted-foreground/70',
+                          : 'text-muted-foreground/90',
                       )}
                     >
                       {feature.name}
