@@ -25,11 +25,17 @@ const components = {
   ),
 };
 
-export default async function TermsOfService() {
+export default async function TermsOfService({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  await params;
+
   // Read the MDX file
   const filePath = join(
     process.cwd(),
-    './src/app/terms-and-conditions/index.mdx',
+    './src/app/[lang]/terms-and-conditions/index.mdx',
   );
   const source = readFileSync(filePath, 'utf8');
 

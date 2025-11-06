@@ -23,6 +23,7 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import { useMediaQuery } from '@/hooks/use-media-query';
+import { getLocaleFromPathname, localizePath } from '@/lib/i18n-utils';
 import { cn } from '@/lib/utils';
 
 export const NAV_LINKS = [
@@ -69,6 +70,7 @@ const Navbar = ({
   const [isScrolled, setIsScrolled] = useState(false);
   const { isAtLeast } = useMediaQuery();
   const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
   const [isBannerVisible, setIsBannerVisible] = useState(initialBannerVisible);
   const hideNavbar = [
     '/signin',
@@ -157,7 +159,7 @@ const Navbar = ({
                           {item.subitems.map((subitem) => (
                             <li key={subitem.label}>
                               <NavigationMenuLink
-                                href={subitem.href}
+                                href={localizePath(subitem.href, locale)}
                                 className="hover:bg-accent/50 flex-row gap-3 p-3"
                               >
                                 <subitem.icon className="text-foreground size-5.5" />
@@ -177,11 +179,11 @@ const Navbar = ({
                     </>
                   ) : (
                     <NavigationMenuLink
-                      href={item.href}
+                      href={localizePath(item.href, locale)}
                       className={cn(
                         navigationMenuTriggerStyle(),
                         // "after:from-chart-2 after:to-chart-3 after:absolute after:-inset-0.25 after:-z-1 after:rounded-sm after:bg-gradient-to-tr after:opacity-0 after:transition-all after:content-[''] hover:after:opacity-100",
-                        pathname === item.href && 'bg-accent font-semibold',
+                        pathname.includes(item.href) && 'bg-accent font-semibold',
                       )}
                       suppressHydrationWarning
                     >
@@ -203,7 +205,7 @@ const Navbar = ({
                 className="rounded-full shadow-none"
                 asChild
               >
-                <Link href={button.href}>{button.label}</Link>
+                <Link href={localizePath(button.href, locale)}>{button.label}</Link>
               </Button>
             ))}
           </div>
@@ -275,11 +277,11 @@ const Navbar = ({
                               {item.subitems.map((subitem) => (
                                 <NavigationMenuLink
                                   key={subitem.label}
-                                  href={subitem.href}
+                                  href={localizePath(subitem.href, locale)}
                                   onClick={() => setIsMenuOpen(false)}
                                   className={cn(
                                     'text-muted-foreground hover:bg-accent/50 flex flex-row gap-2 p-3 font-medium transition-colors',
-                                    pathname === subitem.href &&
+                                    pathname.includes(subitem.href) &&
                                       'bg-accent font-semibold',
                                   )}
                                   suppressHydrationWarning
@@ -294,10 +296,10 @@ const Navbar = ({
                       </Accordion>
                     ) : (
                       <NavigationMenuLink
-                        href={item.href}
+                        href={localizePath(item.href, locale)}
                         className={cn(
                           'hover:text-foreground text-base transition-colors',
-                          pathname === item.href && 'font-semibold',
+                          pathname.includes(item.href) && 'font-semibold',
                         )}
                         onClick={() => setIsMenuOpen(false)}
                         suppressHydrationWarning
@@ -321,7 +323,7 @@ const Navbar = ({
                 asChild
                 className="h-12 flex-1 rounded-sm shadow-sm"
               >
-                <Link href={button.href} onClick={() => setIsMenuOpen(false)}>
+                <Link href={localizePath(button.href, locale)} onClick={() => setIsMenuOpen(false)}>
                   {button.label}
                 </Link>
               </Button>

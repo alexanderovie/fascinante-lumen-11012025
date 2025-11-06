@@ -3,7 +3,13 @@ import { calculateReadTime } from '@/lib/read-time';
 
 import BlogClient from './blog-client';
 
-export default function BlogPage() {
+export default async function BlogPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  await params;
+
   // Get all blog posts on the server side
   const allBlogPosts = getAllBlogs();
 

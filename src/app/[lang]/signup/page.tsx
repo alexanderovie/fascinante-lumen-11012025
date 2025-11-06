@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { use } from 'react';
 
 import Logo from '@/components/layout/logo';
 import { Button } from '@/components/ui/button';
@@ -9,7 +10,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
 
-export default function SignUpPage() {
+export default function SignUpPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = use(params);
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="container w-full max-w-sm self-center justify-self-center">
@@ -63,7 +69,7 @@ export default function SignUpPage() {
                 </Label>
               </div>
               <Link
-                href="/terms-and-conditions"
+                href={`/${lang}/terms-and-conditions`}
                 className="text-end text-sm font-medium hover:underline"
               >
                 Terms and Conditions
@@ -119,7 +125,7 @@ export default function SignUpPage() {
           </div>
           <div className="mt-8 text-center text-sm">
             Already have an account?{' '}
-            <Link href="/signin" className="font-medium hover:underline">
+            <Link href={`/${lang}/signin`} className="font-medium hover:underline">
               Sign in
             </Link>
           </div>

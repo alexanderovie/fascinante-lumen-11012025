@@ -4,7 +4,13 @@ import TeamShowcase from '@/components/sections/team-showcase';
 import VideoShowcase from '@/components/sections/video-showcase';
 import WhyWeBegan from '@/components/sections/why-we-began';
 
-export default function AboutPage() {
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  await params;
+
   return (
     <>
       <AboutHero />

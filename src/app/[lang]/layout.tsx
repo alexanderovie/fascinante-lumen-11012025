@@ -11,7 +11,7 @@ import { StyleGlideProvider } from '@/components/styleglide-provider';
 import { ThemeProvider } from '@/components/theme-provider';
 import { cn } from '@/lib/utils';
 
-import { getDictionary, type Locale } from './dictionaries';
+import { getDictionary } from './dictionaries';
 
 const inter = Inter({
   variable: '--font-inter',

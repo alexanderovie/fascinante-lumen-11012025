@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { use } from 'react';
 
 import Logo from '@/components/layout/logo';
 import { Button } from '@/components/ui/button';
@@ -9,7 +10,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
 
-export default function LoginPage() {
+export default function LoginPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = use(params);
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="container w-full max-w-sm self-center justify-self-center">
@@ -48,7 +54,7 @@ export default function LoginPage() {
                 <Label htmlFor="remember-me">Remember me</Label>
               </div>
               <Link
-                href="/forgot-password"
+                href={`/${lang}/forgot-password`}
                 className="text-sm font-medium hover:underline"
               >
                 Forgot password?
@@ -101,7 +107,7 @@ export default function LoginPage() {
           </div>
           <div className="mt-8 text-center text-sm">
             Don&apos;t have an account?{' '}
-            <Link href="/signup" className="font-medium hover:underline">
+            <Link href={`/${lang}/signup`} className="font-medium hover:underline">
               Sign up
             </Link>
           </div>

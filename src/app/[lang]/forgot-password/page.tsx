@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { use } from 'react';
 
 import Logo from '@/components/layout/logo';
 import { Button } from '@/components/ui/button';
@@ -8,7 +9,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
 
-export default function ForgotPasswordPage() {
+export default function ForgotPasswordPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = use(params);
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="container w-full max-w-sm self-center justify-self-center">
@@ -38,7 +44,7 @@ export default function ForgotPasswordPage() {
           </div>
           <div className="mt-8 text-center text-sm">
             Remember your password?{' '}
-            <Link href="/signin" className="font-medium hover:underline">
+            <Link href={`/${lang}/signin`} className="font-medium hover:underline">
               Back to sign in
             </Link>
           </div>

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import Noise from '@/components/noise';
+import { getLocaleFromPathname, localizePath } from '@/lib/i18n-utils';
 
 import Logo from './logo';
 import { NAV_LINKS } from './navbar';
@@ -66,6 +67,7 @@ const APP_STORE_BUTTONS = [
 
 const Footer = () => {
   const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
 
   const hideFooter = [
     '/signin',
@@ -94,7 +96,7 @@ const Footer = () => {
                   {section.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
                       <Link
-                        href={link.href}
+                        href={localizePath(link.href, locale)}
                         className="text-muted-foreground hover:text-foreground text-sm transition-colors"
                       >
                         {link.name}
@@ -176,13 +178,13 @@ const Footer = () => {
               © {new Date().getFullYear()} FascinanteDigital.com
             </Link>
             <Link
-              href="/privacy-policy"
+              href={localizePath('/privacy-policy', locale)}
               className="text-muted-foreground hover:text-foreground text-sm transition-colors"
             >
               Privacy
             </Link>
             <Link
-              href="/terms-and-conditions"
+              href={localizePath('/terms-and-conditions', locale)}
               className="text-muted-foreground hover:text-foreground text-sm transition-colors"
             >
               Terms
