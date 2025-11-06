@@ -359,9 +359,9 @@ export default function BlogClient({ posts }: BlogClientProps) {
         </div>
       </div>
 
-      <p className="text-4xl font-medium tracking-tighter">
+      <h2 className="text-3xl leading-tight tracking-tight font-semibold lg:text-5xl">
         Read all articles
-      </p>
+      </h2>
       {/* Regular Posts Grid */}
       <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {currentPosts.map((post) => (
