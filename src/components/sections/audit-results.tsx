@@ -42,7 +42,7 @@ interface AuditResultsProps {
 
 // Mock data - será reemplazado con datos reales mañana
 const mockResults = {
-  hasResults: false, // Cambiar a true para ver la UI completa
+  hasResults: true, // UI completa visible (sin lógica real aún)
   performance: {
     score: 85,
     mobile: 82,
