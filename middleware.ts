@@ -19,32 +19,29 @@ function getLocale(request: NextRequest): string {
 }
 
 export function middleware(request: NextRequest) {
+  // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl;
-
-  // Check if pathname already has a locale
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   );
 
   // If pathname already has locale, continue
   if (pathnameHasLocale) {
-    return NextResponse.next();
+    return;
   }
 
-  // Get preferred locale
+  // Redirect if there is no locale
   const locale = getLocale(request);
-
-  // Redirect to locale-prefixed pathname
   request.nextUrl.pathname = `/${locale}${pathname}`;
-
-  // Redirect to new URL
+  // e.g. incoming request is /products
+  // The new URL is now /en/products
   return NextResponse.redirect(request.nextUrl);
 }
 
 export const config = {
   matcher: [
     // Skip all internal paths (_next)
-    '/((?!_next|api|favicon.ico|.*\\..*).*)',
+    '/((?!_next).*)',
     // Optional: only run on root (/) URL
     // '/'
   ],
