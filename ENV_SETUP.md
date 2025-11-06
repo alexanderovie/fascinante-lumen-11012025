@@ -36,6 +36,30 @@ GOOGLE_CLOUD_PROJECT_ID=your-project-id-here
 
 ---
 
+### 1.1. **Google PageSpeed Insights API** - Análisis de Performance (Nov 2025)
+
+```bash
+# API Key para PageSpeed Insights (Server-side)
+GOOGLE_PAGESPEED_INSIGHTS_API_KEY=your-pagespeed-insights-api-key-here
+```
+
+**Cómo obtenerla:**
+1. Ve a [Google Cloud Console](https://console.cloud.google.com/)
+2. Selecciona el mismo proyecto que usas para Places API
+3. Habilita **PageSpeed Insights API**
+4. Ve a **APIs & Services > Credentials**
+5. Puedes usar la misma API Key de Places API (si tiene PageSpeed habilitado) o crear una nueva
+6. Agrega restricción de API: "PageSpeed Insights API"
+
+**Endpoint moderno:**
+- `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed` (v5 - recomendado)
+- Proporciona métricas de Performance, Core Web Vitals (FCP, LCP, CLS, INP, TTFB)
+- Gratuita hasta 25,000 requests/día
+
+**Nota:** Esta API es esencial para la página de resultados de auditoría, proporcionando datos reales de rendimiento web.
+
+---
+
 ### 2. **Upstash Redis** - Caching
 
 ```bash
@@ -107,6 +131,9 @@ pnpm dev
 # Google Places API (REST API Moderna)
 GOOGLE_PLACES_API_KEY=AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 GOOGLE_CLOUD_PROJECT_ID=fascinante-digital-prod
+
+# Google PageSpeed Insights API
+GOOGLE_PAGESPEED_INSIGHTS_API_KEY=AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 # Upstash Redis (si aplica)
 UPSTASH_REDIS_REST_URL=https://your-redis-instance.upstash.io
