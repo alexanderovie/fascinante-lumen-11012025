@@ -70,13 +70,13 @@ export default function Pricing() {
       <div className="absolute size-full mask-t-from-50% mask-t-to-100% mask-b-from-50% mask-b-to-90%">
         <div
           className={cn(
-            'bg-chart-2 absolute size-full rounded-full blur-3xl will-change-transform',
+            'bg-chart-2/30 absolute size-full rounded-full blur-3xl will-change-transform',
             'top-0 left-0 -translate-y-1/3 md:-translate-x-1/3 md:translate-y-0',
           )}
         />
         <div
           className={cn(
-            'bg-chart-3 absolute size-full rounded-full blur-3xl will-change-transform',
+            'bg-chart-3/30 absolute size-full rounded-full blur-3xl will-change-transform',
             'right-0 bottom-0 translate-y-1/3 md:top-0 md:translate-x-1/3 md:-translate-y-0',
           )}
         />
@@ -126,7 +126,7 @@ export default function Pricing() {
               <span
                 className={cn(
                   'text-lg font-semibold transition-colors',
-                  isAnnual ? 'text-foreground' : 'text-muted-foreground/90',
+                  isAnnual ? 'text-foreground' : 'text-muted-foreground',
                 )}
               >
                 Annual
@@ -150,7 +150,7 @@ export default function Pricing() {
                 <div className="flex items-start justify-between">
                   <h3 className="text-xl">{plan.title}</h3>
                   {plan.popular && (
-                    <Badge className="rounded-none bg-[#FFE6D0] px-4 py-1 text-[#D45A1A] dark:bg-[#8B4513] dark:text-[#FFD4A8]">
+                    <Badge className="rounded-none bg-[#FFE6D0] px-4 py-1 text-[#B84518] dark:bg-[#A0522D] dark:text-[#FFF8DC]">
                       Popular Plan
                     </Badge>
                   )}
