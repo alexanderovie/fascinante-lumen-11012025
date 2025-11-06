@@ -32,17 +32,19 @@ export function middleware(request: NextRequest) {
 
   // Redirect if there is no locale
   const locale = getLocale(request);
-  request.nextUrl.pathname = `/${locale}${pathname}`;
-  // e.g. incoming request is /products
-  // The new URL is now /en/products
+  // Handle root path specially
+  const newPathname = pathname === '/' ? `/${locale}` : `/${locale}${pathname}`;
+  request.nextUrl.pathname = newPathname;
+  // e.g. incoming request is /products -> /en/products
+  // e.g. incoming request is / -> /en
   return NextResponse.redirect(request.nextUrl);
 }
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next)
-    '/((?!_next).*)',
-    // Optional: only run on root (/) URL
-    // '/'
+    // Skip all internal paths (_next), static files, and API routes
+    '/((?!_next|api|favicon.ico|.*\\..*).*)',
+    // Explicitly include root path
+    '/',
   ],
 };
