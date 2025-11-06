@@ -97,8 +97,10 @@ export default function WhatsAppButton({
         >
           {/* Logo oficial de WhatsApp de Wikipedia - Solo el logo principal sin efectos verdes */}
           <svg
-            className="size-11 md:size-12 drop-shadow-lg"
-            style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))' }}
+            className="size-11 md:size-12"
+            style={{ 
+              filter: 'drop-shadow(0 0 2px #25D366) drop-shadow(0 0 3px #25D366)',
+            }}
             viewBox="0 0 175.216 175.552"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
