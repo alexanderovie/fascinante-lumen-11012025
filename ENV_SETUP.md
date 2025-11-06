@@ -52,9 +52,11 @@ GOOGLE_PAGESPEED_INSIGHTS_API_KEY=your-pagespeed-insights-api-key-here
 6. Agrega restricción de API: "PageSpeed Insights API"
 
 **Endpoint moderno:**
-- `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed` (v5 - recomendado)
+- `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed` (v5 - versión actual, confirmado Nov 2025)
+- Método HTTP: `GET` (no POST)
 - Proporciona métricas de Performance, Core Web Vitals (FCP, LCP, CLS, INP, TTFB)
-- Gratuita hasta 25,000 requests/día
+- ⚠️ **Quota**: Verificar en [Google Cloud Console](https://console.cloud.google.com/) - puede variar según el plan (típicamente 25,000 requests/día en tier gratuito)
+- **Documentación oficial**: [Google PageSpeed Insights API v5](https://developers.google.com/speed/docs/insights/rest/v5/pagespeedapi/runpagespeed) (Última actualización: 2024-09-03 UTC)
 
 **Nota:** Esta API es esencial para la página de resultados de auditoría, proporcionando datos reales de rendimiento web.
 
