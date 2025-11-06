@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import { cookies } from 'next/headers';
 
 import BackToTop from '@/components/common/back-to-top';
+import WhatsAppButton from '@/components/common/whatsapp-button';
 import Banner from '@/components/layout/banner';
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
@@ -155,9 +156,9 @@ export default async function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
           <BackToTop />
+          <WhatsAppButton phoneNumber="+18008864986" />
         </ThemeProvider>
       </body>
     </html>
   );
 }
-

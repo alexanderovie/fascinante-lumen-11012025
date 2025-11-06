@@ -103,4 +103,3 @@ export default function BackToTop({ className }: BackToTopProps) {
     </AnimatePresence>
   );
 }
-

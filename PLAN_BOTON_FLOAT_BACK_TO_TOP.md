@@ -12,7 +12,7 @@
 
 #### 2. **Posicionamiento** 📍
 - **Posición**: `fixed` bottom-right
-- **Offset**: 
+- **Offset**:
   - Desktop: `bottom: 2rem` (32px), `right: 2rem` (32px)
   - Mobile: `bottom: 1.5rem` (24px), `right: 1.5rem` (24px)
 - **Z-index**: `z-40` (debajo del navbar `z-50`, pero visible)
@@ -21,7 +21,7 @@
 #### 3. **Diseño Visual** 🎨
 - **Estilo**: Consistente con botones CTA actuales
 - **Variant**: `default` (fondo negro con efectos hover)
-- **Tamaño**: 
+- **Tamaño**:
   - Desktop: `size-12` (48px) - Touch target mínimo 44x44px ✅
   - Mobile: `size-11` (44px) - Cumple WCAG 2.2 AA
 - **Icono**: `ArrowUp` de lucide-react (size-5)
@@ -29,7 +29,7 @@
 - **Sombra**: `shadow-xl` con `hover:shadow-2xl` (efecto hover mejorado)
 
 #### 4. **Interacciones** 🖱️
-- **Hover**: 
+- **Hover**:
   - Scale: `hover:scale-[1.05]` (sutil, no exagerado)
   - Shadow: `hover:shadow-2xl`
   - Background: `hover:bg-primary/90`
@@ -50,12 +50,12 @@
 - **SSR safe**: Verificar `window` antes de usar
 
 #### 7. **Integración con UI Actual** 🔗
-- **Tecnologías**: 
+- **Tecnologías**:
   - Motion (ya instalado) para animaciones avanzadas
   - Tailwind CSS para estilos
   - Button component existente como base
   - usePrefersReducedMotion hook existente
-- **Consistencia**: 
+- **Consistencia**:
   - Mismos colores y efectos que botones CTA
   - Mismo sistema de transiciones
   - Mismo patrón de z-index
@@ -107,10 +107,10 @@ export default function BackToTop({ className }: BackToTopProps) {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const scrollTop = window.scrollY || document.documentElement.scrollTop
-          
+
           // Aparece si scroll > 400px, desaparece si < 100px
           setIsVisible(scrollTop > SCROLL_THRESHOLD && scrollTop >= HIDE_THRESHOLD)
-          
+
           ticking = false
         })
         ticking = true
@@ -189,4 +189,3 @@ export default function BackToTop({ className }: BackToTopProps) {
 5. **Suave**: Animaciones sutiles que no distraen
 6. **Responsive**: Se adapta a diferentes tamaños de pantalla
 7. **Inteligente**: Se oculta en páginas donde no tiene sentido
-

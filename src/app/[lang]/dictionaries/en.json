@@ -12,7 +12,9 @@
     "upgradeToPro": "Upgrade to Pro",
     "monthly": "Monthly",
     "annual": "Annual",
-    "save25": "Save 25% on annual plan"
+    "save25": "Save 25% on annual plan",
+    "whatsappAriaLabel": "Contact via WhatsApp",
+    "whatsappDefaultMessage": "Hello, I'm interested in learning more about Fascinante Digital services"
   },
   "hero": {
     "title": "More Online Clients",
