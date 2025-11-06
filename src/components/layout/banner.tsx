@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { Button } from '@/components/ui/button';
 import { getLocaleFromPathname, localizePath } from '@/lib/i18n-utils';
 
 interface BannerProps {
@@ -18,15 +17,16 @@ const Banner = ({ message, cta, auditUrl }: BannerProps) => {
 
   return (
     <div className="bg-primary relative overflow-hidden">
-      <div className="container flex items-center justify-center gap-3 py-3 sm:gap-4">
-        <span className="text-primary-foreground text-center text-sm font-medium">
-          {message}
-        </span>
-        <Button size="sm" variant="light" asChild>
-          <Link href={localizePath(auditUrl, locale)}>
+      <div className="container flex items-center justify-center py-3">
+        <p className="text-primary-foreground text-center text-sm font-medium">
+          {message}{' '}
+          <Link
+            href={localizePath(auditUrl, locale)}
+            className="underline hover:no-underline transition-all"
+          >
             {cta}
           </Link>
-        </Button>
+        </p>
       </div>
     </div>
   );
