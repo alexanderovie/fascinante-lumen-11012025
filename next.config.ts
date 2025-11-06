@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60,
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 500],
+    qualities: [25, 50, 65, 75, 100], // Required in Next.js 16 - valores permitidos
     remotePatterns: [
       {
         protocol: 'https',

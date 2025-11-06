@@ -29,10 +29,10 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as Locale;
-  const dict = await getDictionary(locale);
+  const validLang = lang || 'en';
+  const dict = await getDictionary(validLang);
 
-  const localeMap: Record<Locale, string> = {
+  const localeMap: Record<string, string> = {
     en: 'en_US',
     es: 'es_ES',
   };
@@ -76,7 +76,7 @@ export async function generateMetadata({
       description: dict.meta.description,
       url: 'https://fascinantedigital.com',
       siteName: 'Fascinante Digital',
-      locale: localeMap[locale],
+      locale: (localeMap[validLang] || 'en_US') as string,
       type: 'website',
       images: [
         {
@@ -112,18 +112,18 @@ export default async function RootLayout({
   params: Promise<{ lang: string }>;
 }>) {
   const { lang } = await params;
-  const locale = lang as Locale;
+  const validLang = lang || 'en';
   // Read banner dismissed state from cookies (server-side)
   const cookieStore = await cookies();
   const bannerDismissed = cookieStore.get('banner-dismissed')?.value === 'true';
 
-  const localeMap: Record<Locale, string> = {
+  const localeMap: Record<string, string> = {
     en: 'en',
     es: 'es',
   };
 
   return (
-    <html lang={localeMap[locale]} suppressHydrationWarning>
+    <html lang={localeMap[validLang] || 'en'} suppressHydrationWarning>
       <head>
         {/* Preload LCP image for optimal performance */}
         <link

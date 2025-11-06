@@ -12,7 +12,7 @@ import { AnimatedHeroImage } from './animated-hero-image';
 export async function generateStaticParams() {
   const slugs = getBlogSlugs();
   const allParams: { slug: string; lang: string }[] = [];
-  
+
   for (const slug of slugs) {
     for (const lang of ['en', 'es']) {
       allParams.push({
@@ -21,7 +21,7 @@ export async function generateStaticParams() {
       });
     }
   }
-  
+
   return allParams;
 }
 

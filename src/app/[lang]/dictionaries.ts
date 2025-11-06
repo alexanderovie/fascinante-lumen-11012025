@@ -7,4 +7,11 @@ const dictionaries = {
 
 export type Locale = keyof typeof dictionaries;
 
-export const getDictionary = async (locale: Locale) => dictionaries[locale]();
+const isValidLocale = (locale: string): locale is Locale => {
+  return locale in dictionaries;
+};
+
+export const getDictionary = async (locale: string) => {
+  const validLocale = isValidLocale(locale) ? locale : 'en';
+  return dictionaries[validLocale]();
+};
