@@ -3,6 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { cookies } from 'next/headers';
+import { Suspense } from 'react';
 
 import BackToTop from '@/components/common/back-to-top';
 import WhatsAppButton from '@/components/common/whatsapp-button';
@@ -156,7 +157,9 @@ export default async function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
           <BackToTop />
-          <WhatsAppButton phoneNumber="+18008864986" />
+          <Suspense fallback={null}>
+            <WhatsAppButton phoneNumber="+18008864986" />
+          </Suspense>
         </ThemeProvider>
       </body>
     </html>

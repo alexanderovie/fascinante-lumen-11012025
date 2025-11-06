@@ -24,7 +24,17 @@ export default function WhatsAppButton({
 }: WhatsAppButtonProps) {
   const pathname = usePathname();
   const prefersReducedMotion = usePrefersReducedMotion();
-  const locale = getLocaleFromPathname(pathname);
+  
+  // Safe pathname capture to prevent hydration mismatch (Context7 recommendation)
+  const [clientPathname, setClientPathname] = useState('');
+  const [isMounted, setIsMounted] = useState(false);
+  
+  useEffect(() => {
+    setIsMounted(true);
+    setClientPathname(pathname);
+  }, [pathname]);
+  
+  const locale = getLocaleFromPathname(clientPathname);
   const [translations, setTranslations] = useState<WhatsAppTranslations>({
     ariaLabel: 'Contactar por WhatsApp',
     defaultMessage: '',
@@ -32,6 +42,8 @@ export default function WhatsAppButton({
 
   // Load translations dynamically based on locale
   useEffect(() => {
+    if (!isMounted || !locale) return;
+    
     async function loadTranslations() {
       try {
         const dict = await import(`@/app/[lang]/dictionaries/${locale}.json`);
@@ -45,11 +57,11 @@ export default function WhatsAppButton({
       }
     }
     loadTranslations();
-  }, [locale]);
+  }, [locale, isMounted]);
 
   // Páginas donde NO mostrar
   const hideOnPages = ['/signin', '/signup', '/forgot-password', '/not-found'];
-  const shouldHide = hideOnPages.some((page) => pathname.includes(page));
+  const shouldHide = !isMounted || hideOnPages.some((page) => clientPathname.includes(page));
 
   // WhatsApp URL format: wa.me/PHONENUMBER?text=MESSAGE (sin +)
   const whatsappNumber = phoneNumber.replace(/[^0-9]/g, '');
@@ -70,11 +82,13 @@ export default function WhatsAppButton({
         transition: { duration: 0.2, ease: 'easeOut' as const },
       };
 
-  if (shouldHide) return null;
+  // Don't render until mounted (prevents hydration mismatch)
+  if (!isMounted || shouldHide) return null;
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       <motion.div
+        key="whatsapp-button"
         {...animationProps}
         className={cn(
           'fixed bottom-6 right-6 z-40',
@@ -87,12 +101,13 @@ export default function WhatsAppButton({
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
-            'group relative flex items-center justify-center',
-            'rounded-full bg-white',
+            'group relative flex size-11 items-center justify-center',
+            'rounded-full bg-white shadow-xl',
             'transition-all duration-200 ease-out',
-            'hover:scale-105',
+            'hover:scale-105 hover:shadow-2xl',
             'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366]/50 focus-visible:ring-offset-2',
             'active:scale-95',
+            'md:size-12',
           )}
           aria-label={translations.ariaLabel}
         >
