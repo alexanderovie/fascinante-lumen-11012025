@@ -48,12 +48,8 @@ interface AuditFormProps {
 export default function AuditForm({ translations }: AuditFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [businessName, setBusinessName] = useState('');
-  // Estas variables se usarán cuando implementemos la funcionalidad completa de autocompletado
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [businessAddress, setBusinessAddress] = useState('');
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [businessPhone, setBusinessPhone] = useState('');
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [websiteUrl, setWebsiteUrl] = useState('');
 
   // Hook de autocompletado (usando REST API moderna)
@@ -70,10 +66,23 @@ export default function AuditForm({ translations }: AuditFormProps) {
     handleKeyDown,
   } = useGooglePlacesAutocomplete({
     inputValue: businessName, // Valor controlado por React
-    onSelect: (prediction) => {
-      // Actualizar el estado cuando se selecciona una sugerencia
+    onSelect: (prediction, details) => {
+      // Actualizar el nombre del negocio
       const selectedText = prediction.structuredFormat?.mainText.text || prediction.text.text;
       setBusinessName(selectedText);
+
+      // Actualizar otros campos si están disponibles (estándar de la industria)
+      if (details) {
+        if (details.formattedAddress) {
+          setBusinessAddress(details.formattedAddress);
+        }
+        if (details.nationalPhoneNumber) {
+          setBusinessPhone(details.nationalPhoneNumber);
+        }
+        if (details.websiteUri) {
+          setWebsiteUrl(details.websiteUri);
+        }
+      }
     },
   });
 
@@ -158,6 +167,11 @@ export default function AuditForm({ translations }: AuditFormProps) {
                           }}
                           onMouseDown={(e) => {
                             // Prevenir que el mousedown cierre las sugerencias
+                            e.preventDefault();
+                            e.stopPropagation();
+                          }}
+                          onClick={(e) => {
+                            // Prevenir que el click se propague y cierre las sugerencias
                             e.stopPropagation();
                           }}
                         >
@@ -171,7 +185,11 @@ export default function AuditForm({ translations }: AuditFormProps) {
                               ref={(el) => {
                                 itemRefs.current[index] = el;
                               }}
-                              onClick={() => handleSelectSuggestion(suggestion)}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                handleSelectSuggestion(suggestion);
+                              }}
                               onMouseEnter={() => handleMouseEnter(index)}
                               className={cn(
                                 'w-full px-4 py-2.5 text-left transition-colors',

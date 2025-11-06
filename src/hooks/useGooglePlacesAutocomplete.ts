@@ -21,9 +21,16 @@ interface AutocompleteSuggestion {
   placePrediction?: PlacePrediction;
 }
 
+interface PlaceDetails {
+  formattedAddress?: string;
+  nationalPhoneNumber?: string;
+  internationalPhoneNumber?: string;
+  websiteUri?: string;
+}
+
 interface UseGooglePlacesAutocompleteProps {
   inputValue: string; // Valor del input controlado por React
-  onSelect?: (prediction: PlacePrediction) => void;
+  onSelect?: (prediction: PlacePrediction, details?: PlaceDetails) => void;
 }
 
 export function useGooglePlacesAutocomplete({
@@ -104,9 +111,8 @@ export function useGooglePlacesAutocomplete({
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
 
-      if (
-        suggestionsRef.current?.contains(target)
-      ) {
+      // NO cerrar si el click es en las sugerencias
+      if (suggestionsRef.current?.contains(target)) {
         return;
       }
 
@@ -114,25 +120,62 @@ export function useGooglePlacesAutocomplete({
       setSelectedIndex(-1);
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    // Usar 'click' en lugar de 'mousedown' para evitar cerrar antes del click en sugerencia
+    // Y usar un pequeño delay para asegurar que el click en la sugerencia se procese primero
+    const timeoutId = setTimeout(() => {
+      document.addEventListener('click', handleClickOutside, true);
+    }, 0);
+
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      clearTimeout(timeoutId);
+      document.removeEventListener('click', handleClickOutside, true);
     };
   }, []);
 
   const handleSelectSuggestion = useCallback(
-    (prediction: PlacePrediction) => {
-      const selectedText =
-        prediction.structuredFormat?.mainText.text || prediction.text.text;
-
-      // Llamar callback para actualizar el estado de React
-      if (onSelect) {
-        onSelect(prediction);
-      }
-
+    async (prediction: PlacePrediction) => {
+      // Cerrar sugerencias PRIMERO para evitar re-renders innecesarios
       setShowSuggestions(false);
       setSuggestions([]);
       setSelectedIndex(-1);
+
+      // Obtener detalles del lugar usando Place Details API (estándar de la industria)
+      let placeDetails: PlaceDetails | undefined;
+      if (prediction.placeId) {
+        try {
+          setIsLoading(true);
+          const response = await fetch('/api/places/details', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ placeId: prediction.placeId }),
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            placeDetails = {
+              formattedAddress: data.formattedAddress,
+              nationalPhoneNumber: data.nationalPhoneNumber || data.internationalPhoneNumber,
+              websiteUri: data.websiteUri,
+            };
+          } else {
+            const errorData = await response.text();
+            console.error('Error en Place Details API:', errorData);
+          }
+        } catch (error) {
+          console.error('Error fetching place details:', error);
+          // Continuar sin detalles si falla (no crítico)
+        } finally {
+          setIsLoading(false);
+        }
+      }
+
+      // Llamar callback para actualizar el estado de React
+      // El callback actualiza businessName y otros campos en el componente padre
+      if (onSelect) {
+        onSelect(prediction, placeDetails);
+      }
     },
     [onSelect],
   );
