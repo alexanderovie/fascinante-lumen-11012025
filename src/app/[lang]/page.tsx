@@ -7,6 +7,8 @@ import Logos from '@/components/sections/logos';
 import Pricing from '@/components/sections/pricing';
 import Testimonials from '@/components/sections/testimonials';
 
+import { getDictionary } from './dictionaries';
+
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'es' }];
 }
@@ -16,11 +18,12 @@ export default async function Home({
 }: {
   params: Promise<{ lang: string }>;
 }) {
-  await params;
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
 
   return (
     <>
-      <Hero />
+      <Hero translations={dict.hero} requestDemoText={dict.common.requestDemo} />
       <Logos />
       <FeaturesCarousel />
       <FeaturesGrid />

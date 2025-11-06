@@ -8,7 +8,16 @@ import Noise from '@/components/noise';
 import { Button } from '@/components/ui/button';
 import usePrefersReducedMotion from '@/hooks/usePrefersReducedMotion';
 
-export default function Hero() {
+interface HeroProps {
+  translations: {
+    title: string;
+    subtitle: string;
+    description: string;
+  };
+  requestDemoText: string;
+}
+
+export default function Hero({ translations, requestDemoText }: HeroProps) {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   // Animation variants
@@ -101,15 +110,15 @@ export default function Hero() {
           variants={itemVariants}
           className="text-[2rem] leading-tight tracking-tight font-semibold md:text-5xl lg:text-6xl"
         >
-          Dominate Local Search
-          <br className="hidden md:block" /> Grow Automatically
+          {translations.title}
+          <br className="hidden md:block" /> {translations.subtitle}
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
           className="text-muted-foreground my-2 text-sm md:my-4 md:text-lg lg:my-6 lg:text-xl"
         >
-          We optimize and grow your local visibility automatically 24/7.
+          {translations.description}
         </motion.p>
 
         <motion.div variants={itemVariants}>
@@ -117,7 +126,7 @@ export default function Hero() {
             size="lg"
             className="mt-2 rounded-full !pl-5.5 before:rounded-full"
           >
-            Request Demo
+            {requestDemoText}
             <div className="bg-background/15 border-background/10 grid size-5.5 place-items-center rounded-full border">
               <ChevronRight className="size-4" />
             </div>
@@ -130,7 +139,7 @@ export default function Hero() {
         >
           <Image
             src="/images/hero.webp"
-            alt="Lumina Workspace"
+            alt={translations.title}
             width={1056}
             height={752.5}
             priority
