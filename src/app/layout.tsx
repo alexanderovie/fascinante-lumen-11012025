@@ -93,6 +93,15 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Preload LCP image for optimal performance */}
+        <link
+          rel="preload"
+          href="/images/hero.webp"
+          as="image"
+          fetchPriority="high"
+        />
+      </head>
       <body
         className={cn(
           'flex min-h-screen flex-col antialiased [--header-height:calc(var(--spacing)*14)] lg:[--header-height:calc(var(--spacing)*23)]',
