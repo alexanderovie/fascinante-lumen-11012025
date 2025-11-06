@@ -17,7 +17,7 @@ export default function SignUpPage() {
           <div className="flex flex-col items-center gap-6 text-center">
             <Logo onlyLogo={true} />
             <div className="flex flex-col items-center gap-2">
-              <h1 className="text-2xl font-bold">Create your account</h1>
+              <h1 className="text-[2rem] leading-tight tracking-tight font-semibold md:text-5xl lg:text-6xl">Create your account</h1>
               <p className="text-muted-foreground text-sm">
                 Join us today and get started in just a few steps
               </p>

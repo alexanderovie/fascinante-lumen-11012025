@@ -4,7 +4,7 @@ import { join } from 'path';
 
 const components = {
   h1: ({ children }: { children: React.ReactNode }) => (
-    <h1 className="mb-10 text-4xl font-medium tracking-tighter md:mb-12 md:text-5xl md:leading-none lg:text-6xl">
+    <h1 className="mb-10 text-[2rem] leading-tight tracking-tight font-semibold md:mb-12 md:text-5xl lg:text-6xl">
       {children}
     </h1>
   ),

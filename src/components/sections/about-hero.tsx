@@ -18,7 +18,7 @@ export default function AboutHero() {
       <div className="bigger-container">
         {/* Hero Content */}
         <div className="text-center">
-          <h1 className="text-center text-[2rem] leading-tight tracking-tight font-medium md:text-5xl lg:text-6xl">
+          <h1 className="text-center text-[2rem] leading-tight tracking-tight font-semibold md:text-5xl lg:text-6xl">
             About Us
           </h1>
           <p className="text-muted-foreground mx-auto mt-3 hidden max-w-3xl text-lg leading-relaxed md:block lg:mt-4">

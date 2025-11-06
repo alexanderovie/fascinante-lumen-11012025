@@ -156,7 +156,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
     <section className="section-padding bigger-container overflow-hidden">
       {/* Hero Section */}
       <div className="">
-        <h1 className="text-center text-[2rem] leading-tight tracking-tight font-medium md:text-start md:text-5xl lg:text-6xl">
+        <h1 className="text-center text-[2rem] leading-tight tracking-tight font-semibold md:text-start md:text-5xl lg:text-6xl">
           Blog
         </h1>
         <p className="text-muted-foreground mt-3 hidden text-lg leading-relaxed md:block lg:mt-4">

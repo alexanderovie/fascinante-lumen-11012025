@@ -57,7 +57,7 @@ export default async function BlogPost({
           </Link>
 
           {/* Title and Description */}
-          <h1 className="mb-4 text-[2rem] leading-tight tracking-tight md:text-5xl lg:text-6xl">
+          <h1 className="mb-4 text-[2rem] leading-tight tracking-tight font-semibold md:text-5xl lg:text-6xl">
             {post.title}
           </h1>
           <p className="text-muted-foreground mb-8 text-lg md:text-xl">

@@ -17,7 +17,7 @@ export default function LoginPage() {
           <div className="flex flex-col items-center gap-6 text-center">
             <Logo onlyLogo={true} />
             <div className="flex flex-col items-center gap-2">
-              <h1 className="text-2xl font-bold">Welcome back</h1>
+              <h1 className="text-[2rem] leading-tight tracking-tight font-semibold md:text-5xl lg:text-6xl">Welcome back</h1>
               <p className="text-muted-foreground text-sm">
                 Welcome back, please enter your details
               </p>
