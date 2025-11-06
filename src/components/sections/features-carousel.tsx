@@ -1,6 +1,6 @@
 'use client';
 
-import { BarChart3, Clock, Filter, Link } from 'lucide-react';
+import { BarChart3, Clock, MessageSquare, TrendingUp } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -24,52 +24,52 @@ import { cn } from '@/lib/utils';
 
 const features = [
   {
-    id: 'navigation',
-    icon: Link,
-    title: 'Navigate your work with clarity',
-    description: 'A style board that adapts with your work.',
+    id: 'instant-sync',
+    icon: TrendingUp,
+    title: 'Real-time synchronization updates',
+    description: 'Changes in seconds, not hours or days.',
     image: {
       src: '/images/features-carousel/1.webp',
-      alt: 'Navigate your work with clarity',
+      alt: 'Real-time synchronization',
       width: 400,
       height: 400,
       className: 'ps-4 pt-4',
     },
   },
   {
-    id: 'tracking',
-    icon: BarChart3,
-    title: 'Issue tracking with less noise',
-    description: 'Simple, powerful, and built for clarity.',
+    id: 'review-intelligence',
+    icon: MessageSquare,
+    title: 'Intelligent review management',
+    description: 'System detects, analyzes and responds automatically.',
     image: {
       src: '/images/features-carousel/2.webp',
-      alt: 'Issue tracking with less noise',
+      alt: 'Intelligent review management',
       width: 400,
       height: 400,
       className: 'pt-4',
     },
   },
   {
-    id: 'filtering',
-    icon: Filter,
-    title: 'Filtering Tasks, no more distractions',
-    description: 'Smart filters that adapt to your needs.',
+    id: 'multi-location',
+    icon: BarChart3,
+    title: 'Unified multi-location dashboard',
+    description: 'Manage 100+ locations as if they were one.',
     image: {
       src: '/images/features-carousel/3.webp',
-      alt: 'Filtering Tasks',
+      alt: 'Multi-location dashboard',
       width: 400,
       height: 400,
       className: 'p-4',
     },
   },
   {
-    id: 'timeline',
+    id: 'predictive-posts',
     icon: Clock,
-    title: 'Timeline Management, no more delays',
-    description: 'Keep track of project progress with ease.',
+    title: 'Predictive content publishing',
+    description: 'Publish the right content at the perfect time.',
     image: {
       src: '/images/features-carousel/4.webp',
-      alt: 'Timeline Management',
+      alt: 'Predictive content publishing',
       width: 400,
       height: 400,
       className: 'pt-4',
@@ -183,13 +183,13 @@ export default function FeaturesCarousel() {
             variants={headerVariants}
           >
             <h2 className="text-3xl leading-tight tracking-tight text-balance lg:text-5xl">
-              Navigate your{' '}
+              Management that{' '}
               <span className="text-muted-foreground/80">
-                work with clarity
+                works while you sleep
               </span>
             </h2>
             <p className="text-muted-foreground text-lg leading-snug">
-              A style board that adapts to how your team works.
+              Automated system that optimizes and grows your visibility.
             </p>
           </motion.div>
 

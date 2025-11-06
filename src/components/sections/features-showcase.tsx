@@ -11,40 +11,40 @@ import { cn } from '@/lib/utils';
 
 const features = [
   {
-    id: 'security',
+    id: 'sync',
     icon: Shield,
-    title: 'Manage features with clarity, not clutter',
+    title: 'Real-time updates without limits',
     description:
-      'Say goodbye to messy event logs. Lumen turns real usage data into clear, grouped feature insights, so you can track what matters, not just what happened.',
+      'Say goodbye to manual updates and delays. Our system turns changes into instant visibility across all platforms, so you can track what matters, not just what happened.',
     image: {
       src: '/images/features-showcase/1.webp',
-      alt: 'Advanced Security',
+      alt: 'Real-time synchronization',
       width: 500,
       height: 400,
     },
   },
   {
-    id: 'performance',
+    id: 'intelligence',
     icon: Zap,
-    title: 'Instant answers to product usage questions',
+    title: 'Instant answers to review questions',
     description:
-      'Lumen’s powerful filters make it easy to get actionable usage insights, no SQL needed.',
+      'Our intelligent system makes it easy to get actionable reputation insights, no manual monitoring needed.',
     image: {
       src: '/images/features-showcase/2.webp',
-      alt: 'Lightning Fast Performance',
+      alt: 'Review intelligence',
       width: 500,
       height: 400,
     },
   },
   {
-    id: 'collaboration',
+    id: 'multi-location',
     icon: Users,
-    title: 'Segment users by feature behavior',
+    title: 'Manage locations by business behavior',
     description:
-      'Slice your audience based on real feature interaction.Find champions, trial users, and at-risk accounts in seconds.',
+      'Slice your network based on real performance data. Find top performers, underperforming locations, and growth opportunities in seconds.',
     image: {
       src: '/images/features-showcase/3.webp',
-      alt: 'Team Collaboration',
+      alt: 'Multi-location management',
       width: 500,
       height: 400,
     },
@@ -52,12 +52,12 @@ const features = [
   {
     id: 'analytics',
     icon: TrendingUp,
-    title: 'Export insights, tie them to business impact',
+    title: 'Export insights, tie to business impact',
     description:
-      'Send enriched usage data to your warehouse.Blend Lumen metrics with revenue, churn, or NPS to connect product behavior to outcomes.',
+      'Send enriched local data to your analytics. Blend our metrics with revenue, leads, or conversions to connect online presence to real outcomes.',
     image: {
       src: '/images/features-showcase/4.webp',
-      alt: 'Smart Analytics',
+      alt: 'Business intelligence',
       width: 500,
       height: 400,
     },
@@ -150,12 +150,12 @@ export default function FeaturesShowcase() {
           }}
         >
           <h2 className="text-3xl leading-tight tracking-tight lg:text-5xl">
-            Feature intelligence built for modern product teams
+            Intelligence built for local business growth
           </h2>
           <p className="text-muted-foreground text-lg leading-snug">
-            Stay ahead of user needs. Lumen turns your product features into
-            actionable insights, so you can prioritize what matters, streamline
-            delivery, and scale with confidence.
+            Stay ahead of local competition. Our system turns your business
+            presence into actionable insights, so you can optimize visibility,
+            manage reputation, and scale with confidence.
           </p>
         </motion.div>
 

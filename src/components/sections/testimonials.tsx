@@ -37,7 +37,7 @@ const testimonials = [
       height: 24,
     },
     testimonial:
-      'Lumen has completely changed the way we present our project workflows. We can create visual boards, share tasks instantly, and demo progress live. It’s business-focused collaboration without the overhead.',
+      'Our system has completely changed the way we manage our local presence. We update information instantly, respond to reviews automatically, and monitor progress live. Professional management without overhead.',
     className: COMMON_CARDS_CLASSNAMES.big,
   },
   {
@@ -48,7 +48,7 @@ const testimonials = [
     image:
       'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
     testimonial:
-      'Lumen was the missing layer between our product and engineering teams. We’ve never had this much clarity in how tasks move through the pipeline.',
+      'Our system was the missing layer between our online presence and real results. We never had this much visibility in how listings perform.',
     className: 'col-span-2 ',
   },
   {
@@ -59,7 +59,7 @@ const testimonials = [
     image:
       'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
     testimonial:
-      'We used to lose track of deliverables every week. With Lumen, task ownership is crystal clear and timelines are actually realistic.',
+      'We used to lose track of listings every week. With our system, management is crystal clear and timelines are realistic.',
     className: 'col-span-2 ',
   },
   {
@@ -70,7 +70,7 @@ const testimonials = [
     image:
       'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face',
     testimonial:
-      'Lumen blended perfectly into our design-to-dev process. We organize prototypes, handoffs, and sprints without switching tools.',
+      'Our system blended perfectly into our process. We organize updates, reviews, and content without switching tools.',
     className: 'col-span-2 ',
   },
   {
@@ -81,7 +81,7 @@ const testimonials = [
     image:
       'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face',
     testimonial:
-      "Since adopting Lumen, our feedback cycles became shorter and much more effective. It's a must-have for any growing product team.",
+      'Since adopting our system, our cycles became shorter and much more effective. It\'s a must-have for any growing team.',
     className: 'col-span-2 ',
   },
   {
@@ -92,7 +92,7 @@ const testimonials = [
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop&crop=face',
     testimonial:
-      'Lumen makes it incredibly easy to manage cross-functional work. We’ve cut coordination time in half and deliver with better insights.',
+      'Our system makes it incredibly easy to manage work. We cut coordination time in half and deliver with better insights.',
     className: 'col-span-2',
   },
   {
@@ -103,7 +103,7 @@ const testimonials = [
     image:
       'https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=400&h=400&fit=crop&crop=face',
     testimonial:
-      'We use Lumen across all departments — from tech to support. Creating shared workflows has drastically improved internal communication.”',
+      'We use our system across all departments — from tech to support. Creating shared workflows has drastically improved internal communication.',
     className: 'col-span-2',
   },
   {
@@ -119,7 +119,7 @@ const testimonials = [
       height: 28,
     },
     testimonial:
-      'Lumen has completely transformed how we approach daily project planning and execution. Before switching, we constantly missed deadlines due to misalignment. Now, everyone knows what’s happening, who’s responsible, and when things are due. Our productivity skyrocketed, and team communication has never been clearer.',
+      'Our system has completely transformed how we approach daily planning and execution. Before switching, we constantly missed deadlines due to misalignment. Now, everyone knows what\'s happening, who\'s responsible, and when things are due. Our productivity skyrocketed, and team communication has never been clearer.',
     className: cn(COMMON_CARDS_CLASSNAMES.big, ''),
   },
   {
@@ -135,7 +135,7 @@ const testimonials = [
       height: 20,
     },
     testimonial:
-      'I created a workspace, invited my co-founder, and started assigning tasks in 45 seconds. That’s how fast Lumen works.',
+      'I updated information, responded to reviews, and published content across locations in 45 seconds. That\'s how fast it works.',
     className: cn(
       COMMON_CARDS_CLASSNAMES.big,
       'lg:[&_blockquote]:text-4xl lg:[&_blockquote]:leading-tight lg:shadow-lg',
@@ -168,11 +168,11 @@ export default function Testimonials() {
         {/* Section Header */}
         <div className="mx-auto max-w-4xl space-y-3 lg:space-y-4 lg:text-center">
           <h2 className="text-3xl leading-tight tracking-tight lg:text-5xl">
-            Trusted by modern teams
+            Trusted by local businesses
           </h2>
           <p className="text-muted-foreground text-lg leading-snug lg:text-balance">
-            Join thousands of product managers, designers, and developers who
-            rely on Lumen to plan, track, and deliver value without the chaos.
+            Join hundreds of business owners, managers, and marketers who
+            rely on our system to optimize, manage, and grow visibility without the manual work.
           </p>
         </div>
 

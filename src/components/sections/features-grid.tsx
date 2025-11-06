@@ -10,10 +10,10 @@ const FEATURES_DATA = [
   {
     id: 1,
     image: '/images/features-grid/1.webp',
-    imageAlt: 'Feature management interface',
-    title: 'Smart Task Management',
+    imageAlt: 'Real-time synchronization',
+    title: 'Instant Updates',
     description:
-      'Organize and prioritize tasks with intelligent automation that adapts to your workflow patterns.',
+      'Update information in seconds, not hours. What others take days to change, we do in one click automatically.',
     className: 'lg:col-span-3',
     width: 423,
     height: 228,
@@ -21,10 +21,10 @@ const FEATURES_DATA = [
   {
     id: 2,
     image: '/images/features-grid/2.webp',
-    imageAlt: 'Team collaboration dashboard',
-    title: 'Team Collaboration',
+    imageAlt: 'Review intelligence system',
+    title: 'Review Intelligence',
     description:
-      'Connect with your team seamlessly through integrated communication and shared workspaces.',
+      'System detects, analyzes and responds automatically while maintaining your unique brand voice.',
     className: 'lg:col-span-3',
     width: 435,
     height: 228,
@@ -32,10 +32,10 @@ const FEATURES_DATA = [
   {
     id: 3,
     image: '/images/features-grid/3.webp',
-    imageAlt: 'Analytics and reporting',
-    title: 'Advanced Analytics',
+    imageAlt: 'Multi-location dashboard',
+    title: 'Multi-Location Control',
     description:
-      'Get comprehensive insights into your project performance with detailed analytics and customizable reports.',
+      'Manage 100+ locations as if they were one with consolidated real-time reports and unified dashboard.',
     className: 'lg:col-span-4',
     width: 599,
     height: 218,
@@ -43,10 +43,10 @@ const FEATURES_DATA = [
   {
     id: 4,
     image: '/images/features-grid/4.webp',
-    imageAlt: 'Project timeline view',
-    title: 'Project Timeline',
+    imageAlt: 'Content intelligence',
+    title: 'Content Intelligence',
     description:
-      'Visualize project progress and milestones with interactive timeline views and dependency tracking.',
+      'Publish the right content at the perfect time based on local behavior data and market insights.',
     className: 'lg:col-span-2',
     width: 292,
     height: 215,
@@ -54,10 +54,10 @@ const FEATURES_DATA = [
   {
     id: 5,
     image: '/images/features-grid/5.webp',
-    imageAlt: 'Integration capabilities',
-    title: 'Seamless Integrations',
+    imageAlt: 'Market intelligence',
+    title: 'Market Intelligence',
     description:
-      'Connect with your favorite tools and services to create a unified workflow ecosystem.',
+      'Discover opportunities your competition doesn\'t see with deep market analysis and competitive insights.',
     className: 'lg:col-span-3',
     width: 417,
     height: 175,
@@ -65,10 +65,10 @@ const FEATURES_DATA = [
   {
     id: 6,
     image: '/images/features-grid/6.webp',
-    imageAlt: 'Mobile application',
-    title: 'Mobile Ready',
+    imageAlt: 'Enterprise technology',
+    title: 'Enterprise Technology',
     description:
-      'Access your projects anywhere with our fully responsive mobile application.',
+      'Advanced enterprise-level capabilities with certifications and compliance that ensure reliability.',
     className: 'lg:col-span-3',
     width: 433,
     height: 155,
@@ -83,12 +83,12 @@ export default function FeaturesGrid() {
         {/* Section Header */}
         <div className="mx-auto max-w-5xl space-y-3 lg:space-y-4 lg:text-center">
           <h2 className="text-3xl leading-tight tracking-tight lg:text-5xl">
-            Feature management that fits your workflow
+            Local visibility features that scale
           </h2>
           <p className="text-muted-foreground text-lg leading-snug lg:text-balance">
-            Assign, prioritize, and monitor every feature with precision. Lumen
-            helps teams ship faster by bringing structure to your development
-            process, without slowing you down.
+            Automate, optimize, and grow your presence across maps and local
+            searches. Professional management that works continuously without
+            manual intervention.
           </p>
         </div>
 

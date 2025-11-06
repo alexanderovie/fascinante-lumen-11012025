@@ -101,16 +101,15 @@ export default function Hero() {
           variants={itemVariants}
           className="text-[2rem] leading-tight tracking-tight md:text-5xl lg:text-6xl"
         >
-          Optimize Your Workflow
-          <br className="hidden md:block" /> Accelerate Your Growth
+          Dominate Local Search
+          <br className="hidden md:block" /> Grow Automatically
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
           className="text-muted-foreground my-2 text-sm md:my-4 md:text-lg lg:my-6 lg:text-xl"
         >
-          Simplify project management and boost team productivity with our SaaS
-          platform.
+          System that optimizes and grows your local visibility automatically 24/7.
         </motion.p>
 
         <motion.div variants={itemVariants}>
@@ -118,7 +117,7 @@ export default function Hero() {
             size="lg"
             className="mt-2 rounded-full !pl-5.5 before:rounded-full"
           >
-            Start Testing
+            Request Demo
             <div className="bg-background/15 border-background/10 grid size-5.5 place-items-center rounded-full border">
               <ChevronRight className="size-4" />
             </div>

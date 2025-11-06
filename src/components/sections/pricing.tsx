@@ -16,46 +16,46 @@ import Logo from '../layout/logo';
 
 const pricingPlans = {
   individual: {
-    title: 'Individual Plan',
-    subtitle: 'Best option for solo',
-    description: 'Designers or Freelancers',
+    title: 'Business Plan',
+    subtitle: 'Best option for single',
+    description: 'Locations or Small Businesses',
     monthlyPrice: 25,
     annualPrice: 19,
     popular: true,
     features: [
-      { name: 'Real-time task syncing', included: true },
-      { name: 'Basic project analytics', included: true },
-      { name: 'Custom workflows & automation', included: true },
-      { name: 'Cross-platform integrations', included: true },
-      { name: 'Unlimited boards & views', included: false },
+      { name: 'Real-time listing synchronization', included: true },
+      { name: 'Basic visibility analytics', included: true },
+      { name: 'Custom automation workflows', included: true },
+      { name: 'Multi-platform integrations', included: true },
+      { name: 'Unlimited locations & views', included: false },
       { name: 'Priority support for teams', included: false },
-      { name: 'API access (Limited)', included: false },
+      { name: 'Enterprise access (Limited)', included: false },
       { name: 'Community support', included: false },
     ],
     cta: {
-      text: 'Contact us for Custom CRM Integration',
+      text: 'Contact us for Custom Integration',
       button: 'Contact With Us',
     },
   },
   team: {
-    title: 'Power Users & Teams',
-    subtitle: 'Best option for team',
-    description: 'Agencies or Corporates',
+    title: 'Enterprise & Multi-Location',
+    subtitle: 'Best option for multiple',
+    description: 'Locations or Large Businesses',
     monthlyPrice: 59,
     annualPrice: 44,
     popular: false,
     features: [
-      { name: 'Advanced task syncing with dependencies', included: true },
+      { name: 'Advanced synchronization with dependencies', included: true },
       { name: 'Smart automations & conditional triggers', included: true },
-      { name: 'In-depth usage insights & analytics', included: true },
-      { name: 'Priority team collaboration tools', included: true },
-      { name: 'CRM integrations', included: true },
-      { name: 'Developer toolkit', included: true },
-      { name: 'API access (Full)', included: true },
+      { name: 'In-depth market insights & analytics', included: true },
+      { name: 'Priority multi-location tools', included: true },
+      { name: 'Business intelligence integrations', included: true },
+      { name: 'Advanced management toolkit', included: true },
+      { name: 'Enterprise access (Full)', included: true },
       { name: 'Premium support & onboarding', included: true },
     ],
     cta: {
-      text: 'Connect us for Custom CRM Integration',
+      text: 'Connect us for Custom Integration',
       button: 'Contact With Us',
     },
   },
@@ -97,13 +97,13 @@ export default function Pricing() {
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:items-end">
           {/* Left side - Title and subtitle */}
           <div className="">
-            <h1 className="text-center text-[2rem] leading-tight tracking-tight font-medium md:text-start md:text-5xl lg:text-6xl">
-              Power your progress with <br className="hidden md:block" />
-              Pro Access
-            </h1>
+            <h2 className="text-center text-3xl leading-tight tracking-tight font-semibold md:text-start lg:text-5xl">
+              Scale your visibility with <br className="hidden md:block" />
+              Enterprise Access
+            </h2>
             <p className="text-muted-foreground/70 mt-3 hidden text-lg leading-relaxed md:block lg:mt-4">
-              Increase feature adoption and customer satisfaction with the right
-              Lumen plan.
+              Increase local presence and customer engagement with the right
+              plan for your business.
             </p>
           </div>
 

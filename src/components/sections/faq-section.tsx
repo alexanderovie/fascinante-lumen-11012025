@@ -20,34 +20,34 @@ import {
 
 const faqData = [
   {
-    id: 'lumen-who-is-it-for',
-    question: 'What is Lumen and who is it for?',
+    id: 'system-who-is-it-for',
+    question: 'What is this system and who is it for?',
     answer:
-      'Lumen is a task and workflow management platform designed for product teams, developers, and creatives who want to move faster with clarity and control.',
+      'This is an automated local visibility management platform designed for businesses, managers, and marketers who want to grow online presence without manual work.',
   },
   {
     id: 'technical-knowledge',
-    question: 'Can I use Lumen without technical knowledge?',
+    question: 'Can I use this system without technical knowledge?',
     answer:
-      'Absolutely! Lumen is designed with simplicity in mind. You can start organizing tasks, creating workflows, and collaborating with your team without any technical background. The intuitive interface makes it easy for anyone to get started.',
+      'Absolutely! Our system is designed with simplicity in mind. You can start optimizing listings, managing reviews, and growing visibility without any technical background. The intuitive dashboard makes it easy for anyone to get started.',
   },
   {
-    id: 'integrations',
-    question: 'Does Lumen integrate with tools like Slack or Figma?',
+    id: 'speed-results',
+    question: 'How do you achieve results so quickly?',
     answer:
-      "Yes, Lumen integrates seamlessly with popular tools including Slack, Figma, GitHub, Jira, and many more. You can connect your existing workflow tools to create a unified workspace that fits your team's needs.",
+      'We use enterprise-level technology with special access and permissions that required years of development and strategic partnerships. Our infrastructure enables instant updates and automated management that most agencies cannot access.',
   },
   {
-    id: 'task-automation',
-    question: 'How does task automation work in Lumen?',
+    id: 'automation',
+    question: 'How does automated management work?',
     answer:
-      'Lumen offers intelligent task automation that helps streamline repetitive processes. You can set up custom rules, triggers, and workflows that automatically assign tasks, update statuses, send notifications, and move projects through different stages based on your defined criteria.',
+      'Our intelligent system helps streamline repetitive processes. You can set up custom rules, triggers, and workflows that automatically update listings, respond to reviews, publish content, and optimize visibility based on your defined criteria and local market data.',
   },
   {
     id: 'security-compliance',
-    question: 'Is Lumen secure and compliant?',
+    question: 'Is the system secure and compliant?',
     answer:
-      'Security is our top priority. Lumen is built with enterprise-grade security features including end-to-end encryption, SOC 2 Type II compliance, GDPR compliance, and regular security audits. Your data is protected with industry-standard security protocols.',
+      'Security is our top priority. Our platform is built with enterprise-grade security features including end-to-end encryption, SOC 2 Type II compliance, GDPR compliance, and regular security audits. Your data is protected with industry-standard security protocols.',
   },
 ];
 
@@ -57,10 +57,10 @@ export default function FAQSection() {
       <Noise />
       <div className="container">
         {/* Section Header */}
-        <h1 className="text-[2rem] leading-tight tracking-tight font-medium md:text-5xl lg:text-6xl">
+        <h2 className="text-3xl leading-tight tracking-tight font-semibold lg:text-5xl">
           Frequently <br className="hidden md:block" />
           asked questions:
-        </h1>
+        </h2>
 
         {/* FAQ Content */}
         <div className="mt-8 grid gap-6 lg:mt-12 lg:grid-cols-3">
@@ -93,7 +93,7 @@ export default function FAQSection() {
             <CardContent className="pt-0">
               <p className="text-muted-foreground">
                 Let&apos;s talk. Our team is here to help you make the most of
-                Lumen. Whether it&apos;s onboarding, integration, or support.
+                our system. Whether it&apos;s onboarding, integration, or support.
               </p>
             </CardContent>
             <CardFooter className="mt-auto justify-self-end">
