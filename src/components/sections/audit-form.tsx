@@ -1,7 +1,7 @@
 'use client';
 
 import { FileSearch, Search } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 import Noise from '@/components/noise';
 import { Button } from '@/components/ui/button';
@@ -56,9 +56,8 @@ export default function AuditForm({ translations }: AuditFormProps) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [websiteUrl, setWebsiteUrl] = useState('');
 
-  const businessNameInputRef = useRef<HTMLInputElement>(null);
-
   // Hook de autocompletado (usando REST API moderna)
+  // Pasar el valor del input directamente (enfoque controlado por React)
   const {
     isLoading,
     suggestions,
@@ -68,8 +67,9 @@ export default function AuditForm({ translations }: AuditFormProps) {
     itemRefs,
     handleSelectSuggestion,
     handleMouseEnter,
+    handleKeyDown,
   } = useGooglePlacesAutocomplete({
-    inputRef: businessNameInputRef,
+    inputValue: businessName, // Valor controlado por React
     onSelect: (prediction) => {
       // Actualizar el estado cuando se selecciona una sugerencia
       const selectedText = prediction.structuredFormat?.mainText.text || prediction.text.text;
@@ -116,7 +116,6 @@ export default function AuditForm({ translations }: AuditFormProps) {
                     <div className="relative">
                       <Search className="text-muted-foreground absolute left-3 top-1/2 z-10 size-5 -translate-y-1/2" />
                       <Input
-                        ref={businessNameInputRef}
                         id="business-name"
                         type="text"
                         placeholder={translations.form.businessNamePlaceholder}
@@ -124,6 +123,7 @@ export default function AuditForm({ translations }: AuditFormProps) {
                         onChange={(e) => {
                           setBusinessName(e.target.value);
                         }}
+                        onKeyDown={handleKeyDown}
                         required
                         className="h-11 pl-10 text-base"
                         autoComplete="off"
