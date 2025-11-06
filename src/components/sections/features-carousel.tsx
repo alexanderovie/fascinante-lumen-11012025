@@ -223,19 +223,24 @@ export default function FeaturesCarousel() {
           </motion.div>
 
           {/* Dots Indicator */}
-          <div className="mt-6 hidden flex-1 items-end justify-center gap-1 lg:flex">
+          <div className="mt-6 hidden flex-1 items-end justify-center gap-3 lg:flex">
             {features.map((_, index) => (
               <button
                 key={index}
                 onClick={() => handleFeatureClick(index)}
                 className={cn(
-                  'size-1.5 cursor-pointer rounded-full transition-all duration-300',
+                  'size-6 cursor-pointer rounded-full transition-all duration-300 flex items-center justify-center',
                   index === activeIndex
                     ? 'bg-foreground'
                     : 'bg-muted-foreground/30 hover:bg-muted-foreground/50',
                 )}
                 aria-label={`Go to slide ${index + 1}`}
-              />
+              >
+                <span className={cn(
+                  'rounded-full transition-all duration-300',
+                  index === activeIndex ? 'size-2 bg-background' : 'size-1.5 bg-current opacity-50',
+                )} />
+              </button>
             ))}
           </div>
         </div>
@@ -321,7 +326,7 @@ export default function FeaturesCarousel() {
 
           {/* Dots Indicator */}
           <motion.div
-            className="flex flex-1 items-end justify-center gap-1 lg:hidden"
+            className="flex flex-1 items-end justify-center gap-3 lg:hidden"
             initial={prefersReducedMotion ? 'visible' : 'hidden'}
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
@@ -333,13 +338,18 @@ export default function FeaturesCarousel() {
                 onClick={() => handleFeatureClick(index)}
                 variants={buttonVariants}
                 className={cn(
-                  'size-1.5 cursor-pointer rounded-full transition-all duration-300',
+                  'size-6 cursor-pointer rounded-full transition-all duration-300 flex items-center justify-center',
                   index === activeIndex
                     ? 'bg-foreground'
                     : 'bg-muted-foreground/30 hover:bg-muted-foreground/50',
                 )}
                 aria-label={`Go to slide ${index + 1}`}
-              />
+              >
+                <span className={cn(
+                  'rounded-full transition-all duration-300',
+                  index === activeIndex ? 'size-2 bg-background' : 'size-1.5 bg-current opacity-50',
+                )} />
+              </motion.button>
             ))}
           </motion.div>
         </motion.div>

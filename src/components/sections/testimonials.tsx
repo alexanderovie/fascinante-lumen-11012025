@@ -208,19 +208,24 @@ export default function Testimonials() {
           </Carousel>
 
           {/* Carousel Dots */}
-          <div className="mt-6 flex justify-center gap-2">
+          <div className="mt-6 flex justify-center gap-3">
             {Array.from({ length: count }, (_, index) => (
               <button
                 key={index}
                 onClick={() => api?.scrollTo(index)}
                 className={cn(
-                  'size-2 rounded-full transition-all duration-200',
+                  'size-6 rounded-full transition-all duration-200 flex items-center justify-center',
                   index === current
-                    ? 'bg-foreground scale-110'
+                    ? 'bg-foreground'
                     : 'bg-muted-foreground/30 hover:bg-muted-foreground/50',
                 )}
                 aria-label={`Go to testimonial ${index + 1}`}
-              />
+              >
+                <span className={cn(
+                  'rounded-full transition-all duration-200',
+                  index === current ? 'size-2 bg-background' : 'size-1.5 bg-current opacity-50',
+                )} />
+              </button>
             ))}
           </div>
         </div>
