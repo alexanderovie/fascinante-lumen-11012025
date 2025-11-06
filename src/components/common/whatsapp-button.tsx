@@ -87,19 +87,17 @@ export default function WhatsAppButton({
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
-            'group relative flex size-11 items-center justify-center',
-            'rounded-full bg-[#25D366] shadow-xl',
+            'group relative flex items-center justify-center',
             'transition-all duration-200 ease-out',
-            'hover:scale-105 hover:shadow-2xl',
+            'hover:scale-105',
             'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366]/50 focus-visible:ring-offset-2',
             'active:scale-95',
-            'md:size-12',
           )}
           aria-label={translations.ariaLabel}
         >
           {/* Logo oficial de WhatsApp de Wikipedia - Solo el logo principal sin efectos verdes */}
           <svg
-            className="size-5"
+            className="size-11 md:size-12"
             viewBox="0 0 175.216 175.552"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
@@ -132,9 +130,9 @@ export default function WhatsAppButton({
           {/* Indicador de pulso sutil (mantener el efecto de zumbido) */}
           <span
             className={cn(
-              'absolute inset-0 rounded-full',
-              'bg-[#25D366] opacity-20',
-              'animate-ping',
+              'absolute inset-0',
+              'bg-[#25D366] opacity-10',
+              'animate-ping rounded-full',
               'hidden md:block',
             )}
             aria-hidden="true"
