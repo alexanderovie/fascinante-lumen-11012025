@@ -23,7 +23,9 @@
     "chatPlaceholder": "Type your message...",
     "chatSendButton": "Send message",
     "chatWelcomeMessage": "Hello! 👋 How can we help you today?",
-    "chatEnterToSend": "Press Enter to send, Shift+Enter for new line"
+    "chatEnterToSend": "Press Enter to send, Shift+Enter for new line",
+    "bannerMessage": "🎉 Special Offer: 70% off Professional Analysis",
+    "bannerCta": "Get Analysis"
   },
   "hero": {
     "title": "More Online Clients",

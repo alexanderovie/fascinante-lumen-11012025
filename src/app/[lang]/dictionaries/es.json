@@ -23,7 +23,9 @@
     "chatPlaceholder": "Escribe tu mensaje...",
     "chatSendButton": "Enviar mensaje",
     "chatWelcomeMessage": "¡Hola! 👋 ¿En qué podemos ayudarte hoy?",
-    "chatEnterToSend": "Presiona Enter para enviar, Shift+Enter para nueva línea"
+    "chatEnterToSend": "Presiona Enter para enviar, Shift+Enter para nueva línea",
+    "bannerMessage": "🎉 Oferta Especial: 70% de descuento en Análisis Profesional",
+    "bannerCta": "Obtener Análisis"
   },
   "hero": {
     "title": "Más Clientes Online",

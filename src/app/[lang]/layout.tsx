@@ -115,6 +115,8 @@ export default async function RootLayout({
 }>) {
   const { lang } = await params;
   const validLang = lang || 'en';
+  // Get dictionary for translations
+  const dict = await getDictionary(validLang);
   // Read banner dismissed state from cookies (server-side)
   const cookieStore = await cookies();
   const bannerDismissed = cookieStore.get('banner-dismissed')?.value === 'true';
@@ -149,10 +151,11 @@ export default async function RootLayout({
           <StyleGlideProvider />
 
           <Banner
-            url="https://fascinantedigital.com"
-            initialVisible={!bannerDismissed}
+            message={dict.common.bannerMessage}
+            cta={dict.common.bannerCta}
+            auditUrl="/audit"
           />
-          <Navbar initialBannerVisible={!bannerDismissed} />
+          <Navbar initialBannerVisible={true} />
           <main className="flex-1">{children}</main>
           <Footer />
           <Suspense fallback={null}>
