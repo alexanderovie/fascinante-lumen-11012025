@@ -24,16 +24,16 @@ export default function WhatsAppButton({
 }: WhatsAppButtonProps) {
   const pathname = usePathname();
   const prefersReducedMotion = usePrefersReducedMotion();
-  
+
   // Safe pathname capture to prevent hydration mismatch (Context7 recommendation)
   const [clientPathname, setClientPathname] = useState('');
   const [isMounted, setIsMounted] = useState(false);
-  
+
   useEffect(() => {
     setIsMounted(true);
     setClientPathname(pathname);
   }, [pathname]);
-  
+
   const locale = getLocaleFromPathname(clientPathname);
   const [translations, setTranslations] = useState<WhatsAppTranslations>({
     ariaLabel: 'Contactar por WhatsApp',
@@ -43,7 +43,7 @@ export default function WhatsAppButton({
   // Load translations dynamically based on locale
   useEffect(() => {
     if (!isMounted || !locale) return;
-    
+
     async function loadTranslations() {
       try {
         const dict = await import(`@/app/[lang]/dictionaries/${locale}.json`);

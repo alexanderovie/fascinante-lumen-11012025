@@ -15,6 +15,7 @@ interface BackToTopProps {
 
 export default function BackToTop({ className }: BackToTopProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const pathname = usePathname();
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -36,6 +37,17 @@ export default function BackToTop({ className }: BackToTopProps) {
         window.requestAnimationFrame(() => {
           const scrollTop =
             window.scrollY || document.documentElement.scrollTop;
+          const documentHeight = document.documentElement.scrollHeight;
+          const viewportHeight = window.innerHeight;
+          const scrollableHeight = documentHeight - viewportHeight;
+
+          // Calcular progreso del scroll (0 a 1)
+          const progress =
+            scrollableHeight > 0
+              ? Math.min(Math.max(scrollTop / scrollableHeight, 0), 1)
+              : 0;
+
+          setScrollProgress(progress);
 
           // Aparece si scroll > 400px, desaparece si < 100px
           setIsVisible(
@@ -63,6 +75,18 @@ export default function BackToTop({ className }: BackToTopProps) {
 
   if (shouldHide) return null;
 
+  // SVG Progress Ring Configuration
+  const SIZE = 48; // size-12 = 48px (3rem)
+  const STROKE_WIDTH = 2;
+  const CENTER = SIZE / 2;
+  const RADIUS = CENTER - STROKE_WIDTH / 2;
+  const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+
+  // Calcular stroke-dashoffset para el progreso
+  // stroke-dashoffset = circunferencia * (1 - progress)
+  // Esto hace que el stroke se rellene en sentido horario
+  const strokeDashoffset = CIRCUMFERENCE * (1 - scrollProgress);
+
   // Animaciones para Motion
   const animationProps = prefersReducedMotion
     ? {}
@@ -86,17 +110,58 @@ export default function BackToTop({ className }: BackToTopProps) {
         >
           <Button
             size="icon"
-            variant="default"
+            variant="ghost"
             onClick={scrollToTop}
             className={cn(
-              'size-11 rounded-full shadow-xl',
-              'md:size-12',
-              'hover:scale-105',
+              'group relative size-11 rounded-full',
+              'bg-background border border-input shadow-xl',
+              'hover:scale-105 hover:shadow-2xl',
               'focus-visible:ring-ring/50 focus-visible:ring-[3px]',
+              'transition-all duration-200 ease-out',
+              'md:size-12',
             )}
             aria-label="Volver al inicio"
           >
-            <ArrowUp className="size-5" strokeWidth={2.1} />
+            {/* SVG Progress Ring - Se rellena en sentido horario */}
+            <svg
+              className="absolute inset-0 -rotate-90 transform"
+              width={SIZE}
+              height={SIZE}
+              aria-hidden="true"
+            >
+              {/* Background circle (borde completo) */}
+              <circle
+                cx={CENTER}
+                cy={CENTER}
+                r={RADIUS}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={STROKE_WIDTH}
+                className="text-muted-foreground opacity-20"
+              />
+              {/* Progress circle (se rellena con el scroll) */}
+              <circle
+                cx={CENTER}
+                cy={CENTER}
+                r={RADIUS}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={STROKE_WIDTH}
+                strokeDasharray={CIRCUMFERENCE}
+                strokeDashoffset={strokeDashoffset}
+                strokeLinecap="round"
+                className="text-foreground transition-all duration-150 ease-out"
+                style={{
+                  transformOrigin: 'center',
+                }}
+              />
+            </svg>
+
+            {/* Icono centrado */}
+            <ArrowUp
+              className="relative z-10 size-5 transition-transform duration-200 group-hover:-translate-y-0.5"
+              strokeWidth={2.1}
+            />
           </Button>
         </motion.div>
       )}
