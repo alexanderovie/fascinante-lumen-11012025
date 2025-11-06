@@ -3,17 +3,26 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { compileMDX } from 'next-mdx-remote/rsc';
 
-import { BlogCard, EnhancedBlogPost } from '@/app/blog/blog-client';
 import { getAllBlogs, getBlogBySlug, getBlogSlugs } from '@/lib/blog';
 import { calculateReadTime } from '@/lib/read-time';
 
+import { BlogCard, EnhancedBlogPost } from '../blog-client';
 import { AnimatedHeroImage } from './animated-hero-image';
 
 export async function generateStaticParams() {
   const slugs = getBlogSlugs();
-  return slugs.map((slug) => ({
-    slug: slug.replace(/\.mdx$/, ''),
-  }));
+  const allParams: { slug: string; lang: string }[] = [];
+  
+  for (const slug of slugs) {
+    for (const lang of ['en', 'es']) {
+      allParams.push({
+        slug: slug.replace(/\.mdx$/, ''),
+        lang,
+      });
+    }
+  }
+  
+  return allParams;
 }
 
 // Get category from the first tag (most relevant)
@@ -24,9 +33,9 @@ const getCategoryFromTags = (tags: string[]): string => {
 export default async function BlogPost({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; lang: string }>;
 }) {
-  const { slug } = await params;
+  const { slug, lang } = await params;
   const post = getBlogBySlug(slug);
   const { content } = await compileMDX({
     source: post.content,
@@ -48,10 +57,10 @@ export default async function BlogPost({
       <div className="mx-auto max-w-4xl">
         {/* Header */}
         <header className="mb-8">
-          <Link
-            href="/blog"
-            className="group text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-2 text-sm transition-colors"
-          >
+            <Link
+              href={`/${lang}/blog`}
+              className="group text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-2 text-sm transition-colors"
+            >
             <ChevronLeft className="size-4 transition-transform group-hover:-translate-x-0.5" />
             Back to Blog
           </Link>
@@ -151,7 +160,7 @@ export default async function BlogPost({
               return (
                 <Link
                   key={relatedPost.slug}
-                  href={`/blog/${relatedPost.slug}`}
+                  href={`/${lang}/blog/${relatedPost.slug}`}
                   className="group block h-full"
                 >
                   <BlogCard post={enhancedPost} />

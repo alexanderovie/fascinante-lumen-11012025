@@ -1,0 +1,21 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "blog": "Blog",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "requestDemo": "Request Demo",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "title": "Dominate Local Search",
+    "subtitle": "Grow Automatically",
+    "description": "We optimize and grow your local visibility automatically 24/7."
+  },
+  "meta": {
+    "title": "Fascinante Digital | Local Visibility Management",
+    "description": "Digital marketing agency that optimizes and grows your local visibility automatically 24/7. Professional services with modern technology."
+  }
+}

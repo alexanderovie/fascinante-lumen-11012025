@@ -7,7 +7,17 @@ import Logos from '@/components/sections/logos';
 import Pricing from '@/components/sections/pricing';
 import Testimonials from '@/components/sections/testimonials';
 
-export default function Home() {
+export async function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'es' }];
+}
+
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  await params;
+
   return (
     <>
       <Hero />

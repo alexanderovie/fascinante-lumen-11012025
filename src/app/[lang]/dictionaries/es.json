@@ -1,0 +1,21 @@
+{
+  "common": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "blog": "Blog",
+    "pricing": "Precios",
+    "faq": "Preguntas Frecuentes",
+    "contact": "Contacto",
+    "requestDemo": "Solicitar Demo",
+    "getStarted": "Comenzar"
+  },
+  "hero": {
+    "title": "Domina la Búsqueda Local",
+    "subtitle": "Crece Automáticamente",
+    "description": "Optimizamos y hacemos crecer tu visibilidad local automáticamente 24/7."
+  },
+  "meta": {
+    "title": "Fascinante Digital | Gestión de Visibilidad Local",
+    "description": "Agencia de marketing digital que optimiza y hace crecer tu visibilidad local automáticamente 24/7. Servicios profesionales con tecnología moderna."
+  }
+}
