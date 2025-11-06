@@ -100,7 +100,7 @@ export default function AuditForm({ translations }: AuditFormProps) {
       <Noise />
       <div className="container">
         {/* Section Header - Estándar industria: text-balance, sin saltos forzados */}
-        <h2 className="text-3xl leading-tight tracking-tight font-semibold text-balance lg:text-5xl">
+        <h2 className="text-3xl leading-tight tracking-tight font-semibold text-balance text-center lg:text-5xl">
           {translations.hero.title} {translations.hero.subtitle}
         </h2>
 
