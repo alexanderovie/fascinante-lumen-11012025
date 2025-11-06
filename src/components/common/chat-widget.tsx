@@ -110,12 +110,13 @@ export default function ChatWidget({ className }: ChatWidgetProps) {
               onClick={() => setIsOpen(true)}
               className={cn(
                 'group relative size-14 rounded-full shadow-2xl',
-                'bg-primary text-primary-foreground',
+                'text-white',
                 'hover:scale-110 hover:shadow-2xl',
                 'focus-visible:ring-ring/50 focus-visible:ring-2 focus-visible:ring-offset-2',
                 'transition-all duration-200 ease-out',
                 'md:size-16',
               )}
+              style={{ backgroundColor: '#1462FF' }}
               aria-label={translations.openChat}
             >
               <MessageCircle className="size-6 md:size-7" strokeWidth={2.5} />
