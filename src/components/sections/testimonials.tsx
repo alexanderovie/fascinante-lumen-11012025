@@ -219,6 +219,7 @@ export default function Testimonials() {
                     ? 'bg-foreground scale-110'
                     : 'bg-muted-foreground/30 hover:bg-muted-foreground/50',
                 )}
+                aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
           </div>

@@ -214,6 +214,7 @@ export default function FeaturesCarousel() {
                     `border-input hover:bg-border/50 flex h-16 w-16 cursor-pointer items-center justify-center rounded-sm border transition-all duration-300`,
                     isActive && 'bg-border',
                   )}
+                  aria-label={`View ${feature.title}`}
                 >
                   <IconComponent className="size-5" strokeWidth={2.1} />
                 </motion.button>
@@ -310,6 +311,7 @@ export default function FeaturesCarousel() {
                     `border-input hover:bg-border/50 flex h-16 w-16 cursor-pointer items-center justify-center rounded-sm border transition-all duration-300`,
                     isActive && 'bg-border',
                   )}
+                  aria-label={`View ${feature.title}`}
                 >
                   <IconComponent className="size-5" strokeWidth={2.1} />
                 </motion.button>

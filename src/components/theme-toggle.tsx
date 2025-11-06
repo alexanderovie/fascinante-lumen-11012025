@@ -113,6 +113,7 @@ export function ThemeToggle() {
       onClick={toggleTheme}
       data-theme-toggle
       ref={buttonRef}
+      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       <m.svg
         strokeWidth="4"

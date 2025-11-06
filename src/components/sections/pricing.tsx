@@ -118,7 +118,11 @@ export default function Pricing() {
               >
                 Monthly
               </span>
-              <Switch checked={isAnnual} onCheckedChange={setIsAnnual} />
+              <Switch
+                checked={isAnnual}
+                onCheckedChange={setIsAnnual}
+                aria-label="Toggle between monthly and annual billing"
+              />
               <span
                 className={cn(
                   'text-lg font-semibold transition-colors',
