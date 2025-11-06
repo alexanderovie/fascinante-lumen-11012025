@@ -1,6 +1,7 @@
 'use client';
 
 import { FileSearch, Search } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import Noise from '@/components/noise';
@@ -15,6 +16,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useGooglePlacesAutocomplete } from '@/hooks/useGooglePlacesAutocomplete';
+import { getLocaleFromPathname, localizePath } from '@/lib/i18n-utils';
 import { cn } from '@/lib/utils';
 
 interface AuditFormProps {
@@ -46,6 +48,9 @@ interface AuditFormProps {
 }
 
 export default function AuditForm({ translations }: AuditFormProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [businessName, setBusinessName] = useState('');
   const [businessAddress, setBusinessAddress] = useState('');
@@ -90,8 +95,11 @@ export default function AuditForm({ translations }: AuditFormProps) {
     e.preventDefault();
     setIsSubmitting(true);
     // TODO: Implementar lógica de auditoría mañana
+    // Simular análisis (2 segundos)
     setTimeout(() => {
       setIsSubmitting(false);
+      // Redirigir a página de resultados
+      router.push(localizePath('/audit/results', locale));
     }, 2000);
   };
 

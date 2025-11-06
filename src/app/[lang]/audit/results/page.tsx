@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
-import AuditForm from '@/components/sections/audit-form';
+import AuditResults from '@/components/sections/audit-results';
 
-import { getDictionary } from '../dictionaries';
+import { getDictionary } from '../../dictionaries';
 
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'es' }];
@@ -17,18 +17,18 @@ export async function generateMetadata({
   const dict = await getDictionary(lang);
 
   return {
-    title: dict.audit.meta.title,
-    description: dict.audit.meta.description,
+    title: `${dict.audit.results.title} | ${dict.audit.meta.title}`,
+    description: dict.audit.results.description,
     openGraph: {
-      title: dict.audit.meta.title,
-      description: dict.audit.meta.description,
-      url: 'https://fascinantedigital.com/audit',
+      title: `${dict.audit.results.title} | ${dict.audit.meta.title}`,
+      description: dict.audit.results.description,
+      url: 'https://fascinantedigital.com/audit/results',
       type: 'website',
     },
   };
 }
 
-export default async function AuditPage({
+export default async function AuditResultsPage({
   params,
 }: {
   params: Promise<{ lang: string }>;
@@ -38,7 +38,8 @@ export default async function AuditPage({
 
   return (
     <div className="min-h-screen">
-      <AuditForm translations={dict.audit} />
+      <AuditResults translations={dict.audit.results} />
     </div>
   );
 }
+
